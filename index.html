@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vismay Oza | Portfolio | Laravel Developer</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="assets/style_royal_blue.css" rel="stylesheet" id="themeLink"/>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <img
+          src="https://peach-oralia-94.tiiny.site/logo.png"
+          class="mb-md-3 mb-sm-1 logo-image rounded-circle rounded-5"
+          height="100px"
+          width="100px"
+        />
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#experience">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#education">Education</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#documents">Documents</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#gallery">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#playground">Playground</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+          <!-- Color Theme Toggle Switch -->
+          <div class="form-check form-switch ms-3">
+            <input class="form-check-input royal-blue" type="checkbox" id="themeSwitch" />
+            <label class="form-check-label" for="themeSwitch">Royal Blue / Pink</label>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div id="customModal" class="custom-modal">
+      <div class="custom-modal-content">
+          <div class="custom-modal-header">
+            <h5 id="modalTitle" class="custom-modal-title"></h5>
+              <span id="closeModal" class="custom-close">&times;</span>
+          </div>
+          <div class="custom-modal-body">
+              <img id="modalImage" src="" alt="" class="custom-modal-img" />
+          </div>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="mt-3 hero">
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col-12 text-center">
+            <div class="profile-image">
+              <img
+                src="https://peach-oralia-94.tiiny.site/1720679828130.jpg"
+                alt="Vismay Oza"
+                class="rounded-circle mb-4"
+              />
+            </div>
+            <h2 class="name-title mb-4">Vismay Oza</h2>
+            <div class="typing-container">
+              <h1 class="display-4 mb-4">
+                I have a grip on <span class="typed-text"></span>
+              </h1>
+              <div class="personal-details mt-5">
+                <div class="row text-start">
+                  <div class="col-md-6 col-12 mb-3">
+                    <i class="bi bi-calendar2-heart text-pink me-2"></i>
+                    <strong>Date of Birth:</strong> 31<sup>st </sup>&nbsp; July
+                    2005
+                  </div>
+                  <div class="col-md-6 col-12 mb-3">
+                    <i class="bi bi-geo-alt text-pink me-2"></i>
+                    <strong>Location:</strong> Ahmedabad, India
+                  </div>
+                  <div class="col-md-6 col-12 mb-3">
+                    <i class="bi bi-translate text-pink me-2"></i>
+                    <strong>Languages:</strong> English, Hindi, Gujarati
+                  </div>
+                  <div class="col-md-6 col-12 mb-3">
+                    <i class="bi bi-chat-quote text-pink me-2"></i>
+                    <strong>Quote:</strong> "Web dreams realized via Laravel."
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <p class="lead mb-4">
+              Crafting robust web applications with Laravel & jQuery
+            </p> -->
+            <div class="mt-5 social-links">
+              <a
+                href="https://github.com/Vismay3175"
+                class="btn btn-outline-light mx-2"
+                ><i class="bi bi-github"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/vismay-oza/"
+                class="btn btn-outline-light mx-2"
+                ><i class="bi bi-linkedin"></i
+              ></a>
+              <!-- <a href="#" class="btn btn-outline-light mx-2"
+                ><i class="bi bi-twitter-x"></i
+              ></a> -->
+              <a
+                href="https://www.instagram.com/vismay_.3175/#"
+                class="btn btn-outline-light mx-2"
+                ><i class="bi bi-instagram"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rest of the sections remain the same -->
+    <!-- Skills Section -->
+    <!-- <section id="skills" class="py-5">
+      <div class="container">
+        <h2 class="primary-text-color text-center mb-5">Technical Skills</h2>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="skill-card">
+              <i class="bi bi-filetype-php"></i>
+              <h3>Laravel</h3>
+              <div class="progress">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 95%"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="skill-card">
+              <i class="bi bi-filetype-js"></i>
+              <h3>JS & jQuery</h3>
+              <div class="progress">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 60%"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="skill-card">
+              <i class="bi bi-filetype-css"></i>
+              <h3>HTML/CSS</h3>
+              <div class="progress">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 85%"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="skill-card">
+              <i class="bi bi-filetype-sql"></i>
+              <h3>MYSQL</h3>
+              <div class="progress">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 80%"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Skills Section with Flip Cards -->
+    <section id="skills" class="py-5">
+      <div class="container">
+        <h2 class="primary-text-color text-center mb-5">Technical Skills</h2>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="skill-card">
+              <div class="skill-card-front">
+                <i class="bi bi-filetype-php"></i>
+                <h3>Laravel</h3>
+                <div class="progress">
+                  <div class="progress-bar" style="width: 95%"></div>
+                </div>
+              </div>
+              <div class="skill-card-back">
+                <h4>Laravel Skills</h4>
+                <ul class="mt-3 list-unstyled text-start">
+                  <li>✓ MVC Architecture</li>
+                  <li>✓ Eloquent ORM</li>
+                  <li>✓ API Development</li>
+                  <li>✓ Middleware and Routing</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="skill-card">
+              <div class="skill-card-front">
+                <i class="bi bi-filetype-js"></i>
+                <h3>JS & jQuery</h3>
+                <div class="progress">
+                  <div class="progress-bar" style="width: 70%"></div>
+                </div>
+              </div>
+              <div class="skill-card-back">
+                <h4>JavaScript Skills</h4>
+                <ul class="mt-3 list-unstyled text-start">
+                  <li>✓ ES6+ Features</li>
+                  <li>✓ DOM Manipulation</li>
+                  <li>✓ Async/Await</li>
+                  <li>✓ AJAX Requests</li>
+                  <li>✓ Form Handling</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="skill-card">
+              <div class="skill-card-front">
+                <i class="bi bi-filetype-css"></i>
+                <h3>HTML/CSS</h3>
+                <div class="progress">
+                  <div class="progress-bar" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-card-back">
+                <h4>HTML & CSS Skills</h4>
+                <ul class="mt-3 list-unstyled text-start">
+                  <li>✓ Semantic HTML</li>
+                  <li>✓ Responsive Design</li>
+                  <li>✓ CSS Animations</li>
+                  <li>✓ Preprocessors</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="skill-card">
+              <div class="skill-card-front">
+                <i class="bi bi-filetype-sql"></i>
+                <h3>MySQL</h3>
+                <div class="progress">
+                  <div class="progress-bar" style="width: 80%"></div>
+                </div>
+              </div>
+              <div class="skill-card-back">
+                <h4>MySQL Skills</h4>
+                <ul class="mt-3 list-unstyled text-start">
+                  <li>✓ Database Design</li>
+                  <li>✓ Writing Complex Queries</li>
+                  <li>✓ Indexing and Optimization</li>
+                  <li>✓ Data Migration</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="experience" class="py-5">
+      <div class="container">
+        <h2 class="primary-text-color text-center mb-5">Work Experience</h2>
+        <!-- Stats Counter Section -->
+        <div class="stats-counter">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4 col-12 mb-3">
+                <div class="counter-item">
+                  <i class="bi bi-calendar-check counter-icon"></i>
+                  <div class="counter-value" data-target="2">0</div>
+                  <div class="counter-label">Years of Experience</div>
+                </div>
+              </div>
+              <div class="col-md-4 col-12 mb-3">
+                <div class="counter-item">
+                  <i class="bi bi-laptop counter-icon"></i>
+                  <div class="counter-value" data-target="8">0</div>
+                  <div class="counter-label">Demo Projects</div>
+                </div>
+              </div>
+              <div class="col-md-4 col-12 mb-3">
+                <div class="counter-item">
+                  <i class="bi bi-people counter-icon"></i>
+                  <div class="counter-value" data-target="6">0</div>
+                  <div class="counter-label">Projects Contributed</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">2023 - Present</div>
+              <h3 class="timeline-title">PHP Developer</h3>
+              <div class="timeline-company">Devstree IT Services Pvt. Ltd.</div>
+              <p>
+                Learnt PHP & laravel from the scratch and contributed as a key team member, handling significant development tasks in two projects while actively collaborating on a total of four live projects with the team.                
+              </p>
+            </div>
+          </div>
+          <!-- <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">0000 - 0000</div>
+              <h3 class="timeline-title">Waiting...</h3>
+              <div class="timeline-company">Your Company</div>
+              <p>Waiting for you to hire me... 😜.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">0000 - 0000</div>
+              <h3 class="timeline-title">Waiting...</h3>
+              <div class="timeline-company">Your Company</div>
+              <p>Waiting for you to hire me... 😜.</p>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Timeline Section -->
+    <section id="education" class="py-5">
+      <div class="container">
+        <h2 class="primary-text-color text-center mb-5">Education Journey</h2>
+        <div class="education-timeline">
+          <div class="education-item">
+            <div class="education-content">
+              <div class="education-icon">
+                <i class="bi bi-mortarboard-fill"></i>
+              </div>
+              <div class="education-date">2022 - 2026 (Present)</div>
+              <h3 class="education-title">Bachelor of Technology in Information Technology</h3>
+              <div class="education-school">Silver Oak University</div>
+              <p class="education-description">
+                Currently pursuing B.Tech in Information Technology, specializing in Laravel and web development. Skilled in integrating Pusher for real-time communication, WebSockets for bidirectional data exchange, and Stripe for secure payments. Experienced in building and managing Admin Panels for efficient content and user management.
+              </p>
+              <div class="education-achievements">
+                <span class="achievement-badge">TBA CGPA</span>
+              </div>
+            </div>
+          </div>
+    
+          <div class="education-item">
+            <div class="education-content">
+              <div class="education-icon">
+                <i class="bi bi-book-fill"></i>
+              </div>
+              <div class="education-date">2021 - 2022</div>
+              <h3 class="education-title">Higher Secondary Education</h3>
+              <div class="education-school" style="margin-bottom: 0px !important;">S.S. Divine</div>
+              <div class="education-school">Gujarat Board</div>
+              <p class="education-description">
+                Completed HSC with Science (Biology) stream, gaining foundational knowledge in biology and other science subjects.
+              </p>
+              <div class="education-achievements">
+                <span class="achievement-badge">51.2%</span>
+                <span class="achievement-badge">38.31 Percentile Rank</span>
+                <span class="achievement-badge">Biology group</span>
+              </div>
+            </div>
+          </div>
+    
+          <div class="education-item">
+            <div class="education-content">
+              <div class="education-icon">
+                <i class="bi bi-pencil-fill"></i>
+              </div>
+              <div class="education-date">2019 - 2020</div>
+              <h3 class="education-title">Secondary School Certificate</h3>
+              <div class="education-school" style="margin-bottom: 0px !important;">Shree Satya Sai Vidyalaya</div>
+              <div class="education-school">Gujarat Board</div>
+              <p class="education-description">
+                Completed SSC with distinction, laying the groundwork for future academic pursuits. Active participation in various extracurricular activities and competitions.
+              </p>
+              <div class="education-achievements">
+                <span class="achievement-badge">84.5%</span>
+                <span class="achievement-badge">98.49 Percentile Rank</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5">
+      <div class="container">
+        <h2 class="primary-text-color text-center mb-5">Featured Projects</h2>
+        <div class="row g-4">
+          <!-- Project 1 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="project-card">
+              <div class="project-image">
+                <img src="https://peach-oralia-94.tiiny.site/project-1.png" alt="Hospitality Marketplace" />
+                <span class="project-type">Laravel - CRM</span>
+              </div>
+              <div class="project-content">
+                <h4 class="primary-text-color">Hospitality Marketplace</h4>
+                <p>An all-in-one platform for hotel and property owners to manage bookings, guest interactions, and daily operations. Features include web previews, secure auth login, GPT AI integration, and flexible employee management.</p>
+                <div class="tech-stack">
+                  <span class="badge">Laravel</span>
+                  <span class="badge">jQuery</span>
+                  <span class="badge">Node.js</span>
+                  <span class="badge">MySQL</span>
+                </div>
+                <!-- <div class="project-links mb-0">
+                  <a href="#" class="btn project-btn">View Details</a>
+                  <a href="#" class="btn project-btn">Live Demo</a>
+                </div> -->
+                <div class="project-footer">
+                  <a href="project-details.html" class="btn project-btn view-details">
+                    <span class="btn-text">View Details</span>
+                    <span class="btn-arrow">&#8594;</span>
+                  </a>
+                  <!-- <a href="#" class="btn project-btn live-demo">Live Demo</a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Project 2 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="project-card">
+              <div class="project-image">
+                <img src="https://peach-oralia-94.tiiny.site/project-2.png" alt="Backend API Architecture" />
+                <span class="project-type">Backend</span>
+              </div>
+              <div class="project-content">
+                <h4 class="primary-text-color">Backend API Architecture</h4>
+                <p>Comprehensive backend system featuring Quick Search API, Currency Converter, Order Management, Payment Gateway integration, and real-time notifications with user membership management.</p>
+                <div class="tech-stack">
+                  <span class="badge">Laravel</span>
+                  <span class="badge">API Integration</span>
+                  <span class="badge">WebSocket</span>
+                </div>
+                <!-- <div class="project-links mb-0">
+                  <a href="#" class="btn project-btn">View Details</a>
+                  <a href="#" class="btn project-btn">Documentation</a>
+                </div> -->
+                <div class="project-footer">
+                  <a href="pridemile_details.html" class="btn project-btn view-details">
+                    <span class="btn-text">View Details</span>
+                    <span class="btn-arrow">&#8594;</span>
+                  </a>
+                  <!-- <a href="#" class="btn project-btn live-demo">Live Demo</a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Project 3 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="project-card">
+              <div class="project-image">
+                <img src="https://peach-oralia-94.tiiny.site/project-3.png" alt="Product Tracking System" />
+                <span class="project-type">Full Stack</span>
+              </div>
+              <div class="project-content">
+                <h4 class="primary-text-color">Product Tracking System</h4>
+                <p>Advanced product tracking platform with QR code scanning, real-time chat, and subscription management. Includes Stripe integration and comprehensive admin analytics dashboard.</p>
+                <div class="tech-stack">
+                  <span class="badge">Laravel</span>
+                  <span class="badge">Twilio</span>
+                  <span class="badge">Stripe</span>
+                  <span class="badge">Pusher</span>
+                </div>
+                <!-- <div class="project-links mb-0">
+                  <a href="#" class="btn project-btn">View Details</a>
+                  <a href="#" class="btn project-btn">Live Demo</a>
+                </div> -->
+                <div class="project-footer">
+                  <a href="loscop_details.html" class="btn project-btn view-details">
+                    <span class="btn-text">View Details</span>
+                    <span class="btn-arrow">&#8594;</span>
+                  </a>
+                  <!-- <a href="#" class="btn project-btn live-demo">Live Demo</a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Project 4 (New) -->
+          <div class="col-md-6 col-lg-4">
+            <div class="project-card">
+              <div class="project-image" style="background: #ea5122;">
+                <!-- <img src="https://picsum.photos/800/600?random=4" alt="E-Learning Platform" /> -->
+                <img src="https://peach-oralia-94.tiiny.site/atvn-logo.png" alt="E-Learning Platform"/>
+                <span class="project-type">Laravel</span>
+              </div>
+              <div class="project-content">
+                <h4 class="primary-text-color">ATVN Car Repairing</h4>
+                <p>Worked extensively as a Laravel Developer to enhanced security with role-based middleware and two-factor authentication, automated email notifications, developed point redemption history feature for users, improved UI/UX and resolved profile update issues.</p>
+                <div class="tech-stack">
+                  <span class="badge">Laravel</span>
+                  <span class="badge">Bootstrap</span>
+                </div>
+                <!-- <div class="project-links mb-0">
+                  <a href="#" class="btn project-btn">View Details</a>
+                  <a href="#" class="btn project-btn">Live Demo</a>
+                </div> -->
+                <div class="project-footer">
+                  <a href="#" class="btn project-btn view-details">
+                    <span class="btn-text">View Details</span>
+                    <span class="btn-arrow">&#8594;</span>
+                  </a>
+                  <!-- <a href="#" class="btn project-btn live-demo">Live Demo</a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Project 5 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="project-card">
+              <div class="project-image">
+                <img src="https://peach-oralia-94.tiiny.site/Altaseira-logo.png" alt="Event Management System"/>
+                <span class="project-type">Laravel</span>
+              </div>
+              <div class="project-content">
+                <h4 class="primary-text-color">Event Management System</h4>
+                <p>Comprehensive event planning platform with ticket management, attendee tracking, and virtual event hosting capabilities. Includes QR-based check-in system.</p>
+                <div class="tech-stack">
+                  <span class="badge">Laravel</span>
+                  <span class="badge">React</span>
+                  <span class="badge">Socket.io</span>
+                  <span class="badge">MySQL</span>
+                </div>
+                <!-- <div class="project-links mb-0">
+                  <a href="#" class="btn project-btn">View Details</a>
+                  <a href="#" class="btn project-btn">Live Demo</a>
+                </div> -->
+                <div class="project-footer">
+                  <a href="#" class="btn project-btn view-details">
+                    <span class="btn-text">View Details</span>
+                    <span class="btn-arrow">&#8594;</span>
+                  </a>
+                  <!-- <a href="#" class="btn project-btn live-demo">Live Demo</a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6 (New) -->
+          <div class="col-md-6 col-lg-4">
+            <div class="project-card">
+              <div class="project-image" style="background: white;">
+                <img src="https://peach-oralia-94.tiiny.site/Perfectstay-logo.png" alt="Event Management System"/>
+                <span class="project-type">Laravel - PMS</span>
+              </div>
+              <div class="project-content">
+                <h4 class="primary-text-color">PerfectStay</h4>
+                <p>A complete rental management ecosystem with a guest-facing website, a PMS for property operations, an admin dashboard, and integrations with external APIs like STAAH for seamless bookings and channel management.</p>
+                <div class="tech-stack">
+                  <span class="badge">Laravel</span>
+                  <span class="badge">STAAH API</span>
+                  <span class="badge">Xero</span>
+                  <span class="badge">MySQL</span>
+                </div>
+                <!-- <div class="project-links mb-0">
+                  <a href="#" class="btn project-btn">View Details</a>
+                  <a href="#" class="btn project-btn">Live Demo</a>
+                </div> -->
+                <div class="project-footer">
+                  <a href="#" class="btn project-btn view-details">
+                    <span class="btn-text">View Details</span>
+                    <span class="btn-arrow">&#8594;</span>
+                  </a>
+                  <!-- <a href="#" class="btn project-btn live-demo">Live Demo</a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documents Section -->
+    <section id="documents" class="documents-section">
+      <div class="container">
+        <h2 class="primary-text-color text-center mb-5">
+          Credentials & Documents
+        </h2>
+        <div class="row">
+          <div class="col-12 col-lg-4"></div>
+          <!-- Resume -->
+          <div class="col-12 col-lg-4">
+            <div class="document-card">
+              <i class="bi bi-file-earmark-person document-icon"></i>
+              <h3 class="document-title">Professional Resume</h3>
+              <p class="document-info">
+                Complete overview of my professional experience and skills
+              </p>
+              <div class="document-actions">
+                <a
+                  href="https://peach-oralia-94.tiiny.site/Vismay-Oza-resume.jpg"
+                  class="btn btn-view"
+                  target="_blank"
+                >
+                  <i class="bi bi-eye"></i> View
+                </a>
+                <a
+                  href="https://peach-oralia-94.tiiny.site/Vismay-Oza-resume.jpg"
+                  class="btn btn-download"
+                  download
+                >
+                  <i class="bi bi-download"></i> Download
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certifications -->
+          <!-- <div class="col-md-6 col-lg-4">
+            <div class="document-card">
+              <i class="bi bi-patch-check document-icon"></i>
+              <h3 class="document-title">Technical Certifications</h3>
+              <p class="document-info">
+                Professional certifications and course completions
+              </p>
+              <div class="document-actions">
+                <a
+                  href="documents/certifications.pdf"
+                  class="btn btn-view"
+                  target="_blank"
+                >
+                  <i class="bi bi-eye"></i> View
+                </a>
+                <a
+                  href="documents/certifications.pdf"
+                  class="btn btn-download"
+                  download
+                >
+                  <i class="bi bi-download"></i> Download
+                </a>
+              </div>
+            </div>
+          </div> -->
+        </div>
+        <div class="container">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <!-- <img src="./assets/education-docs/Vismay Oza C&C++ certificate.jpg" alt="C&C++ Course Completion, KICT" data-title="C&C++ Course Completion, KICT" /> -->
+                <img src="https://peach-oralia-94.tiiny.site/Vismay-Oza-CC-certificate.jpg" alt="C&C++ Course Completion, KICT" data-title="C&C++ Course Completion, KICT" />
+              </div>
+              <div class="swiper-slide">
+                <!-- <img src="./assets/education-docs/data-analysis-using-python.png" alt="Data Analysis with Python, IBM" data-title="Data Analysis with Python, IBM" /> -->
+                <img src="https://peach-oralia-94.tiiny.site/data-analysis-using-python.png" alt="Data Analysis with Python, IBM" data-title="Data Analysis with Python, IBM" />
+              </div>
+              <div class="swiper-slide">
+                <!-- <img src="./assets/education-docs/explore-emerging-tech.png" alt="Explore Emerging Tech, IBM" data-title="Explore Emerging Tech, IBM" /> -->
+                <img src="https://peach-oralia-94.tiiny.site/explore-emerging-tech.png" alt="Explore Emerging Tech, IBM" data-title="Explore Emerging Tech, IBM" />
+              </div>
+              <div class="swiper-slide">
+                <!-- <img src="./assets/education-docs/Vismay Basic PHP Basic Quiz CareerNinja(LearnTube) Certificate.jpg" alt="PHP Basic Quiz, CareerNinja" data-title="PHP Basic Quiz, CareerNinja" /> -->
+                <img src="https://peach-oralia-94.tiiny.site/Vismay-Basic-PHP-Basic-Quiz-CareerNinjaLearnTube-Certificate.jpg" alt="PHP Basic Quiz, CareerNinja" data-title="PHP Basic Quiz, CareerNinja" />
+              </div>
+              <div class="swiper-slide">
+                <!-- <img src="./assets/education-docs/Vismay Oza JS LU Certificate.jpg" alt="JavaScript Zero to Hero, LetsUpgrade" data-title="JavaScript" /> -->
+                <img src="https://peach-oralia-94.tiiny.site/Vismay-Oza-JS-LU-Certificate.jpg" alt="JavaScript Zero to Hero, LetsUpgrade" data-title="JavaScript" />
+              </div>
+              <div class="swiper-slide">
+                <!-- <img src="./assets/education-docs/Vismay Oza Laravel Basic Quiz CareerNinja(LearnTube) Certificate.jpg" alt="Laravel Basic Quiz, CareerNinja" data-title="Laravel Basic Quiz, CareerNinja" /> -->
+                <img src="https://peach-oralia-94.tiiny.site/Vismay-Oza-Laravel-Basic-Quiz-CareerNinjaLearnTube-Certificate.jpg" alt="Laravel Basic Quiz, CareerNinja" data-title="Laravel Basic Quiz, CareerNinja" />
+              </div>
+              <div class="swiper-slide">
+                <!-- <img src="./assets/education-docs/Vismay Oza PHP LU Certifcate.jpg" alt="PHP Essentials Bootcamp, LetsUpgrade" data-title="PHP Essentials Bootcamp, LetsUpgrade" /> -->
+                <img src="https://peach-oralia-94.tiiny.site/Vismay-Oza-PHP-LU-Certifcate.jpg" alt="PHP Essentials Bootcamp, LetsUpgrade" data-title="PHP Essentials Bootcamp, LetsUpgrade" />
+              </div>
+              <div class="swiper-slide">
+                <!-- <img src="./assets/education-docs/Vismay Oza Laravel TestDome Certificate.png" alt="PHP Essentials Bootcamp, LetsUpgrade" data-title="Laravel Public Test, TestDome" /> -->
+                <img src="https://peach-oralia-94.tiiny.site/Vismay-Oza-Laravel-TestDome-Certificate.png" alt="PHP Essentials Bootcamp, LetsUpgrade" data-title="Laravel Public Test, TestDome" />
+              </div>
+              <div class="swiper-slide">
+                <!-- <img src="./assets/education-docs/Vismay Oza Python LU Certificate.jpg" alt="Python Essentials Bootcamp, LetsUpgrade" data-title="Python Essentials Bootcamp, LetsUpgrade" /> -->
+                <img src="https://peach-oralia-94.tiiny.site/Vismay-Oza-Python-LU-Certificate.jpg" alt="Python Essentials Bootcamp, LetsUpgrade" data-title="Python Essentials Bootcamp, LetsUpgrade" />
+              </div>
+              <div class="swiper-slide">
+                <!-- <img src="./assets/education-docs/Vismay Oza SQL LU Certificate.jpg" alt="SQL Essentials Bootcamp, LetsUpgrade" data-title="SQL Essentials Bootcamp, LetsUpgrade" /> -->
+                <img src="https://peach-oralia-94.tiiny.site/Vismay-Oza-SQL-LU-Certificate.jpg" alt="SQL Essentials Bootcamp, LetsUpgrade" data-title="SQL Essentials Bootcamp, LetsUpgrade" />
+              </div>
+              <!-- Add more slides as needed -->
+          </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        </div>
+      </div>      
+      <!-- Overlay: Under Construction -->
+      <!-- <div class="overlay show">
+        <div class="overlay-content">
+          <img
+            src="assets/images/coming-soon.avif"
+            alt="Under Construction"
+            class="construction-image"
+          />
+        </div>
+      </div> -->
+    </section>
+
+    <section id="gallery" class="py-5">
+      <div class="container-fluid">
+        <h2 class="primary-text-color text-center mb-5">Portfolio Showcase</h2>
+        <div class="logos">
+          <div class="logos-slide">
+            <img src="./assets/images/slider_images/1.png" alt="Project 1" />
+            <img src="./assets/images/slider_images/2.png" alt="Project 2" />
+            <img src="./assets/images/slider_images/3.png" alt="Project 3" />
+            <img src="./assets/images/slider_images/4.png" alt="Project 4" />
+            <img src="./assets/images/slider_images/5.png" alt="Project 5" />
+            <img src="./assets/images/slider_images/6.png" alt="Project 6" />
+          </div>
+          <div class="logos-slide">
+            <img src="./assets/images/slider_images/1.png" alt="Project 1" />
+            <img src="./assets/images/slider_images/2.png" alt="Project 2" />
+            <img src="./assets/images/slider_images/3.png" alt="Project 3" />
+            <img src="./assets/images/slider_images/4.png" alt="Project 4" />
+            <img src="./assets/images/slider_images/5.png" alt="Project 5" />
+            <img src="./assets/images/slider_images/6.png" alt="Project 6" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section id="playground" class="playground-section">
+  <div class="container">
+    <h2 class="primary-text-color text-center mb-5">Playground</h2>
+    <div class="game-container">
+      <div class="canvas-container">
+        <canvas id="pingPongCanvas"></canvas>
+      </div>
+      <div class="game-controls">
+        <button id="startGame" class="btn btn-primary btn-game">Start Game</button>
+        <button id="stopGame" class="btn btn-outline-primary btn-game" disabled>Stop Game</button>
+      </div>
+      <div class="game-instructions">
+        <h4 class="text-center">How to Play</h4>
+        <div class="row">
+          <div class="col-md-6">
+            <h5>Left Player:</h5>
+            <ul>
+              <li><i class="bi bi-arrow-up-square"></i> Press 'W' to move up</li>
+              <li><i class="bi bi-arrow-down-square"></i> Press 'S' to move down</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <h5>Right Player:</h5>
+            <ul>
+              <li><i class="bi bi-arrow-up-square"></i> Press '↑' to move up</li>
+              <li><i class="bi bi-arrow-down-square"></i> Press '↓' to move down</li>
+            </ul>
+          </div>
+        </div>
+        <p class="text-center mt-3">
+          <i class="bi bi-phone"></i> On mobile devices, touch the left or right side of the game area to move the paddles
+        </p>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+    <section id="playground" class="playground-section">
+      <div class="container">
+        <h2 class="primary-text-color text-center mb-5">Playground</h2>
+        <div class="game-container">
+          <div class="game-mode-selector mb-4">
+            <h5 class="text-center mb-3">Select Game Mode</h5>
+            <div class="mode-options">
+              <!-- Ping Pong Game Timer -->
+              <div id="countdownTimer" class="countdown-timer" style="display: none;">
+                <h2 id="countdownNumber">3</h2>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input game-mode-selection"
+                  type="radio"
+                  name="gameMode"
+                  id="singlePlayerMode"
+                  checked
+                />
+                <label class="form-check-label" for="singlePlayerMode"
+                  >Single Player (vs AI)</label
+                >
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input game-mode-selection"
+                  type="radio"
+                  name="gameMode"
+                  id="twoPlayerMode"
+                />
+                <label class="form-check-label" for="twoPlayerMode"
+                  >Two Players</label
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="canvas-container">
+            <canvas id="pingPongCanvas"></canvas>
+          </div>
+
+          <div class="game-controls">
+            <button id="startGame" class="btn btn-primary btn-game">
+              Start Game
+            </button>
+            <button
+              id="stopGame"
+              class="btn btn-outline-primary btn-game"
+              disabled
+            >
+              Stop Game
+            </button>
+          </div>
+
+          <div class="game-instructions">
+            <h4 class="text-center">How to Play</h4>
+
+            <!-- Single Player Instructions -->
+            <div class="single-player-instructions">
+              <div class="row">
+                <div class="col-md-6">
+                  <h5>Player Controls:</h5>
+                  <ul>
+                    <li>
+                      <i class="bi bi-arrow-up-square"></i> Press 'W' to move up
+                    </li>
+                    <li>
+                      <i class="bi bi-arrow-down-square"></i> Press 'S' to move
+                      down
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <h5>Game Info:</h5>
+                  <ul>
+                    <li>
+                      <i class="bi bi-robot"></i> Right paddle is controlled by
+                      AI
+                    </li>
+                    <li>
+                      <i class="bi bi-speedometer2"></i> Ball speed increases
+                      with each hit
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Two Player Instructions -->
+            <div class="two-player-instructions">
+              <div class="row">
+                <div class="col-md-6">
+                  <h5>Player 1 Controls:</h5>
+                  <ul>
+                    <li>
+                      <i class="bi bi-arrow-up-square"></i> Press 'W' to move up
+                    </li>
+                    <li>
+                      <i class="bi bi-arrow-down-square"></i> Press 'S' to move
+                      down
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <h5>Player 2 Controls:</h5>
+                  <ul>
+                    <li><i class="bi bi-arrow-up"></i> Press 'O' to move up</li>
+                    <li>
+                      <i class="bi bi-arrow-down"></i> Press 'L' to move down
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-center mt-3">
+              <i class="bi bi-phone"></i> On mobile devices, touch the left side
+              of the game area to move your paddle
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <!-- <section id="contact" class="py-5">
+      <div class="container">
+        <h2 class="primary-text-color text-center mb-5">Get In Touch</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <form id="contactForm" class="contact-form">
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <textarea
+                  class="form-control"
+                  rows="5"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <section id="contact" class="py-5">
+      <div class="container">
+        <h2 class="primary-text-color text-center mb-5">Get In Touch</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <form id="contactForm" class="contact-form">
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control funny-input"
+                  id="name"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="email"
+                  class="form-control funny-input"
+                  id="email"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <textarea
+                  class="form-control funny-input"
+                  id="message"
+                  rows="5"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100 fun-button">
+                Send Message <span>🚀</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+      <div class="container text-center">
+        <div class="social-links mb-3">
+          <a href="https://github.com/Vismay3175" class="text-white mx-2"
+            ><i class="bi bi-github"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/vismay-oza/"
+            class="text-white mx-2"
+            ><i class="bi bi-linkedin"></i
+          ></a>
+          <!-- <a href="#" class="text-white mx-2"
+            ><i class="bi bi-twitter-x"></i
+          ></a> -->
+          <a
+            href="https://www.instagram.com/vismay_.3175/#"
+            class="text-white mx-2"
+            ><i class="bi bi-instagram"></i
+          ></a>
+        </div>
+        <p class="mb-0">&copy; 2025 Vismay Oza. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/script.js"></script>
+  </body>
+</html>
