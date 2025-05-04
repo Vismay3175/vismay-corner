@@ -68,8 +68,11 @@ function setupBlackjackEventListeners() {
   });
   
   // Hit button
-  hitButton.addEventListener('click', () => {
+  hitButton.addEventListener('click', async () => {
     if (BlackjackState.gamePhase !== 'player-turn') return;
+    
+    // Disable hit button while dealing
+    hitButton.disabled = true;
     
     SOUNDS.CARD_DEAL.play();
     
@@ -78,7 +81,7 @@ function setupBlackjackEventListeners() {
     BlackjackState.playerCards.push(card);
     
     // Update the display
-    addCardToHand(card, playerCardsContainer);
+    await addCardToHand(card, playerCardsContainer);
     
     // Update scores
     BlackjackState.updateScores();
@@ -87,6 +90,9 @@ function setupBlackjackEventListeners() {
     // Check if player busts
     if (BlackjackState.isPlayerBust()) {
       endPlayerTurn();
+    } else {
+      // Re-enable hit button
+      hitButton.disabled = false;
     }
   });
   
@@ -99,19 +105,24 @@ function setupBlackjackEventListeners() {
   });
   
   // Double button
-  doubleButton.addEventListener('click', () => {
+  doubleButton.addEventListener('click', async () => {
     if (!BlackjackState.canDoubleDown()) return;
     
     if (BlackjackState.doubleBet()) {
       SOUNDS.CASH.play();
       updateBetDisplay();
       
+      // Disable buttons while dealing
+      hitButton.disabled = true;
+      standButton.disabled = true;
+      doubleButton.disabled = true;
+      
       // Deal one more card to the player
       const card = dealCard(blackjackDeck);
       BlackjackState.playerCards.push(card);
       
       // Update the display
-      addCardToHand(card, playerCardsContainer);
+      await addCardToHand(card, playerCardsContainer);
       
       // Update scores
       BlackjackState.updateScores();
@@ -141,9 +152,10 @@ async function startBlackjackRound() {
   // Deal initial cards
   await dealInitialCards();
   
-  // Update scores
+  // Update scores - only show player's score and first dealer card value
   BlackjackState.updateScores();
-  updateScoreDisplay();
+  playerScoreElement.textContent = BlackjackState.playerScore;
+  dealerScoreElement.textContent = getCardValue(BlackjackState.dealerCards[0]);
   
   // Check for blackjack
   if (BlackjackState.checkForBlackjack()) {
@@ -254,12 +266,15 @@ async function dealInitialCards() {
   // Add cards to the UI (with animation)
   SOUNDS.CARD_DEAL.play();
   await addCardToHand(playerCard1, playerCardsContainer);
+  await sleep(300);
   
   SOUNDS.CARD_DEAL.play();
   await addCardToHand(dealerCard1, dealerCardsContainer);
+  await sleep(300);
   
   SOUNDS.CARD_DEAL.play();
   await addCardToHand(playerCard2, playerCardsContainer);
+  await sleep(300);
   
   SOUNDS.CARD_DEAL.play();
   // Dealer's second card is face down
@@ -285,13 +300,37 @@ async function flipDealerCard() {
   
   // The second card is the face-down one
   const hiddenCardElement = dealerCardElements[1];
+  const hiddenCard = BlackjackState.dealerCards[1];
+  
+  // Update the card faces before flipping
+  const frontFace = hiddenCardElement.querySelector('.card-front');
+  const backFace = hiddenCardElement.querySelector('.card-back');
+  
+  // Update the front face with the correct card values
+  frontFace.innerHTML = '';
+  
+  const valueTop = document.createElement('div');
+  valueTop.className = `card-value ${hiddenCard.suit}`;
+  valueTop.textContent = hiddenCard.value;
+  
+  const suitCenter = document.createElement('div');
+  suitCenter.className = `card-suit ${hiddenCard.suit}`;
+  suitCenter.textContent = SUIT_SYMBOLS[hiddenCard.suit];
+  
+  const valueBottom = document.createElement('div');
+  valueBottom.className = `card-value-bottom ${hiddenCard.suit}`;
+  valueBottom.textContent = hiddenCard.value;
+  
+  frontFace.appendChild(valueTop);
+  frontFace.appendChild(suitCenter);
+  frontFace.appendChild(valueBottom);
   
   SOUNDS.CARD_FLIP.play();
   await animateFlipCard(hiddenCardElement, true);
   
   // Update the dealer's score
   BlackjackState.updateScores();
-  updateScoreDisplay();
+  dealerScoreElement.textContent = BlackjackState.dealerScore;
 }
 
 // Dealer draws cards until they have at least 17
@@ -310,7 +349,7 @@ async function dealerDrawCards() {
     
     // Update scores
     BlackjackState.updateScores();
-    updateScoreDisplay();
+    dealerScoreElement.textContent = BlackjackState.dealerScore;
   }
 }
 
@@ -322,7 +361,10 @@ function updateBetDisplay() {
 // Update the score display
 function updateScoreDisplay() {
   playerScoreElement.textContent = BlackjackState.playerScore;
-  dealerScoreElement.textContent = BlackjackState.dealerScore;
+  // Only show dealer's full score when second card is revealed
+  if (dealerCardsContainer.querySelectorAll('.card.flipped').length > 1) {
+    dealerScoreElement.textContent = BlackjackState.dealerScore;
+  }
 }
 
 // Show the game result

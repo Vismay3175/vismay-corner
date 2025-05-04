@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vismay's Royal Gaming Arena - Blackjack & Mines</title>
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/blackjack.css">
     <link rel="stylesheet" href="css/mines.css">
+    <link rel="stylesheet" href="css/coinflip.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
@@ -54,6 +56,12 @@
                             <p>Uncover cells without hitting mines to multiply your points.</p>
                             <button class="btn primary">Play Now</button>
                         </div>
+                        <!-- <div class="game-card" data-game="coinflip">
+                            <div class="game-icon coinflip-icon"></div>
+                            <h3>Coin Flip</h3>
+                            <p>Test your luck by betting on heads or tails.</p>
+                            <button class="btn primary">Play Now</button>
+                        </div> -->
                     </div>
                 </div>
                 <div class="recent-games">
@@ -153,6 +161,37 @@
                     </div>
                 </div>
             </div>
+
+            <div id="coinflip-screen" class="screen">
+                <div class="game-header">
+                    <button class="btn back-btn" data-action="back">Back</button>
+                    <h2>Coin Flip</h2>
+                    <div class="spacer"></div>
+                </div>
+                <div class="coinflip-game">
+                    <div class="coinflip-settings">
+                        <div class="bet-amount">
+                            <label for="coinflip-bet">Bet Amount:</label>
+                            <input type="number" id="coinflip-bet" min="10" max="1000" step="10" value="50">
+                        </div>
+                        <button class="btn primary" id="btn-start-coinflip">Start Game</button>
+                    </div>
+                    <div class="coin-container">
+                        <div class="coin">
+                            <div class="coin-face coin-heads">H</div>
+                            <div class="coin-face coin-tails">T</div>
+                        </div>
+                    </div>
+                    <div class="side-selection">
+                        <button class="side-btn" id="btn-heads">
+                            Heads
+                        </button>
+                        <button class="side-btn" id="btn-tails">
+                            Tails
+                        </button>
+                    </div>
+                </div>
+            </div>
         </main>
 
         <div class="notification" id="notification">
@@ -167,6 +206,7 @@
                 <div class="modal-tabs">
                     <button class="tab-btn active" data-tab="blackjack-rules">Blackjack Rules</button>
                     <button class="tab-btn" data-tab="mines-rules">Mines Rules</button>
+                    <button class="tab-btn" data-tab="coinflip-rules">Coin Flip Rules</button>
                 </div>
                 <div class="tab-content active" id="blackjack-rules">
                     <h3>Blackjack Rules</h3>
@@ -188,6 +228,16 @@
                         <li>If you reveal a gem, your multiplier increases</li>
                         <li>If you reveal a mine, you lose your bet</li>
                         <li>You can cash out at any time to secure your winnings</li>
+                    </ul>
+                </div>
+                <div class="tab-content" id="coinflip-rules">
+                    <h3>Coin Flip Rules</h3>
+                    <p>A simple game of chance where you bet on the outcome of a coin flip.</p>
+                    <ul>
+                        <li>Choose your bet amount</li>
+                        <li>Select either Heads or Tails</li>
+                        <li>If you guess correctly, you double your bet</li>
+                        <li>If you guess wrong, you lose your bet</li>
                     </ul>
                 </div>
             </div>
@@ -217,6 +267,7 @@
     <script src="js/blackjack/deck.js"></script>
     <script src="js/blackjack/blackjack.js"></script>
     <script src="js/mines/mines.js"></script>
+    <script src="js/coinflip/coinflip.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

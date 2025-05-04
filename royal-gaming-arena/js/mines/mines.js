@@ -140,10 +140,12 @@ function createMinesGrid() {
 
 // Reveal a tile
 async function revealTile(position) {
+  if (MinesState.gamePhase !== 'playing') return;
+  
   const isGem = !MinesState.isMine(position);
   const tileElement = minesGridElement.querySelector(`[data-position="${position}"]`);
   
-  if (!tileElement) return;
+  if (!tileElement || MinesState.uncoveredPositions.includes(position)) return;
   
   // Play sound
   if (isGem) {
@@ -162,6 +164,9 @@ async function revealTile(position) {
     // Update multiplier and potential win
     updateMultiplierDisplay();
     tileElement.classList.add('disabled');
+    
+    // Enable cashout button
+    cashoutButton.disabled = false;
   } else {
     // Game over - hit a mine
     endMinesGame(false);
@@ -172,8 +177,10 @@ async function revealTile(position) {
 function cashoutMines() {
   if (MinesState.gamePhase !== 'playing' || MinesState.uncoveredPositions.length === 0) return;
   
+  const winnings = MinesState.calculatePotentialWin();
   if (MinesState.cashout()) {
     SOUNDS.CASH.play();
+    updatePlayerPoints(winnings);
     endMinesGame(true);
   }
 }
@@ -188,9 +195,9 @@ async function endMinesGame(won) {
   
   // Reveal all mines (with a slight delay)
   if (won) {
-    notifySuccess(`You won ${formatPoints(MinesState.calculatePotentialWin() - MinesState.bet)} points!`);
-    updatePlayerPoints(MinesState.calculatePotentialWin());
-    recordGameResult(calculateGameResult('Mines', true, MinesState.calculatePotentialWin() - MinesState.bet, MinesState.currentMultiplier));
+    const winnings = MinesState.calculatePotentialWin() - MinesState.bet;
+    notifySuccess(`You won ${formatPoints(winnings)} points!`);
+    recordGameResult(calculateGameResult('Mines', true, winnings, MinesState.currentMultiplier));
   } else {
     // Reveal all mines
     for (const position of MinesState.minePositions) {
@@ -216,8 +223,10 @@ async function endMinesGame(won) {
   startMinesButton.disabled = false;
   cashoutButton.disabled = true;
   
-  // Reset game state
-  MinesState.gamePhase = 'betting';
+  // Reset game state for next round
+  MinesState.reset();
+  MinesState.bet = parseInt(minesBetInput.value);
+  MinesState.mines = parseInt(minesNumberSelect.value);
 }
 
 // Update the mines display
@@ -229,7 +238,7 @@ function updateMinesDisplay() {
 
 // Update multiplier display
 function updateMultiplierDisplay() {
-  currentMultiplierElement.textContent = `${MinesState.currentMultiplier}x`;
+  currentMultiplierElement.textContent = `${MinesState.currentMultiplier.toFixed(2)}x`;
   potentialWinElement.textContent = formatPoints(MinesState.calculatePotentialWin());
 }
 

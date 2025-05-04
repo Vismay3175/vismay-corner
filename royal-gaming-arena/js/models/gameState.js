@@ -14,6 +14,7 @@ const BlackjackState = {
   
   // Reset game state
   reset() {
+    this.bet = 0;
     this.playerCards = [];
     this.dealerCards = [];
     this.playerScore = 0;
@@ -38,6 +39,8 @@ const BlackjackState = {
   
   // Add a bet amount
   addToBet(amount) {
+    if (this.gamePhase !== 'betting') return false;
+    
     const newBet = this.bet + amount;
     const playerPoints = getPlayerPoints();
     
@@ -69,6 +72,7 @@ const BlackjackState = {
       return false;
     }
     
+    updatePlayerPoints(-this.bet); // Deduct the additional bet
     this.bet *= 2;
     return true;
   },
@@ -160,9 +164,6 @@ const BlackjackState = {
   // Calculate winnings
   calculateWinnings() {
     if (this.gameResult === 'win') {
-      if (this.checkForBlackjack()) {
-        return Math.floor(this.bet * 1.5);
-      }
       return this.bet;
     } else if (this.gameResult === 'push') {
       return 0;
@@ -222,9 +223,10 @@ const MinesState = {
   // Initialize grid
   initializeGrid() {
     this.grid = Array(this.gridSize).fill('hidden');
+    this.minePositions = [];
+    this.uncoveredPositions = [];
     
     // Randomly place mines
-    this.minePositions = [];
     while (this.minePositions.length < this.mines) {
       const position = Math.floor(Math.random() * this.gridSize);
       if (!this.minePositions.includes(position)) {
@@ -262,12 +264,17 @@ const MinesState = {
   // Calculate the current multiplier
   updateMultiplier() {
     const gemCount = this.uncoveredPositions.length;
-    const gemProbability = (this.gridSize - this.mines) / this.gridSize;
+    const remainingGems = this.gridSize - this.mines - gemCount;
+    const minesCount = this.mines;
     
-    // This is a simplified multiplier calculation
-    // In a real game, this would be more complex
-    this.currentMultiplier = (1 / Math.pow(gemProbability, gemCount)).toFixed(2);
+    // Calculate probability-based multiplier
+    let multiplier = 1.0;
+    for (let i = 0; i < gemCount; i++) {
+      const prob = (this.gridSize - this.mines - i) / (this.gridSize - i);
+      multiplier *= 1 / prob;
+    }
     
+    this.currentMultiplier = parseFloat(multiplier.toFixed(2));
     return this.currentMultiplier;
   },
   
@@ -283,24 +290,68 @@ const MinesState = {
     
     this.gamePhase = 'game-over';
     return true;
+  }
+};
+
+// Coin flip game state
+const CoinFlipState = {
+  bet: 0,
+  selectedSide: null, // 'heads' or 'tails'
+  gamePhase: 'betting', // betting, flipping, complete
+  result: null, // 'heads' or 'tails'
+  
+  // Reset game state
+  reset() {
+    this.bet = 0;
+    this.selectedSide = null;
+    this.gamePhase = 'betting';
+    this.result = null;
   },
   
-  // Check if game is over
-  isGameOver() {
-    return this.gamePhase === 'game-over';
+  // Place a bet
+  placeBet(amount) {
+    if (this.gamePhase !== 'betting') return false;
+    
+    const playerPoints = getPlayerPoints();
+    if (amount > playerPoints) {
+      notifyError("You don't have enough points!");
+      return false;
+    }
+    
+    this.bet = amount;
+    return true;
   },
   
-  // Check if player won (cashed out without hitting a mine)
-  hasWon() {
-    return this.isGameOver() && !this.uncoveredPositions.some(pos => this.isMine(pos));
+  // Select a side
+  selectSide(side) {
+    if (this.gamePhase !== 'betting') return false;
+    if (!['heads', 'tails'].includes(side)) return false;
+    
+    this.selectedSide = side;
+    return true;
+  },
+  
+  // Flip the coin
+  async flip() {
+    if (this.gamePhase !== 'betting' || !this.selectedSide || this.bet <= 0) return false;
+    
+    this.gamePhase = 'flipping';
+    
+    // Simulate coin flip
+    await sleep(2000);
+    
+    this.result = Math.random() < 0.5 ? 'heads' : 'tails';
+    this.gamePhase = 'complete';
+    
+    return this.result === this.selectedSide;
   },
   
   // Calculate winnings
   calculateWinnings() {
-    if (this.hasWon()) {
-      return Math.floor(this.bet * this.currentMultiplier) - this.bet;
-    } else {
-      return -this.bet;
+    if (this.gamePhase !== 'complete') return 0;
+    if (this.result === this.selectedSide) {
+      return this.bet;
     }
+    return -this.bet;
   }
 };
