@@ -1,6 +1,116 @@
 document.querySelectorAll('a[href*="static.app"]').forEach(element => {
   element.remove();
 });
+// Create floating particles
+document.addEventListener('DOMContentLoaded', function() {
+  const particlesContainer = document.getElementById('particles');
+  const particleCount = 25;
+  
+  for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      
+      // Random positioning
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.top = Math.random() * 100 + '%';
+      
+      // Random size
+      const size = Math.random() * 4 + 2;
+      particle.style.width = size + 'px';
+      particle.style.height = size + 'px';
+      
+      // Random animation duration and delay
+      const duration = Math.random() * 6 + 4;
+      const delay = Math.random() * 4;
+      particle.style.animation = `float ${duration}s infinite linear`;
+      particle.style.animationDelay = delay + 's';
+      
+      // Random opacity and color
+      particle.style.opacity = Math.random() * 0.5 + 0.2;
+      
+      // Random colors for particles
+      const colors = [
+          'rgba(255, 215, 0, 0.6)',  // Gold
+          'rgba(220, 20, 60, 0.4)',  // Crimson
+          'rgba(50, 205, 50, 0.4)'   // Green
+      ];
+      
+      particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+      
+      particlesContainer.appendChild(particle);
+  }
+  
+  // Add hover effects for game cards
+  const gameCards = document.querySelectorAll('.game-card');
+  gameCards.forEach(card => {
+      card.addEventListener('mouseover', function() {
+          gameCards.forEach(c => {
+              if (c !== card) {
+                  c.style.opacity = '0.7';
+                  c.style.transform = 'scale(0.95)';
+              }
+          });
+      });
+      
+      card.addEventListener('mouseout', function() {
+          gameCards.forEach(c => {
+              c.style.opacity = '1';
+              c.style.transform = '';
+          });
+      });
+      
+      // Add click effect
+      card.addEventListener('click', function() {
+          // Add a more dramatic click effect
+          this.style.transform = 'scale(0.9) translateY(5px)';
+          
+          // Add a flash effect
+          const flash = document.createElement('div');
+          flash.style.position = 'absolute';
+          flash.style.top = '0';
+          flash.style.left = '0';
+          flash.style.width = '100%';
+          flash.style.height = '100%';
+          flash.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+          flash.style.borderRadius = '10px';
+          flash.style.opacity = '0';
+          flash.style.transition = 'opacity 0.2s ease';
+          this.appendChild(flash);
+          
+          setTimeout(() => {
+              flash.style.opacity = '1';
+          }, 10);
+          
+          setTimeout(() => {
+              this.style.transform = '';
+              flash.style.opacity = '0';
+              setTimeout(() => {
+                  this.removeChild(flash);
+              }, 200);
+          }, 200);
+          
+          // You can add navigation to specific game pages here
+          console.log(`${this.id.split('-')[0]} game clicked`);
+      });
+  });
+  
+  // CTA button effect
+  const ctaButton = document.getElementById('play-now-btn');
+  ctaButton.addEventListener('click', function() {
+      this.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+          this.style.transform = '';
+      }, 100);
+      
+      // You can add navigation to the main gaming page here
+      console.log('Play Now button clicked');
+  });
+  
+  // Add subtle floating animation to cards
+  gameCards.forEach((card, index) => {
+      card.style.animation = `pulse 3s infinite ${index * 0.5}s`;
+  });
+});
 $(document).ready(function () {
   let theme = localStorage.getItem("selectedTheme");
   if (theme && theme == "royal-blue") {

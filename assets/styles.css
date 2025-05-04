@@ -799,9 +799,14 @@ section:nth-child(even) {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0) 0%, rgb(255 255 255 / 36%) 50%, rgba(255, 255, 255, 0) 100%);
-    transform: translateX(-100%);
-    animation: shine 2s infinite;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgb(255 255 255 / 36%) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateX(-100%);
+  animation: shine 2s infinite;
 }
 
 @keyframes shine {
@@ -962,7 +967,7 @@ section:nth-child(even) {
   position: absolute;
   top: 10px;
   right: 20px;
-  background: linear-gradient(135deg, #ffb300, #AD1457);
+  background: linear-gradient(135deg, #ffb300, #ad1457);
   color: white;
   padding: 5px 12px;
   border-radius: 20px;
@@ -1183,6 +1188,320 @@ section:nth-child(even) {
   }
   100% {
     opacity: 1;
+  }
+}
+
+/* Banner Container */
+.gaming-arena-banner {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  margin: 20px 0;
+  color: white;
+}
+
+/* Glowing effect */
+.gaming-arena-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 215, 0, 0.1),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Banner Content */
+.banner-content {
+  display: flex;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Left Side - Text Content */
+.banner-text {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.banner-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #f5c518, #e67e22);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(245, 197, 24, 0.3);
+}
+
+.banner-subtitle {
+  font-size: 1.2rem;
+  margin: 0 0 20px 0;
+  color: #e0e0e0;
+}
+
+.banner-cta {
+  display: inline-block;
+  background: linear-gradient(to right, #f5c518, #e67e22);
+  color: #1a1a2e;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(245, 197, 24, 0.4);
+  max-width: 200px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add shine effect to CTA button */
+.banner-cta::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 50%
+  );
+  transform: rotate(30deg);
+  transition: all 0.5s ease;
+}
+
+.banner-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(245, 197, 24, 0.6);
+}
+
+.banner-cta:hover::after {
+  transform: rotate(30deg) translate(10%, 10%);
+}
+
+/* Right Side - Game Cards */
+.game-cards {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
+  perspective: 1000px;
+}
+
+.game-card {
+  width: 120px;
+  height: 180px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.game-card:hover {
+  transform: translateY(-10px) rotateY(10deg);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.game-card::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 50%;
+  height: 50%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  animation: shine 3s infinite linear;
+  animation-delay: calc(var(--delay) * 1s);
+}
+
+/* Set animation delays for each card */
+.game-card:nth-child(1) {
+  --delay: 0;
+}
+
+.game-card:nth-child(2) {
+  --delay: 1;
+}
+
+.game-card:nth-child(3) {
+  --delay: 2;
+}
+
+@keyframes shine {
+  0% {
+    top: -100%;
+    left: -100%;
+  }
+  20%,
+  100% {
+    top: 100%;
+    left: 100%;
+  }
+}
+
+.game-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.game-card:hover .game-icon {
+  transform: scale(1.2);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.game-name {
+  font-weight: bold;
+  text-align: center;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.game-card:hover .game-name {
+  letter-spacing: 1px;
+}
+
+/* Game-specific colors */
+.blackjack {
+  background: linear-gradient(135deg, #1e5631 0%, #2d8659 100%);
+}
+
+.coinflip {
+  background: linear-gradient(135deg, #b7950b 0%, #d4ac0d 100%);
+}
+
+.mines {
+  background: linear-gradient(135deg, #922b21 0%, #c0392b 100%);
+}
+
+/* Floating particles */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  animation: float 4s infinite linear;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Card pulse animation */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 5px 25px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.game-card {
+  animation: pulse 3s infinite;
+  animation-delay: calc(var(--delay) * 1s);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .gaming-arena-banner {
+    height: auto;
+  }
+
+  .banner-content {
+    flex-direction: column;
+  }
+
+  .banner-text {
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .banner-title {
+    font-size: 1.8rem;
+  }
+
+  .banner-subtitle {
+    font-size: 1rem;
+  }
+
+  .game-cards {
+    padding: 0 20px 20px;
+  }
+
+  .game-card {
+    width: 90px;
+    height: 140px;
+    padding: 10px;
+  }
+
+  .game-icon {
+    font-size: 2rem;
+  }
+
+  .game-name {
+    font-size: 0.8rem;
   }
 }
 
