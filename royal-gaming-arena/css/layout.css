@@ -234,6 +234,24 @@ p {
   font-size: var(--font-size-3xl);
 }
 
+.coinflip-icon {
+  background: linear-gradient(135deg, #f9d423 0%, #ff4e50 100%);
+  position: relative;
+}
+.coinflip-icon::before {
+  content: "🪙";
+  font-size: var(--font-size-3xl);
+}
+
+.stock-icon {
+  background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+  position: relative;
+}
+.stock-icon::before {
+  content: "📈";
+  font-size: var(--font-size-3xl);
+}
+
 .game-card h3 {
   color: var(--color-neutral-100);
   margin-bottom: var(--space-2);

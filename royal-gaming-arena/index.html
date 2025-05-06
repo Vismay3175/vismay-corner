@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vismay's Royal Gaming Arena - Blackjack & Mines</title>
-    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/layout.css">
@@ -12,6 +11,7 @@
     <link rel="stylesheet" href="css/blackjack.css">
     <link rel="stylesheet" href="css/mines.css">
     <link rel="stylesheet" href="css/coinflip.css">
+    <link rel="stylesheet" href="css/stock.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
@@ -56,12 +56,18 @@
                             <p>Uncover cells without hitting mines to multiply your points.</p>
                             <button class="btn primary">Play Now</button>
                         </div>
-                        <!-- <div class="game-card" data-game="coinflip">
+                        <div class="game-card" data-game="coinflip">
                             <div class="game-icon coinflip-icon"></div>
                             <h3>Coin Flip</h3>
                             <p>Test your luck by betting on heads or tails.</p>
                             <button class="btn primary">Play Now</button>
-                        </div> -->
+                        </div>
+                        <div class="game-card" data-game="stock">
+                            <div class="game-icon stock-icon"></div>
+                            <h3>Stock Market</h3>
+                            <p>Watch the market rise and cash out before it crashes.</p>
+                            <button class="btn primary">Play Now</button>
+                        </div>
                     </div>
                 </div>
                 <div class="recent-games">
@@ -72,6 +78,7 @@
                 </div>
             </div>
 
+            <!-- Blackjack Screen -->
             <div id="blackjack-screen" class="screen">
                 <div class="game-header">
                     <button class="btn back-btn" data-action="back">Back</button>
@@ -115,6 +122,7 @@
                 </div>
             </div>
 
+            <!-- Mines Screen -->
             <div id="mines-screen" class="screen">
                 <div class="game-header">
                     <button class="btn back-btn" data-action="back">Back</button>
@@ -139,6 +147,12 @@
                             <label for="mines-bet">Bet:</label>
                             <input type="number" id="mines-bet" min="10" max="1000" step="10" value="50">
                         </div>
+                        <!-- <div class="quick-amounts">
+                            <button class="quick-amount" data-amount="10">10</button>
+                            <button class="quick-amount" data-amount="25">25</button>
+                            <button class="quick-amount" data-amount="50">50</button>
+                            <button class="quick-amount" data-amount="100">100</button>
+                        </div> -->
                         <button class="btn primary" id="btn-start-mines">Start Game</button>
                     </div>
                     <div class="mines-grid-container">
@@ -162,6 +176,7 @@
                 </div>
             </div>
 
+            <!-- Coin Flip Screen -->
             <div id="coinflip-screen" class="screen">
                 <div class="game-header">
                     <button class="btn back-btn" data-action="back">Back</button>
@@ -169,11 +184,18 @@
                     <div class="spacer"></div>
                 </div>
                 <div class="coinflip-game">
+                    <div class="coinflip-branding">Vismay's Royal Gaming Arena</div>
                     <div class="coinflip-settings">
                         <div class="bet-amount">
                             <label for="coinflip-bet">Bet Amount:</label>
-                            <input type="number" id="coinflip-bet" min="10" max="1000" step="10" value="50">
+                            <input type="number" id="coinflip-bet" min="10" max="1000">
                         </div>
+                        <!-- <div class="quick-amounts">
+                            <button class="quick-amount" data-amount="10">10</button>
+                            <button class="quick-amount" data-amount="25">25</button>
+                            <button class="quick-amount" data-amount="50">50</button>
+                            <button class="quick-amount" data-amount="100">100</button>
+                        </div> -->
                         <button class="btn primary" id="btn-start-coinflip">Start Game</button>
                     </div>
                     <div class="coin-container">
@@ -189,6 +211,49 @@
                         <button class="side-btn" id="btn-tails">
                             Tails
                         </button>
+                    </div>
+                    <div class="coinflip-result">
+                        <!-- Result will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stock Market Screen -->
+            <div id="stock-screen" class="screen">
+                <div class="game-header">
+                    <button class="btn back-btn" data-action="back">Back</button>
+                    <h2>Stock Market</h2>
+                    <div class="spacer"></div>
+                </div>
+                <div class="stock-game">
+                    <div class="stock-branding">Vismay's Royal Gaming Arena</div>
+                    <div class="stock-settings">
+                        <div class="amount-controls">
+                            <label for="stock-bet">Bet Amount:</label>
+                            <input type="number" id="stock-bet" class="amount-input" min="10" max="1000" step="10" value="50">
+                            <!-- <div class="quick-amounts">
+                                <button class="quick-amount" data-amount="10">10</button>
+                                <button class="quick-amount" data-amount="25">25</button>
+                                <button class="quick-amount" data-amount="50">50</button>
+                                <button class="quick-amount" data-amount="100">100</button>
+                            </div> -->
+                        </div>
+                        <div class="stock-controls">
+                            <button class="btn primary" id="btn-start-stock">Start Game</button>
+                            <button class="btn primary" id="btn-cashout-stock" disabled>Cashout</button>
+                        </div>
+                    </div>
+                    <div class="stock-chart-container">
+                        <div class="stock-info">
+                            <div class="stock-stat">
+                                <span class="stock-stat-label">Current Multiplier</span>
+                                <span class="stock-stat-value" id="stock-multiplier">1.00x</span>
+                            </div>
+                        </div>
+                        <canvas id="stock-chart"></canvas>
+                        <div class="stock-result">
+                            <!-- Result will be populated here -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -207,6 +272,7 @@
                     <button class="tab-btn active" data-tab="blackjack-rules">Blackjack Rules</button>
                     <button class="tab-btn" data-tab="mines-rules">Mines Rules</button>
                     <button class="tab-btn" data-tab="coinflip-rules">Coin Flip Rules</button>
+                    <button class="tab-btn" data-tab="stock-rules">Stock Market Rules</button>
                 </div>
                 <div class="tab-content active" id="blackjack-rules">
                     <h3>Blackjack Rules</h3>
@@ -240,6 +306,17 @@
                         <li>If you guess wrong, you lose your bet</li>
                     </ul>
                 </div>
+                <div class="tab-content" id="stock-rules">
+    <h3>Stock Market Rules</h3>
+    <p>Predict whether the market will go up or down!</p>
+    <ul>
+        <li>Choose your bet amount and select a direction (Up or Down)</li>
+        <li>The market will move between +100% and -100%</li>
+        <li>If you correctly predict the direction, you win a percentage of your bet equal to the final market movement</li>
+        <li>For example, if you bet 100 points on "Up" and the market ends at +75%, you win 75 points</li>
+        <li>If you predict incorrectly, you lose your entire bet</li>
+    </ul>
+</div>
             </div>
         </div>
     </div>
@@ -268,6 +345,7 @@
     <script src="js/blackjack/blackjack.js"></script>
     <script src="js/mines/mines.js"></script>
     <script src="js/coinflip/coinflip.js"></script>
+    <script src="js/stock/stock.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

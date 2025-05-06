@@ -294,7 +294,7 @@ const MinesState = {
 };
 
 // Coin flip game state
-const CoinFlipState = {
+let CoinFlipState = {
   bet: 0,
   selectedSide: null, // 'heads' or 'tails'
   gamePhase: 'betting', // betting, flipping, complete
