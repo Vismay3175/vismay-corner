@@ -20,6 +20,7 @@
     flex-wrap: wrap;
   }
   
+  /* Update the stock chart container to be more responsive */
   .stock-chart-container {
     position: relative;
     width: 100%;
@@ -29,6 +30,7 @@
     padding: var(--space-6);
     box-shadow: var(--shadow-lg);
     border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden; /* Prevent overflow */
   }
   
   .stock-chart {
@@ -270,7 +272,8 @@
   /* Responsive Adjustments */
   @media (max-width: 768px) {
     .stock-chart-container {
-      height: 300px;
+      height: 100%; /* Smaller height on mobile */
+      padding: var(--space-3); /* Less padding */
     }
   
     .stock-settings {
@@ -289,6 +292,18 @@
   
     .direction-buttons {
       flex-wrap: wrap;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .stock-chart-container {
+      height: 100%; /* Medium height on tablets */
+    }
+  }
+  
+  @media (min-width: 1025px) {
+    .stock-chart-container {
+      height: 100%; /* Full height on desktop */
     }
   }
   

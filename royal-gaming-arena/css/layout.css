@@ -252,6 +252,15 @@ p {
   font-size: var(--font-size-3xl);
 }
 
+.limbo-icon {
+  background: linear-gradient(135deg, #54d1f7 0%, #e77427 100%);
+  position: relative;
+}
+.limbo-icon::before {
+  content: "🟡";
+  font-size: var(--font-size-3xl);
+}
+
 .game-card h3 {
   color: var(--color-neutral-100);
   margin-bottom: var(--space-2);

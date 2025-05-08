@@ -199,6 +199,11 @@ function selectDirection(direction) {
 }
 
 // Start the stock game
+// Store the dynamic percentage at the beginning and reuse it
+let gameDynamicPercentage = null;
+// Track market shock events
+let marketShocks = [];
+
 function startStockGame() {
   if (isPlaying) return
 
@@ -222,6 +227,12 @@ function startStockGame() {
   graphPoints = []
   startTime = Date.now()
   currentPercentage = 0
+  
+  // Generate a dynamic percentage once at the beginning of the game
+  gameDynamicPercentage = generateDynamicPercentage()
+  
+  // Plan random market shocks (dramatic price movements)
+  marketShocks = generateMarketShocks(10); // 10 second game duration
 
   // Determine final market direction (random)
   // This will be the actual market movement, not necessarily what the player bet on
@@ -238,6 +249,45 @@ function startStockGame() {
   animate()
 }
 
+function generateDynamicPercentage() {
+  // Generate a random number between 0 and 1
+  const random = Math.random();
+  
+  // 10% chance of returning a high value (above 90%)
+  if (random < 0.1) {
+    // Return a value between 90% and 100%
+    return 90 + (Math.random() * 10);
+  } else {
+    // 90% chance of returning a value between 20% and 30%
+    return 20 + (Math.random() * 10);
+  }
+}
+
+// Generate market shocks (sudden price changes)
+function generateMarketShocks(duration) {
+  const shocks = [];
+  
+  // 50% chance to have a market shock
+  if (Math.random() < 0.5) {
+    // Place shock somewhere between 3-7 seconds (not too early, not too late)
+    const shockTime = 3 + Math.random() * 4;
+    
+    // Determine shock magnitude (dramatic drop or spike)
+    const isPositiveShock = Math.random() < 0.3; // 30% chance for positive shock
+    const shockMagnitude = isPositiveShock ? 
+      40 + Math.random() * 40 : // Positive shock (+40% to +80%)
+      -(40 + Math.random() * 60); // Negative shock (-40% to -100%)
+    
+    shocks.push({
+      time: shockTime,
+      magnitude: shockMagnitude,
+      duration: 0.5 + Math.random() * 1.5 // Shock lasts 0.5-2 seconds
+    });
+  }
+  
+  return shocks;
+}
+
 // Animation loop
 function animate() {
   const now = Date.now()
@@ -251,18 +301,34 @@ function animate() {
   }
 
   // Calculate current percentage (-100% to +100%)
-  // Using a sine wave with random noise for realistic market movement
   const progress = elapsed / duration
-  const baseMovement =
-    marketDirection === "up"
-      ? progress * 100 // Trend upward
-      : -progress * 100 // Trend downward
+  
+  // Calculate base movement
+  let baseMovement = marketDirection === "up"
+    ? progress * gameDynamicPercentage // Trend upward
+    : -progress * gameDynamicPercentage // Trend downward
+
+  // Apply market shock effect if active
+  let shockEffect = 0;
+  for (const shock of marketShocks) {
+    // Check if we're in a shock period
+    if (elapsed >= shock.time && elapsed <= shock.time + shock.duration) {
+      // Calculate how far into the shock we are (0-1)
+      const shockProgress = (elapsed - shock.time) / shock.duration;
+      
+      // Apply shock with a smooth entry and exit
+      // Using sine curve to create smooth transitions
+      const shockIntensity = Math.sin(shockProgress * Math.PI) * shock.magnitude;
+      shockEffect += shockIntensity;
+    }
+  }
 
   // Add some volatility
   const volatility = 30
   const noise = Math.sin(elapsed * 5) * volatility * (1 - progress)
 
-  currentPercentage = baseMovement + noise
+  // Combine all effects
+  currentPercentage = baseMovement + noise + shockEffect
 
   // Clamp between -100 and 100
   currentPercentage = Math.max(-100, Math.min(100, currentPercentage))
@@ -299,6 +365,9 @@ function endGame() {
   const playerWon =
     (selectedDirection === "up" && finalPercentage > 0) || (selectedDirection === "down" && finalPercentage < 0)
 
+    // Calculate the percentage-based amount
+  const percentageAmount = Math.floor((betAmount * Math.abs(finalPercentage)) / 100)
+
   // Calculate winnings
   let winnings = 0
   if (playerWon) {
@@ -326,6 +395,16 @@ function endGame() {
       percentage: Math.abs(finalPercentage).toFixed(2),
     })
   } else {
+    // For losses, deduct the percentage-based amount
+    // We already deducted the full bet at the start, so we need to return the remaining amount
+    const lossAmount = percentageAmount
+    const refundAmount = betAmount - lossAmount
+
+    // Return the portion of the bet that wasn't lost
+    if (refundAmount > 0) {
+      updatePlayerPoints(refundAmount)
+    }
+
     // Show loss message
     notifyError(
       `You lost! Market went ${finalPercentage > 0 ? "up" : "down"} by ${Math.abs(finalPercentage).toFixed(2)}%.`,
@@ -586,8 +665,17 @@ function renderEmptyChart() {
 // Resize canvas
 function resizeCanvas() {
   const container = stockCanvas.parentElement
-  stockCanvas.width = container.clientWidth - 20 // Adjust for padding
-  stockCanvas.height = container.clientHeight - 80 // Adjust for padding and info bar
+  const containerWidth = container.clientWidth
+  const containerHeight = container.clientHeight
+
+  // Set canvas dimensions to match container, accounting for padding
+  stockCanvas.width = containerWidth - 20 // Adjust for padding
+  stockCanvas.height = containerHeight - 60 // Adjust for padding and info bar
+
+  // Ensure minimum height
+  if (stockCanvas.height < 150) {
+    stockCanvas.height = 150
+  }
 
   if (!isPlaying) {
     renderEmptyChart()
@@ -600,5 +688,12 @@ function resizeCanvas() {
 document.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("stock-chart")) {
     initializeStock()
+  }
+})
+
+// Add window resize event listener to ensure canvas resizes properly
+window.addEventListener("resize", () => {
+  if (stockCanvas) {
+    resizeCanvas()
   }
 })

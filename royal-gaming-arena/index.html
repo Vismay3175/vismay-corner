@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/mines.css">
     <link rel="stylesheet" href="css/coinflip.css">
     <link rel="stylesheet" href="css/stock.css">
+    <link rel="stylesheet" href="css/limbo.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
@@ -66,6 +67,12 @@
                             <div class="game-icon stock-icon"></div>
                             <h3>Stock Market</h3>
                             <p>Watch the market rise and cash out before it crashes.</p>
+                            <button class="btn primary">Play Now</button>
+                        </div>
+                        <div class="game-card" data-game="limbo">
+                            <div class="game-icon limbo-icon"></div>
+                            <h3>Limbo</h3>
+                            <p>Set a target multiplier and see if the game result exceeds it.</p>
                             <button class="btn primary">Play Now</button>
                         </div>
                     </div>
@@ -257,6 +264,52 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Limbo Screen -->
+            <div id="limbo-screen" class="screen">
+                <div class="game-header">
+                    <button class="btn back-btn" data-action="back">Back</button>
+                    <h2>Limbo</h2>
+                    <div class="spacer"></div>
+                </div>
+                <div class="limbo-game">
+                    <div class="limbo-branding">Vismay's Royal Gaming Arena</div>
+                    <div class="limbo-settings">
+                        <div class="limbo-inputs">
+                            <div class="limbo-input-group">
+                                <label for="limbo-target">Target Multiplier</label>
+                                <input type="number" id="limbo-target" min="1.01" max="100" step="0.01" value="2.00">
+                            </div>
+                            <div class="limbo-input-group">
+                                <label for="limbo-bet">Bet Amount</label>
+                                <input type="number" id="limbo-bet" min="10" max="1000" step="10" value="50">
+                            </div>
+                        </div>
+                        <div class="limbo-buttons">
+                            <button class="btn primary limbo-bet-button" id="btn-limbo-bet">Bet</button>
+                            <button class="btn limbo-bet-button" id="btn-limbo-auto">Auto</button>
+                        </div>
+                    </div>
+                    <div class="limbo-container">
+                        <div class="limbo-payout-info">
+                            <div class="limbo-payout-item">
+                                <span class="limbo-payout-label">Payout</span>
+                                <span class="limbo-payout-value" id="limbo-payout">100.00</span>
+                            </div>
+                            <div class="limbo-payout-item">
+                                <span class="limbo-payout-label">Win Chance</span>
+                                <span class="limbo-payout-value" id="limbo-chance">49.50%</span>
+                            </div>
+                        </div>
+                        <div class="limbo-display">
+                            <div class="limbo-multiplier" id="limbo-multiplier">1.00x</div>
+                            <div class="limbo-progress">
+                                <div class="limbo-progress-bar" id="limbo-progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
 
         <div class="notification" id="notification">
@@ -273,6 +326,7 @@
                     <button class="tab-btn" data-tab="mines-rules">Mines Rules</button>
                     <button class="tab-btn" data-tab="coinflip-rules">Coin Flip Rules</button>
                     <button class="tab-btn" data-tab="stock-rules">Stock Market Rules</button>
+                    <button class="tab-btn" data-tab="limbo-rules">Limbo Rules</button>
                 </div>
                 <div class="tab-content active" id="blackjack-rules">
                     <h3>Blackjack Rules</h3>
@@ -317,6 +371,17 @@
         <li>If you predict incorrectly, you lose your entire bet</li>
     </ul>
 </div>
+<div class="tab-content" id="limbo-rules">
+    <h3>Limbo Rules</h3>
+    <p>Set a target multiplier and see if the game result exceeds it!</p>
+    <ul>
+        <li>Choose your bet amount and target multiplier</li>
+        <li>The higher your target multiplier, the lower your chance of winning</li>
+        <li>If the game result is equal to or higher than your target, you win</li>
+        <li>Your payout is your bet amount multiplied by your target multiplier</li>
+        <li>The maximum possible multiplier is 100x</li>
+    </ul>
+</div>
             </div>
         </div>
     </div>
@@ -346,6 +411,7 @@
     <script src="js/mines/mines.js"></script>
     <script src="js/coinflip/coinflip.js"></script>
     <script src="js/stock/stock.js"></script>
+    <script src="js/limbo/limbo.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
