@@ -490,7 +490,7 @@ $(document).ready(function () {
     });
   }
 
-  type();
+  // type();
 
   // Smooth scrolling with progress indication
   $('a[href^="#"]').on("click", function (e) {
