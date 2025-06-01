@@ -111,6 +111,249 @@ document.addEventListener('DOMContentLoaded', function() {
       card.style.animation = `pulse 3s infinite ${index * 0.5}s`;
   });
 });
+
+// Professional Hero Section JavaScript
+
+// Typing Animation for Role
+function initTypingAnimation() {
+  const roles = ["Laravel Development",
+    "CMS/CRM Development",
+    "Admin Panel & API Development",
+    "Objective clarity"]
+  const typedRoleElement = document.getElementById("typedRole")
+  let currentRoleIndex = 0
+  let currentCharIndex = 0
+  let isDeleting = false
+
+  function typeRole() {
+    const currentRole = roles[currentRoleIndex]
+
+    if (isDeleting) {
+      typedRoleElement.textContent = currentRole.substring(0, currentCharIndex - 1)
+      currentCharIndex--
+    } else {
+      typedRoleElement.textContent = currentRole.substring(0, currentCharIndex + 1)
+      currentCharIndex++
+    }
+
+    let typeSpeed = isDeleting ? 100 : 150
+
+    if (!isDeleting && currentCharIndex === currentRole.length) {
+      typeSpeed = 2000 // Pause at end
+      isDeleting = true
+    } else if (isDeleting && currentCharIndex === 0) {
+      isDeleting = false
+      currentRoleIndex = (currentRoleIndex + 1) % roles.length
+      typeSpeed = 500 // Pause before next word
+    }
+
+    setTimeout(typeRole, typeSpeed)
+  }
+
+  typeRole()
+}
+
+// Counter Animation
+function animateCounters() {
+  const counters = document.querySelectorAll(".achievement-number")
+
+  counters.forEach((counter) => {
+    const target = Number.parseInt(counter.getAttribute("data-target"))
+    const increment = target / 100
+    let current = 0
+
+    const updateCounter = () => {
+      if (current < target) {
+        current += increment
+        counter.textContent = Math.ceil(current)
+        setTimeout(updateCounter, 20)
+      } else {
+        counter.textContent = target
+      }
+    }
+
+    updateCounter()
+  })
+}
+
+// Particle Animation
+function createParticles() {
+  const particlesContainer = document.getElementById("heroParticles")
+  if (!particlesContainer) return
+
+  function createParticle() {
+    const particle = document.createElement("div")
+    particle.className = "particle"
+    particle.style.cssText = `
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: ${Math.random() > 0.5 ? "#ff1493" : "#ff6b6b"};
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0;
+      left: ${Math.random() * 100}%;
+      animation: floatParticle ${15 + Math.random() * 10}s linear infinite;
+      animation-delay: ${Math.random() * 5}s;
+    `
+
+    particlesContainer.appendChild(particle)
+
+    // Remove particle after animation
+    setTimeout(() => {
+      if (particle.parentNode) {
+        particle.parentNode.removeChild(particle)
+      }
+    }, 25000)
+  }
+
+  // Create particles periodically
+  setInterval(createParticle, 2000)
+
+  // Create initial particles
+  for (let i = 0; i < 10; i++) {
+    setTimeout(createParticle, i * 200)
+  }
+}
+
+// Smooth Scroll for CTA buttons
+function initSmoothScroll() {
+  const ctaButton = document.querySelector('.btn-primary-hero[href="#projects"]')
+  const scrollIndicator = document.querySelector(".scroll-indicator")
+
+  function smoothScrollTo(target) {
+    const targetElement = document.querySelector(target)
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      })
+    }
+  }
+
+  if (ctaButton) {
+    ctaButton.addEventListener("click", (e) => {
+      e.preventDefault()
+      smoothScrollTo("#projects")
+    })
+  }
+
+  if (scrollIndicator) {
+    scrollIndicator.addEventListener("click", () => {
+      smoothScrollTo("#skills")
+    })
+  }
+}
+
+// Skill Tags Hover Effect
+function initSkillTagsEffect() {
+  const skillTags = document.querySelectorAll(".skill-tag")
+
+  skillTags.forEach((tag) => {
+    tag.addEventListener("mouseenter", () => {
+      tag.style.transform = "translateY(-2px) scale(1.05)"
+    })
+
+    tag.addEventListener("mouseleave", () => {
+      tag.style.transform = "translateY(0) scale(1)"
+    })
+  })
+}
+
+// Intersection Observer for Animations
+function initScrollAnimations() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px",
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (entry.target.classList.contains("achievement-number")) {
+          animateCounters()
+        }
+      }
+    })
+  }, observerOptions)
+
+  // Observe achievement numbers
+  const achievementNumbers = document.querySelectorAll(".achievement-number")
+  achievementNumbers.forEach((number) => observer.observe(number))
+}
+
+// Social Links Analytics (Optional)
+function initSocialTracking() {
+  const socialLinks = document.querySelectorAll(".social-link")
+
+  socialLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const platform = link.href.includes("github")
+        ? "GitHub"
+        : link.href.includes("linkedin")
+          ? "LinkedIn"
+          : "Instagram"
+
+      // Add visual feedback
+      link.style.transform = "scale(0.95)"
+      setTimeout(() => {
+        link.style.transform = ""
+      }, 150)
+
+      // You can add analytics tracking here
+      console.log(`Social link clicked: ${platform}`)
+    })
+  })
+}
+
+// Initialize all hero functionality
+function initProfessionalHero() {
+  // Wait for DOM to be ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      initTypingAnimation()
+      createParticles()
+      initSmoothScroll()
+      initSkillTagsEffect()
+      initScrollAnimations()
+      initSocialTracking()
+    })
+  } else {
+    initTypingAnimation()
+    createParticles()
+    initSmoothScroll()
+    initSkillTagsEffect()
+    initScrollAnimations()
+    initSocialTracking()
+  }
+}
+
+// Start the professional hero
+initProfessionalHero()
+
+// Add CSS animation keyframes dynamically
+const style = document.createElement("style")
+style.textContent = `
+  @keyframes floatParticle {
+    0% {
+      transform: translateY(100vh) translateX(0px);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100px) translateX(100px);
+      opacity: 0;
+    }
+  }
+`
+document.head.appendChild(style)
+
+
 $(document).ready(function () {
   let theme = localStorage.getItem("selectedTheme");
   if (theme && theme == "royal-blue") {
@@ -188,29 +431,29 @@ $(document).ready(function () {
   let erasingDelay = 50;
   let newTextDelay = 2000;
 
-  function type() {
-    const currentText = texts[textIndex];
-    const typedText = $(".typed-text");
+  // function type() {
+  //   const currentText = texts[textIndex];
+  //   const typedText = $(".typed-text");
 
-    if (isDeleting) {
-      typedText.text(currentText.substring(0, charIndex - 1));
-      charIndex--;
-    } else {
-      typedText.text(currentText.substring(0, charIndex + 1));
-      charIndex++;
-    }
+  //   if (isDeleting) {
+  //     typedText.text(currentText.substring(0, charIndex - 1));
+  //     charIndex--;
+  //   } else {
+  //     typedText.text(currentText.substring(0, charIndex + 1));
+  //     charIndex++;
+  //   }
 
-    if (!isDeleting && charIndex === currentText.length) {
-      isDeleting = true;
-      setTimeout(type, newTextDelay);
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      textIndex = (textIndex + 1) % texts.length;
-      setTimeout(type, typingDelay);
-    } else {
-      setTimeout(type, isDeleting ? erasingDelay : typingDelay);
-    }
-  }
+  //   if (!isDeleting && charIndex === currentText.length) {
+  //     isDeleting = true;
+  //     setTimeout(type, newTextDelay);
+  //   } else if (isDeleting && charIndex === 0) {
+  //     isDeleting = false;
+  //     textIndex = (textIndex + 1) % texts.length;
+  //     setTimeout(type, typingDelay);
+  //   } else {
+  //     setTimeout(type, isDeleting ? erasingDelay : typingDelay);
+  //   }
+  // }
 
   // Add to scroll event handling
   $(window).on("scroll", function () {

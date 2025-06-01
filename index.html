@@ -65,10 +65,10 @@
             </li>
           </ul>
           <!-- Color Theme Toggle Switch -->
-          <div class="form-check form-switch ms-3">
+          <!-- <div class="form-check form-switch ms-3">
             <input class="form-check-input royal-blue" type="checkbox" id="themeSwitch" />
             <label class="form-check-label" for="themeSwitch">Royal Blue / Pink</label>
-          </div>
+          </div> -->
         </div>
       </div>
     </nav>
@@ -80,77 +80,146 @@
               <span id="closeModal" class="custom-close">&times;</span>
           </div>
           <div class="custom-modal-body">
-              <img id="modalImage" src="" alt="" class="custom-modal-img" />
+              <img id="modalImage" src="/placeholder.svg" alt="" class="custom-modal-img" />
           </div>
       </div>
     </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="mt-3 hero">
-      <div class="container h-100">
-        <div class="row h-100 align-items-center">
-          <div class="col-12 text-center">
-            <div class="profile-image">
-              <img
-                src="https://peach-oralia-94.tiiny.site/1720679828130.jpg"
-                alt="Vismay Oza"
-                class="rounded-circle mb-4"
-              />
+    <!-- Hero Section - Option 1: Split-Screen Professional Layout -->
+<section id="home" class="hero-professional">
+  <div class="hero-particles" id="heroParticles"></div>
+  
+  <div class="container-fluid h-100">
+    <div class="row h-100 align-items-center" style="padding: 0 5%;">
+      <!-- Left Side - Content -->
+      <div class="col-lg-6 hero-content-left">
+        <div class="hero-text-content">
+          <!-- Professional Badge -->
+          <div class="professional-badge">
+            <span class="status-indicator"></span>
+            Available for Work
+          </div>
+          
+          <!-- Main Heading -->
+          <h1 class="hero-main-title">
+            Hi, I'm <span class="highlight-name">Vismay Oza</span>
+          </h1>
+          
+          <!-- Dynamic Role -->
+          <div class="role-container">
+            <h2 class="role-text">
+              <span class="role-prefix">I've a grip on</span>
+              <span class="typed-text" id="typedRole"></span>
+              <!-- <span class="role-suffix">Developer</span> -->
+            </h2>
+          </div>
+          
+          <!-- Professional Description -->
+          <p class="hero-description">
+            Passionate Laravel developer with 2+ years of experience crafting scalable web applications. 
+            Specialized in building robust backend systems and intuitive user interfaces.
+          </p>
+          
+          <!-- Key Skills Tags -->
+          <div class="skills-tags">
+            <span class="skill-tag">Laravel</span>
+            <span class="skill-tag">PHP</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">API Development</span>
+          </div>
+          
+          <!-- CTA Buttons -->
+          <div class="hero-actions">
+            <a href="#projects" class="btn-primary-hero">
+              <i class="bi bi-briefcase"></i>
+              View My Work
+            </a>
+            <a href="https://peach-oralia-94.tiiny.site/Vismay-Oza-resume.jpg" class="btn-secondary-hero" download>
+              <i class="bi bi-download"></i>
+              Download CV
+            </a>
+          </div>
+          
+          <!-- Social Links -->
+          <div class="social-links-hero">
+            <a href="https://github.com/Vismay3175" target="_blank" class="social-link">
+              <i class="bi bi-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/vismay-oza/" target="_blank" class="social-link">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/vismay_.3175/#" target="_blank" class="social-link">
+              <i class="bi bi-instagram"></i>
+            </a>
+          </div>
+          
+          <!-- Social Proof -->
+          <div class="social-proof">
+            <div class="achievement-item">
+              <span class="achievement-number counter-value" data-target="8">0</span>
+              <span class="achievement-label">Projects</span>
             </div>
-            <h2 class="name-title mb-4">Vismay Oza</h2>
-            <div class="typing-container">
-              <h1 class="display-4 mb-4">
-                I have a grip on <span class="typed-text"></span>
-              </h1>
-              <div class="personal-details mt-5">
-                <div class="row text-start">
-                  <div class="col-md-6 col-12 mb-3">
-                    <i class="bi bi-calendar2-heart text-pink me-2"></i>
-                    <strong>Date of Birth:</strong> 31<sup>st </sup>&nbsp; July
-                    2005
-                  </div>
-                  <div class="col-md-6 col-12 mb-3">
-                    <i class="bi bi-geo-alt text-pink me-2"></i>
-                    <strong>Location:</strong> Ahmedabad, India
-                  </div>
-                  <div class="col-md-6 col-12 mb-3">
-                    <i class="bi bi-translate text-pink me-2"></i>
-                    <strong>Languages:</strong> English, Hindi, Gujarati
-                  </div>
-                  <div class="col-md-6 col-12 mb-3">
-                    <i class="bi bi-chat-quote text-pink me-2"></i>
-                    <strong>Quote:</strong> "Web dreams realized via Laravel."
-                  </div>
-                </div>
-              </div>
+            <div class="achievement-item">
+              <span class="achievement-number counter-value" data-target="2">0</span>
+              <span class="achievement-label">Years Exp</span>
             </div>
-            <!-- <p class="lead mb-4">
-              Crafting robust web applications with Laravel & jQuery
-            </p> -->
-            <div class="mt-5 social-links">
-              <a
-                href="https://github.com/Vismay3175"
-                class="btn btn-outline-light mx-2"
-                ><i class="bi bi-github"></i
-              ></a>
-              <a
-                href="https://www.linkedin.com/in/vismay-oza/"
-                class="btn btn-outline-light mx-2"
-                ><i class="bi bi-linkedin"></i
-              ></a>
-              <!-- <a href="#" class="btn btn-outline-light mx-2"
-                ><i class="bi bi-twitter-x"></i
-              ></a> -->
-              <a
-                href="https://www.instagram.com/vismay_.3175/#"
-                class="btn btn-outline-light mx-2"
-                ><i class="bi bi-instagram"></i
-              ></a>
+            <div class="achievement-item">
+              <span class="achievement-number counter-value" data-target="6">0</span>
+              <span class="achievement-label">Technologies</span>
             </div>
           </div>
         </div>
       </div>
-    </section>
+      
+      <!-- Right Side - Visual -->
+      <div class="col-lg-6 hero-visual-right">
+        <div class="hero-visual-container">
+          <!-- 3D Card Effect -->
+          <div class="profile-card-3d">
+            <div class="card-inner">
+              <div class="profile-image-container">
+                <img src="https://peach-oralia-94.tiiny.site/1720679828130.jpg" alt="Vismay Oza" class="profile-image-pro">
+                <div class="image-overlay"></div>
+              </div>
+              
+              <!-- Floating Info Cards -->
+              <div class="floating-info-card card-1">
+                <i class="bi bi-code-slash"></i>
+                <span>Clean Code</span>
+              </div>
+              
+              <div class="floating-info-card card-2">
+                <i class="bi bi-lightning"></i>
+                <span>Fast Delivery</span>
+              </div>
+              
+              <div class="floating-info-card card-3">
+                <i class="bi bi-shield-check"></i>
+                <span>Secure Apps</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Background Elements -->
+          <div class="bg-elements">
+            <div class="element element-1"></div>
+            <div class="element element-2"></div>
+            <div class="element element-3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator">
+    <div class="scroll-text">Scroll Down</div>
+    <div class="scroll-arrow">
+      <i class="bi bi-chevron-down"></i>
+    </div>
+  </div>
+</section>
 
     <!-- Rest of the sections remain the same -->
     <!-- Skills Section -->
@@ -705,8 +774,7 @@
                 <img src="https://peach-oralia-94.tiiny.site/Vismay-Basic-PHP-Basic-Quiz-CareerNinjaLearnTube-Certificate.jpg" alt="PHP Basic Quiz, CareerNinja" data-title="PHP Basic Quiz, CareerNinja" />
               </div>
               <div class="swiper-slide">
-                <!-- <img src="./assets/education-docs/Vismay Oza JS LU Certificate.jpg" alt="JavaScript Zero to Hero, LetsUpgrade" data-title="JavaScript" /> -->
-                <img src="https://peach-oralia-94.tiiny.site/Vismay-Oza-JS-LU-Certificate.jpg" alt="JavaScript Zero to Hero, LetsUpgrade" data-title="JavaScript" />
+                <!-- <img src="./assets/education-docs/Vismay Oza JS LU Certificate.jpg" alt="JavaScript Zero to Hero, LetsUpgrade" data-title="JavaScript" />
               </div>
               <div class="swiper-slide">
                 <!-- <img src="./assets/education-docs/Vismay Oza Laravel Basic Quiz CareerNinja(LearnTube) Certificate.jpg" alt="Laravel Basic Quiz, CareerNinja" data-title="Laravel Basic Quiz, CareerNinja" /> -->
