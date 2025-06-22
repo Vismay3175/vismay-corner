@@ -2887,7 +2887,7 @@ section:nth-child(even) {
   /* right: -25px;
   position: fixed !important; */
   position: relative !important;
-  margin-bottom: 5%;
+  margin-top: 5%;
 }
 
 .education-item:nth-child(even) .education-icon {
@@ -2996,6 +2996,11 @@ section:nth-child(even) {
 
   .achievement-badge {
     font-size: 0.8rem;
+  }
+
+  .education-item:nth-child(odd) .education-icon,
+  .education-item:nth-child(even) .education-icon {
+    margin-bottom: 5%;
   }
 }
 
