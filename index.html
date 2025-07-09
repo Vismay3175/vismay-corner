@@ -74,15 +74,35 @@
       </div>
     </nav>
 
-    <div id="customModal" class="custom-modal">
-      <div class="custom-modal-content">
-          <div class="custom-modal-header">
-            <h5 id="modalTitle" class="custom-modal-title"></h5>
-              <span id="closeModal" class="custom-close">&times;</span>
-          </div>
-          <div class="custom-modal-body">
-              <img id="modalImage" src="" alt="" class="custom-modal-img" />
-          </div>
+    <!-- Enhanced Image Modal -->
+    <div id="imageModal" class="image-modal">
+      <!-- Close Button -->
+      <span id="modalClose" class="modal-close-btn">×</span>
+
+      <!-- Navigation Arrows -->
+      <a id="modalPrev" class="modal-nav-btn prev">❮</a>
+      <a id="modalNext" class="modal-nav-btn next">❯</a>
+
+      <!-- Modal Content (Image and Caption) -->
+      <div class="image-modal-content">
+        <img id="modalImage" class="modal-image" src="" alt="Certificate Image">
+        <div class="modal-caption-container">
+            <div id="modalCaption" class="modal-caption"></div>
+            <div class="modal-controls">
+                <a id="modalRotateLeft" class="modal-control-btn" title="Rotate Left">
+                    <i class="bi bi-arrow-counterclockwise"></i>
+                </a>
+                <a id="modalRotateRight" class="modal-control-btn" title="Rotate Right">
+                    <i class="bi bi-arrow-clockwise"></i>
+                </a>
+                <!-- <a id="modalFlipVertical" class="modal-control-btn" title="Flip Vertical">
+                    <i class="bi bi-arrow-up-down"></i>
+                </a> -->
+                <a id="modalDownload" href="#" class="modal-download-btn" download>
+                    <i class="bi bi-download"></i> Download
+                </a>
+            </div>
+        </div>
       </div>
     </div>
 
@@ -454,7 +474,7 @@
                 Currently pursuing B.Tech in Information Technology, specializing in Laravel and web development. Skilled in integrating Pusher for real-time communication, WebSockets for bidirectional data exchange, and Stripe for secure payments. Experienced in building and managing Admin Panels for efficient content and user management.
               </p>
               <div class="education-achievements">
-                <span class="achievement-badge">TBA CGPA</span>
+                <span class="achievement-badge">Current CGPA : 8.53 (6th sem)</span>
               </div>
             </div>
           </div>
@@ -748,7 +768,7 @@
               <h1 class="ai-glitch-text" data-text="⚡ AI POWERED ⚡">⚡ AI POWERED ⚡</h1>
               <h2 class="ai-subtitle-text">Web Dev Showcase 🚀</h2>
               <p class="ai-concept-note">
-                  📝 <strong>PSA:</strong> Ideas = Mine 💡, Code = 95% AI 🤖.  
+                  📝 <strong>PSA:</strong> Ideas = Mine 💡, Code = 85% AI 🤖.  
                   Think of me as the brain 🧠, and AI as the brawn 💪!
               </p>
               <div class="ai-loading-bar">
@@ -764,8 +784,68 @@
 
       <!-- Main Projects Content -->
       <div class="ai-container ai-projects-content" id="aiProjectsContent">
-          <h2 class="ai-primary-text-color ai-text-center ai-mb-5 ai-section-title">AI-Powered Featured Projects</h2>
+          <h2 class="ai-primary-text-color ai-text-center ai-mb-5 ai-section-title">AI-Powered Demo Projects</h2>
           <div class="ai-row ai-g-4">
+
+            <!-- Work Bestie -->
+            <div class="ai-col-md-6 ai-col-lg-4">
+                <div class="ai-project-card">
+                    <div class="ai-card-glow"></div>
+                    <div class="ai-project-image">
+                        <div class="ai-icon-overlay">
+                            <div class="ai-icon-brain">🧠</div>
+                        </div>
+                        <img src="assets/images/projects/AI-featured/work-bestie.png" alt="Work Bestie" />
+                        <span class="ai-project-type">Productivity AI</span>
+                    </div>
+                    <div class="ai-project-content">
+                        <h4 class="ai-primary-text-color">Work Bestie</h4>
+                        <p>Smart AI assistant for freelancer productivity—offers task recommendations, scheduling, and automated follow-ups powered by NLP and ML.</p>
+                        <div class="ai-tech-stack">
+                            <span class="ai-badge ai-ai-badge">React</span>
+                            <span class="ai-badge ai-ai-badge">OpenAI API</span>
+                            <span class="ai-badge ai-ai-badge">WebSocket</span>
+                        </div>
+                        <div class="ai-project-footer">
+                            <a href="https://work-bestie.vercel.app/" class="ai-btn ai-ai-project-btn ai-view-details">
+                                <span class="ai-btn-text">View Details</span>
+                                <span class="ai-btn-arrow">&#8594;</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ai-card-hover-effect"></div>
+                </div>
+            </div>
+
+            <!-- Custom Resume Master -->
+            <div class="ai-col-md-6 ai-col-lg-4">
+                <div class="ai-project-card">
+                    <div class="ai-card-glow"></div>
+                    <div class="ai-project-image">
+                        <div class="ai-icon-overlay">
+                            <div class="ai-icon-document">📄</div>
+                        </div>
+                        <img src="assets/images/projects/AI-featured/custom-resume.png" alt="Custom Resume Master" />
+                        <span class="ai-project-type">AI Tool</span>
+                    </div>
+                    <div class="ai-project-content">
+                        <h4 class="ai-primary-text-color">Custom Resume Master</h4>
+                        <p>An AI-driven resume builder that analyzes user input to suggest format optimizations and export polished PDF resumes.</p>
+                        <div class="ai-tech-stack">
+                            <span class="ai-badge ai-ai-badge">React</span>
+                            <span class="ai-badge ai-ai-badge">Tailwind CSS</span>
+                            <span class="ai-badge ai-ai-badge">GPT</span>
+                        </div>
+                        <div class="ai-project-footer">
+                            <a href="https://custom-resume-master.vercel.app/" class="ai-btn ai-ai-project-btn ai-view-details">
+                                <span class="ai-btn-text">View Details</span>
+                                <span class="ai-btn-arrow">&#8594;</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ai-card-hover-effect"></div>
+                </div>
+            </div>
 
             <!-- Runner Game -->
             <div class="ai-col-md-6 ai-col-lg-4">
@@ -856,65 +936,6 @@
                     <div class="ai-card-hover-effect"></div>
                 </div>
             </div>
-            <!-- Work Bestie -->
-            <div class="ai-col-md-6 ai-col-lg-4">
-                <div class="ai-project-card">
-                    <div class="ai-card-glow"></div>
-                    <div class="ai-project-image">
-                        <div class="ai-icon-overlay">
-                            <div class="ai-icon-brain">🧠</div>
-                        </div>
-                        <img src="assets/images/projects/AI-featured/work-bestie.png" alt="Work Bestie" />
-                        <span class="ai-project-type">Productivity AI</span>
-                    </div>
-                    <div class="ai-project-content">
-                        <h4 class="ai-primary-text-color">Work Bestie</h4>
-                        <p>Smart AI assistant for freelancer productivity—offers task recommendations, scheduling, and automated follow-ups powered by NLP and ML.</p>
-                        <div class="ai-tech-stack">
-                            <span class="ai-badge ai-ai-badge">React</span>
-                            <span class="ai-badge ai-ai-badge">OpenAI API</span>
-                            <span class="ai-badge ai-ai-badge">WebSocket</span>
-                        </div>
-                        <div class="ai-project-footer">
-                            <a href="https://work-bestie.vercel.app/" class="ai-btn ai-ai-project-btn ai-view-details">
-                                <span class="ai-btn-text">View Details</span>
-                                <span class="ai-btn-arrow">&#8594;</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ai-card-hover-effect"></div>
-                </div>
-            </div>
-
-            <!-- Custom Resume Master -->
-            <div class="ai-col-md-6 ai-col-lg-4">
-                <div class="ai-project-card">
-                    <div class="ai-card-glow"></div>
-                    <div class="ai-project-image">
-                        <div class="ai-icon-overlay">
-                            <div class="ai-icon-document">📄</div>
-                        </div>
-                        <img src="assets/images/projects/AI-featured/custom-resume.png" alt="Custom Resume Master" />
-                        <span class="ai-project-type">AI Tool</span>
-                    </div>
-                    <div class="ai-project-content">
-                        <h4 class="ai-primary-text-color">Custom Resume Master</h4>
-                        <p>An AI-driven resume builder that analyzes user input to suggest format optimizations and export polished PDF resumes.</p>
-                        <div class="ai-tech-stack">
-                            <span class="ai-badge ai-ai-badge">React</span>
-                            <span class="ai-badge ai-ai-badge">Tailwind CSS</span>
-                            <span class="ai-badge ai-ai-badge">GPT</span>
-                        </div>
-                        <div class="ai-project-footer">
-                            <a href="https://custom-resume-master.vercel.app/" class="ai-btn ai-ai-project-btn ai-view-details">
-                                <span class="ai-btn-text">View Details</span>
-                                <span class="ai-btn-arrow">&#8594;</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ai-card-hover-effect"></div>
-                </div>
-            </div>
           </div>
       </div>
   </section>
@@ -988,6 +1009,9 @@
               <div class="swiper-slide">
                 <!-- <img src="./assets/education-docs/Vismay Oza C&C++ certificate.jpg" alt="C&C++ Course Completion, KICT" data-title="C&C++ Course Completion, KICT" /> -->
                 <img src="assets/images/documents/Vismay-Oza-CC-certificate.jpg" alt="C&C++ Course Completion, KICT" data-title="C&C++ Course Completion, KICT" />
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/images/documents/Vismay-Oza-GDG-Gandhinagar-Workshop.jpeg" alt="ADK, A2A, MCP & RAG on Google cloud, Google Developer Groups - Gandhinagar" data-title="ADK, A2A, MCP & RAG on Google cloud, GDG - Gandhinagar" />
               </div>
               <div class="swiper-slide">
                 <!-- <img src="./assets/education-docs/data-analysis-using-python.png" alt="Data Analysis with Python, IBM" data-title="Data Analysis with Python, IBM" /> -->

@@ -1862,6 +1862,219 @@ section:nth-child(even) {
     position: relative;
 }
 
+/* --- Enhanced Image Modal Styles --- */
+
+.image-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1060; /* Higher than navbar */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(10, 25, 47, 0.9); /* A dark, royal blueish overlay */
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.image-modal.show {
+  display: block;
+  opacity: 1;
+}
+
+.image-modal-content {
+  position: relative;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 900px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The Image itself */
+.modal-image {
+  display: block;
+  max-width: 100%;
+  max-height: 85vh; /* Leave space for caption */
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transform: scale(0.8);
+  /* transition: transform 0.4s ease; */
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.image-modal.show .modal-image {
+  transform: scale(1);
+}
+
+/* Close Button */
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 50px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+  z-index: 1061;
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  color: #bbb;
+  text-decoration: none;
+}
+
+/* Next & previous buttons */
+.modal-nav-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  transition: 0.4s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1061;
+}
+
+.modal-nav-btn.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.modal-nav-btn:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Caption and Download Container */
+.modal-caption-container {
+  text-align: center;
+  padding: 15px 10px;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.modal-caption {
+  color: #ccc;
+  font-size: 16px;
+  font-weight: 500;
+  flex-grow: 1;
+  text-align: left;
+}
+
+/* Download Button */
+.modal-download-btn {
+  background: var(--primary-color);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-download-btn:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+  color: white;
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+  .modal-image {
+    max-height: 75vh;
+  }
+  .modal-caption-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .modal-caption {
+    text-align: center;
+  }
+}
+
+/* Container for all action buttons */
+.modal-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto; /* Pushes controls to the right */
+}
+
+/* Styling for the new rotation/flip buttons */
+.modal-control-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #f1f1f1;
+  padding: 8px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.modal-control-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  color: white;
+}
+
+/* Ensure the main download button still stands out */
+.modal-download-btn {
+  background: var(--primary-color);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-download-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Responsive adjustments for controls */
+@media (max-width: 768px) {
+  .modal-caption-container {
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 10px;
+  }
+  .modal-caption {
+    text-align: center;
+  }
+  .modal-controls {
+    margin-left: 0;
+  }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .gaming-arena-banner {
