@@ -232,34 +232,64 @@
                     <h2>Stock Market</h2>
                     <div class="spacer"></div>
                 </div>
-                <div class="stock-game">
-                    <div class="stock-branding">Vismay's Royal Gaming Arena</div>
-                    <div class="stock-settings">
-                        <div class="amount-controls">
-                            <label for="stock-bet">Bet Amount:</label>
-                            <input type="number" id="stock-bet" class="amount-input" min="10" max="1000" step="10" value="50">
-                            <!-- <div class="quick-amounts">
-                                <button class="quick-amount" data-amount="10">10</button>
-                                <button class="quick-amount" data-amount="25">25</button>
-                                <button class="quick-amount" data-amount="50">50</button>
-                                <button class="quick-amount" data-amount="100">100</button>
-                            </div> -->
-                        </div>
-                        <div class="stock-controls">
-                            <button class="btn primary" id="btn-start-stock">Start Game</button>
-                            <button class="btn primary" id="btn-cashout-stock" disabled>Cashout</button>
-                        </div>
-                    </div>
-                    <div class="stock-chart-container">
-                        <div class="stock-info">
-                            <div class="stock-stat">
-                                <span class="stock-stat-label">Current Multiplier</span>
-                                <span class="stock-stat-value" id="stock-multiplier">1.00x</span>
+                
+                <div class="stock-game-container">
+                    <!-- LEFT: CONTROLS PANEL -->
+                    <div class="stock-controls-panel">
+                        <div class="control-group">
+                            <label for="stock-bet">Bet Amount</label>
+                            <div class="amount-input-group">
+                                <span class="currency-icon">♦</span>
+                                <input type="number" id="stock-bet" class="amount-input" min="10" max="1000" step="10" value="50">
                             </div>
                         </div>
+
+                        <div class="control-group">
+                            <div class="quick-bet-group">
+                                <button class="btn-subtle" data-action="bet-half">1/2</button>
+                                <button class="btn-subtle" data-action="bet-double">2x</button>
+                                <button class="btn-subtle" data-action="bet-min">Min</button>
+                                <button class="btn-subtle" data-action="bet-max">Max</button>
+                            </div>
+                        </div>
+
+                        <div class="control-group direction-group">
+                            <button class="btn direction-btn up" id="btn-direction-up">
+                                <span class="icon">▲</span> Up
+                            </button>
+                            <button class="btn direction-btn down" id="btn-direction-down">
+                                <span class="icon">▼</span> Down
+                            </button>
+                        </div>
+
+                        <div class="action-group">
+                            <button class="btn primary place-bet-btn" id="btn-start-stock">Place Bet</button>
+                        </div>
+
+                        <div class="stock-history-container">
+                            <h3>Recent Results</h3>
+                            <div class="stock-history" id="stock-history"></div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT: CHART PANEL -->
+                    <div class="stock-chart-panel">
+                        <div class="stock-branding">Vismay's Royal Gaming Arena</div>
+                        <div class="stock-info">
+                            <span class="stock-stat-label">Current Value</span>
+                            <span class="stock-stat-value" id="stock-multiplier">+0.00%</span>
+                        </div>
                         <canvas id="stock-chart"></canvas>
-                        <div class="stock-result">
-                            <!-- Result will be populated here -->
+                        <div class="stock-result" id="stock-result"></div>
+                        <div class="stock-view-controls">
+                            <div class="chart-type-selector">
+                                <button class="btn view-btn active" data-chart-type="line">Line</button>
+                                <button class="btn view-btn" data-chart-type="candlestick">Candlestick</button>
+                                <button class="btn view-btn" data-chart-type="history">History View</button>
+                            </div>
+                            <div class="backtest-controls" id="backtest-controls" style="display: none;">
+                                <span id="backtest-info">Showing Last 10</span>
+                            </div>
                         </div>
                     </div>
                 </div>

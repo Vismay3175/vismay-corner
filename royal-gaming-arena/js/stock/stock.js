@@ -1,699 +1,397 @@
 /**
- * Stock market game implementation
+ * Stock Market Game - VRA Edition
+ * FINAL, STABLE & POLISHED: This version fixes all known bugs including chart visibility,
+ * history saving, and introduces dynamic Y-axis scaling for a superior user experience.
  */
 
-let stockCanvas
-let ctx
-let animationFrame
-let graphPoints = []
-let isPlaying = false
-let startTime
-let marketDirection
-let currentPercentage = 0
-let selectedDirection = null
-let betAmount = 0
-let stockBetInput
-let startStockButton
-// let cashoutButton
-// let currentMultiplierElement
-// let stockHistoryContainer
+// --- DOM Elements & State ---
+let stockCanvas, ctx, stockBetInput, startStockButton,
+    stockResultElement, stockHistoryContainer, chartContainer, btnUp, btnDown,
+    backtestControls, backtestInfo;
 
-// Declare missing variables
-// const SOUNDS = {
-//   CLICK: { play: () => console.log("SOUNDS.CLICK.play()") }, // Mock implementation
-// }
+let animationFrameId, isPlaying = false, isBacktesting = false, keyframes = [],
+    startTime, selectedDirection = null, betAmount = 0, pastGamesData = [], chartType = 'line';
 
-// function notifyError(message) {
-//   console.error(message)
-// }
+// --- Constants ---
+const GAME_DURATION = 10, MAX_HISTORY = 10;
+const SVG_ICON_UP = `<svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>`;
+const SVG_ICON_DOWN = `<svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"></path></svg>`;
 
-// function updatePlayerPoints(points) {
-//   console.log(`Updating player points by ${points}`)
-// }
-
-// function notifySuccess(message) {
-//   console.log(message)
-// }
-
-// function formatPoints(points) {
-//   return points.toString()
-// }
-
-// function calculateGameResult(game, won, points, multiplier) {
-//   return {
-//     game: game,
-//     won: won,
-//     points: points,
-//     multiplier: multiplier,
-//   }
-// }
-
-// function recordGameResult(result) {
-//   console.log("Game Result:", result)
-// }
-
-// function getPlayerPoints() {
-//   return 1000 // Mock implementation
-// }
-
-// Initialize the stock market game
+// --- Initialization ---
 function initializeStock() {
-  // Get DOM elements
-  stockCanvas = document.getElementById("stock-chart")
-  stockBetInput = document.getElementById("stock-bet")
-  startStockButton = document.getElementById("btn-start-stock")
-  cashoutButton = document.getElementById("btn-cashout-stock")
-  currentMultiplierElement = document.getElementById("stock-multiplier")
+    stockCanvas = document.getElementById("stock-chart");
+    ctx = stockCanvas.getContext("2d");
+    chartContainer = document.querySelector('.stock-chart-panel');
+    stockBetInput = document.getElementById("stock-bet");
+    startStockButton = document.getElementById("btn-start-stock");
+    currentMultiplierElement = document.getElementById("stock-multiplier");
+    stockResultElement = document.getElementById("stock-result");
+    stockHistoryContainer = document.getElementById("stock-history");
+    btnUp = document.getElementById('btn-direction-up');
+    btnDown = document.getElementById('btn-direction-down');
+    backtestControls = document.getElementById('backtest-controls');
+    backtestInfo = document.getElementById('backtest-info');
 
-  // Add direction buttons to the UI
-  setupDirectionButtons()
-
-  // Add history container
-  setupHistoryContainer()
-
-  // Set up canvas
-  ctx = stockCanvas.getContext("2d")
-
-  // Set initial values
-  stockBetInput.value = 50
-
-  // Set up event listeners
-  setupStockEventListeners()
-
-  // Initial render
-  resizeCanvas()
-  renderEmptyChart()
-
-  // Load history
-  loadStockHistory()
+    loadPastGamesData();
+    loadStockHistory();
+    setupEventListeners();
+    resizeCanvas();
+    renderCurrentState(); // This will now correctly render the last game on load
 }
 
-// Set up direction buttons
-function setupDirectionButtons() {
-  const stockControls = document.querySelector(".stock-controls")
-
-  // Create direction buttons container
-  const directionContainer = document.createElement("div")
-  directionContainer.className = "direction-buttons"
-
-  // Up button
-  const upButton = document.createElement("button")
-  upButton.id = "btn-direction-up"
-  upButton.className = "btn direction-btn"
-  upButton.innerHTML = "Up <span class='direction-arrow'>↑</span>"
-
-  // Down button
-  const downButton = document.createElement("button")
-  downButton.id = "btn-direction-down"
-  downButton.className = "btn direction-btn"
-  downButton.innerHTML = "Down <span class='direction-arrow'>↓</span>"
-
-  // Add buttons to container
-  directionContainer.appendChild(upButton)
-  directionContainer.appendChild(downButton)
-
-  // Insert before the stock controls
-  stockControls.parentNode.insertBefore(directionContainer, stockControls)
-}
-
-// Set up history container
-function setupHistoryContainer() {
-  const stockGame = document.querySelector(".stock-game")
-
-  // Create history container
-  const historyContainer = document.createElement("div")
-  historyContainer.className = "stock-history-container"
-  historyContainer.innerHTML = `
-    <h3>Recent Games</h3>
-    <div class="stock-history" id="stock-history"></div>
-  `
-
-  // Add to game container
-  stockGame.appendChild(historyContainer)
-
-  // Save reference
-  stockHistoryContainer = document.getElementById("stock-history")
-}
-
-// Set up event listeners
-function setupStockEventListeners() {
-  // Bet input
-  stockBetInput.addEventListener("change", () => {
-    const betAmount = Number.parseInt(stockBetInput.value)
-    if (isNaN(betAmount) || betAmount < 10) {
-      stockBetInput.value = 10
-    } else if (betAmount > getPlayerPoints()) {
-      stockBetInput.value = getPlayerPoints()
-    }
-  })
-
-  // Start button
-  startStockButton.addEventListener("click", startStockGame)
-
-  // Cashout button - not used in this version but keeping for UI consistency
-  cashoutButton.addEventListener("click", () => {})
-
-  // Direction buttons
-  document.getElementById("btn-direction-up").addEventListener("click", () => {
-    selectDirection("up")
-  })
-
-  document.getElementById("btn-direction-down").addEventListener("click", () => {
-    selectDirection("down")
-  })
-
-  // Quick amount buttons
-  document.querySelectorAll(".quick-amount").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const amount = Number.parseInt(btn.dataset.amount)
-      if (amount <= getPlayerPoints()) {
-        stockBetInput.value = amount
-        SOUNDS.CLICK.play()
-      }
-    })
-  })
-
-  // Window resize
-  window.addEventListener("resize", resizeCanvas)
-}
-
-// Select direction
-function selectDirection(direction) {
-  if (isPlaying) return
-
-  selectedDirection = direction
-
-  // Update UI
-  const upButton = document.getElementById("btn-direction-up")
-  const downButton = document.getElementById("btn-direction-down")
-
-  if (direction === "up") {
-    upButton.classList.add("primary")
-    downButton.classList.remove("primary")
-  } else {
-    downButton.classList.add("primary")
-    upButton.classList.remove("primary")
-  }
-
-  SOUNDS.CLICK.play()
-}
-
-// Start the stock game
-// Store the dynamic percentage at the beginning and reuse it
-let gameDynamicPercentage = null;
-// Track market shock events
-let marketShocks = [];
-
-function startStockGame() {
-  if (isPlaying) return
-
-  // Check if direction is selected
-  if (!selectedDirection) {
-    notifyError("Please select a direction (Up or Down)!")
-    return
-  }
-
-  betAmount = Number.parseInt(stockBetInput.value)
-  if (isNaN(betAmount) || betAmount < 10 || betAmount > getPlayerPoints()) {
-    notifyError("Invalid bet amount!")
-    return
-  }
-
-  // Deduct bet
-  updatePlayerPoints(-betAmount)
-
-  // Reset game state
-  isPlaying = true
-  graphPoints = []
-  startTime = Date.now()
-  currentPercentage = 0
-  
-  // Generate a dynamic percentage once at the beginning of the game
-  gameDynamicPercentage = generateDynamicPercentage()
-  
-  // Plan random market shocks (dramatic price movements)
-  marketShocks = generateMarketShocks(10); // 10 second game duration
-
-  // Determine final market direction (random)
-  // This will be the actual market movement, not necessarily what the player bet on
-  marketDirection = Math.random() < 0.5 ? "up" : "down"
-
-  // Update UI
-  startStockButton.disabled = true
-  stockBetInput.disabled = true
-  document.getElementById("btn-direction-up").disabled = true
-  document.getElementById("btn-direction-down").disabled = true
-  cashoutButton.disabled = true // No cashout in this version, game runs to completion
-
-  // Start animation
-  animate()
-}
-
-function generateDynamicPercentage() {
-  // Generate a random number between 0 and 1
-  const random = Math.random();
-  
-  // 10% chance of returning a high value (above 90%)
-  if (random < 0.1) {
-    // Return a value between 90% and 100%
-    return 90 + (Math.random() * 10);
-  } else {
-    // 90% chance of returning a value between 20% and 30%
-    return 20 + (Math.random() * 10);
-  }
-}
-
-// Generate market shocks (sudden price changes)
-function generateMarketShocks(duration) {
-  const shocks = [];
-  
-  // 50% chance to have a market shock
-  if (Math.random() < 0.5) {
-    // Place shock somewhere between 3-7 seconds (not too early, not too late)
-    const shockTime = 3 + Math.random() * 4;
-    
-    // Determine shock magnitude (dramatic drop or spike)
-    const isPositiveShock = Math.random() < 0.3; // 30% chance for positive shock
-    const shockMagnitude = isPositiveShock ? 
-      40 + Math.random() * 40 : // Positive shock (+40% to +80%)
-      -(40 + Math.random() * 60); // Negative shock (-40% to -100%)
-    
-    shocks.push({
-      time: shockTime,
-      magnitude: shockMagnitude,
-      duration: 0.5 + Math.random() * 1.5 // Shock lasts 0.5-2 seconds
+function setupEventListeners() {
+    startStockButton.addEventListener("click", startStockGame);
+    btnUp.addEventListener('click', () => selectDirection('up'));
+    btnDown.addEventListener('click', () => selectDirection('down'));
+    document.querySelectorAll('.view-btn').forEach(btn => {
+        btn.addEventListener('click', () => switchChartView(btn.dataset.chartType));
     });
-  }
-  
-  return shocks;
+    document.querySelector('[data-action="bet-half"]').addEventListener('click', () => updateBet(0.5));
+    document.querySelector('[data-action="bet-double"]').addEventListener('click', () => updateBet(2));
+    document.querySelector('[data-action="bet-min"]').addEventListener('click', () => stockBetInput.value = stockBetInput.min);
+    document.querySelector('[data-action="bet-max"]').addEventListener('click', () => stockBetInput.value = Math.min(stockBetInput.max, getPlayerPoints()));
+    window.addEventListener("resize", () => {
+        resizeCanvas();
+        renderCurrentState();
+    });
 }
 
-// Animation loop
-function animate() {
-  const now = Date.now()
-  const elapsed = (now - startTime) / 1000
-  const duration = 10 // 10 seconds total game duration
+function updateBet(multiplier) {
+    const currentBet = parseInt(stockBetInput.value, 10) || 0;
+    let newBet = Math.floor(currentBet * multiplier);
+    newBet = Math.max(parseInt(stockBetInput.min, 10), newBet);
+    newBet = Math.min(parseInt(stockBetInput.max, 10), newBet, getPlayerPoints());
+    stockBetInput.value = newBet;
+}
 
-  if (elapsed >= duration) {
-    // Game complete
-    endGame()
-    return
-  }
+function selectDirection(direction) {
+    if (isPlaying) return;
+    selectedDirection = direction;
+    btnUp.classList.toggle('selected', direction === 'up');
+    btnDown.classList.toggle('selected', direction === 'down');
+    if (typeof SOUNDS !== 'undefined' && SOUNDS.CLICK) SOUNDS.CLICK.play();
+}
 
-  // Calculate current percentage (-100% to +100%)
-  const progress = elapsed / duration
-  
-  // Calculate base movement
-  let baseMovement = marketDirection === "up"
-    ? progress * gameDynamicPercentage // Trend upward
-    : -progress * gameDynamicPercentage // Trend downward
+function switchChartView(type) {
+    if (isPlaying) return;
+    chartType = type;
+    document.querySelectorAll('.view-btn').forEach(b => b.classList.toggle('active', b.dataset.chartType === type));
+    isBacktesting = (type === 'history');
+    backtestControls.style.display = isBacktesting ? 'flex' : 'none';
+    renderCurrentState();
+}
 
-  // Apply market shock effect if active
-  let shockEffect = 0;
-  for (const shock of marketShocks) {
-    // Check if we're in a shock period
-    if (elapsed >= shock.time && elapsed <= shock.time + shock.duration) {
-      // Calculate how far into the shock we are (0-1)
-      const shockProgress = (elapsed - shock.time) / shock.duration;
-      
-      // Apply shock with a smooth entry and exit
-      // Using sine curve to create smooth transitions
-      const shockIntensity = Math.sin(shockProgress * Math.PI) * shock.magnitude;
-      shockEffect += shockIntensity;
+// --- Game Flow ---
+function startStockGame() {
+    if (isPlaying) return;
+    if (!selectedDirection) return notifyError("Please select a direction!");
+    betAmount = parseInt(stockBetInput.value, 10);
+    if (isNaN(betAmount) || betAmount < 10 || betAmount > getPlayerPoints()) {
+        return notifyError("Invalid bet amount!");
     }
-  }
-
-  // Add some volatility
-  const volatility = 30
-  const noise = Math.sin(elapsed * 5) * volatility * (1 - progress)
-
-  // Combine all effects
-  currentPercentage = baseMovement + noise + shockEffect
-
-  // Clamp between -100 and 100
-  currentPercentage = Math.max(-100, Math.min(100, currentPercentage))
-
-  // Add point to graph
-  graphPoints.push({ time: elapsed, value: currentPercentage })
-
-  // Update percentage display
-  currentMultiplierElement.textContent = (currentPercentage >= 0 ? "+" : "") + currentPercentage.toFixed(2) + "%"
-
-  // Update color based on movement
-  if (currentPercentage >= 0) {
-    currentMultiplierElement.style.color = "var(--color-success-500)"
-  } else {
-    currentMultiplierElement.style.color = "var(--color-error-500)"
-  }
-
-  // Render graph
-  renderChart()
-
-  // Continue animation
-  if (isPlaying) {
-    animationFrame = requestAnimationFrame(animate)
-  }
+    if (chartType !== 'line') switchChartView('line');
+    isPlaying = true;
+    updatePlayerPoints(-betAmount);
+    toggleControls(false);
+    keyframes = generateKeyframes();
+    startTime = performance.now();
+    animationFrameId = requestAnimationFrame(animationLoop);
 }
 
-// End the game
-function endGame() {
-  isPlaying = false
-  cancelAnimationFrame(animationFrame)
-
-  // Determine if player won
-  const finalPercentage = currentPercentage
-  const playerWon =
-    (selectedDirection === "up" && finalPercentage > 0) || (selectedDirection === "down" && finalPercentage < 0)
-
-    // Calculate the percentage-based amount
-  const percentageAmount = Math.floor((betAmount * Math.abs(finalPercentage)) / 100)
-
-  // Calculate winnings
-  let winnings = 0
-  if (playerWon) {
-    // Win amount is bet * percentage/100
-    const winPercentage = Math.abs(finalPercentage) / 100
-    winnings = Math.floor(betAmount * winPercentage)
-
-    // Update points
-    updatePlayerPoints(betAmount + winnings)
-
-    // Show success message
-    notifySuccess(
-      `You won! Market went ${finalPercentage > 0 ? "up" : "down"} by ${Math.abs(finalPercentage).toFixed(2)}%. Won ${formatPoints(winnings)} points!`,
-    )
-
-    // Record win
-    recordGameResult({
-      game: "Stock",
-      won: true,
-      amount: winnings,
-      timestamp: new Date().toISOString(),
-      multiplier: 1 + Math.abs(finalPercentage) / 100,
-      direction: selectedDirection,
-      result: finalPercentage > 0 ? "up" : "down",
-      percentage: Math.abs(finalPercentage).toFixed(2),
-    })
-  } else {
-    // For losses, deduct the percentage-based amount
-    // We already deducted the full bet at the start, so we need to return the remaining amount
-    const lossAmount = percentageAmount
-    const refundAmount = betAmount - lossAmount
-
-    // Return the portion of the bet that wasn't lost
-    if (refundAmount > 0) {
-      updatePlayerPoints(refundAmount)
+function animationLoop(currentTime) {
+    if (!isPlaying) return;
+    const elapsed = (currentTime - startTime) / 1000;
+    if (elapsed >= GAME_DURATION) {
+        endGame(GAME_DURATION);
+        return;
     }
-
-    // Show loss message
-    notifyError(
-      `You lost! Market went ${finalPercentage > 0 ? "up" : "down"} by ${Math.abs(finalPercentage).toFixed(2)}%.`,
-    )
-
-    // Record loss
-    recordGameResult({
-      game: "Stock",
-      won: false,
-      amount: betAmount,
-      timestamp: new Date().toISOString(),
-      multiplier: 0,
-      direction: selectedDirection,
-      result: finalPercentage > 0 ? "up" : "down",
-      percentage: Math.abs(finalPercentage).toFixed(2),
-    })
-  }
-
-  // Add to history
-  addToStockHistory({
-    direction: selectedDirection,
-    result: finalPercentage > 0 ? "up" : "down",
-    percentage: Math.abs(finalPercentage).toFixed(2),
-    won: playerWon,
-  })
-
-  // Reset UI
-  startStockButton.disabled = false
-  stockBetInput.disabled = false
-  document.getElementById("btn-direction-up").disabled = false
-  document.getElementById("btn-direction-down").disabled = false
-  cashoutButton.disabled = true
-
-  // Reset direction selection
-  document.getElementById("btn-direction-up").classList.remove("primary")
-  document.getElementById("btn-direction-down").classList.remove("primary")
-  selectedDirection = null
-
-  // Render final state
-  renderChart()
+    renderLiveChart(elapsed);
+    animationFrameId = requestAnimationFrame(animationLoop);
 }
 
-// Add to stock history
-function addToStockHistory(game) {
-  // Create history item
-  const historyItem = document.createElement("div")
-  historyItem.className = "stock-history-item"
-
-  // Direction icon
-  const directionIcon = document.createElement("div")
-  directionIcon.className = `direction-icon ${game.direction}`
-  directionIcon.innerHTML = game.direction === "up" ? "↑" : "↓"
-
-  // Result
-  const resultText = document.createElement("div")
-  resultText.className = "result-text"
-  resultText.textContent = `${game.result === "up" ? "↑" : "↓"} ${game.percentage}%`
-
-  // Outcome
-  const outcome = document.createElement("div")
-  outcome.className = `outcome ${game.won ? "win" : "loss"}`
-  outcome.textContent = game.won ? "WIN" : "LOSS"
-
-  // Add to item
-  historyItem.appendChild(directionIcon)
-  historyItem.appendChild(resultText)
-  historyItem.appendChild(outcome)
-
-  // Add to container
-  stockHistoryContainer.prepend(historyItem)
-
-  // Limit to 5 items
-  const items = stockHistoryContainer.querySelectorAll(".stock-history-item")
-  if (items.length > 5) {
-    stockHistoryContainer.removeChild(items[items.length - 1])
-  }
-
-  // Save to local storage
-  saveStockHistory()
-}
-
-// Save stock history to local storage
-function saveStockHistory() {
-  const items = stockHistoryContainer.querySelectorAll(".stock-history-item")
-  const history = []
-
-  items.forEach((item) => {
-    const direction = item.querySelector(".direction-icon").classList.contains("up") ? "up" : "down"
-    const resultText = item.querySelector(".result-text").textContent
-    const result = resultText.includes("↑") ? "up" : "down"
-    const percentage = Number.parseFloat(resultText.match(/[\d.]+/)[0])
-    const won = item.querySelector(".outcome").classList.contains("win")
-
-    history.push({ direction, result, percentage, won })
-  })
-
-  localStorage.setItem("stock_history", JSON.stringify(history))
-}
-
-// Load stock history from local storage
-function loadStockHistory() {
-  try {
-    const history = JSON.parse(localStorage.getItem("stock_history"))
-    if (history && Array.isArray(history)) {
-      // Clear container
-      stockHistoryContainer.innerHTML = ""
-
-      // Add items in reverse order (newest first)
-      history.reverse().forEach((game) => {
-        addToStockHistory(game)
-      })
+function endGame(elapsed) {
+    isPlaying = false;
+    cancelAnimationFrame(animationFrameId);
+    const finalPercentage = getValueAtTime(elapsed);
+    const playerWon = (selectedDirection === 'up' && finalPercentage > 0) || (selectedDirection === 'down' && finalPercentage < 0);
+    const gamePath = [];
+    for(let t = 0; t <= GAME_DURATION; t += 0.05) { // Increased density for smoother saved path
+        gamePath.push({ time: t, value: getValueAtTime(t) });
     }
-  } catch (e) {
-    console.error("Error loading stock history:", e)
-  }
-}
-
-// Render the chart
-function renderChart() {
-  ctx.clearRect(0, 0, stockCanvas.width, stockCanvas.height)
-
-  const centerY = stockCanvas.height / 2
-  const scaleY = centerY / 100 // Scale factor for percentage
-
-  // Draw background grid
-  drawGrid()
-
-  if (graphPoints.length < 2) return
-
-  // Draw line
-  ctx.beginPath()
-
-  // Start at the center line (0%)
-  ctx.moveTo(0, centerY)
-
-  // Draw line
-  graphPoints.forEach((point, i) => {
-    const x = (point.time / 10) * stockCanvas.width
-    const y = centerY - point.value * scaleY
-
-    if (i === 0) {
-      ctx.lineTo(x, centerY) // Start at center
+    saveGameData(gamePath);
+    let winnings = 0;
+    let remainingPoints = 0;
+    if (playerWon) {
+        winnings = Math.floor(betAmount * (Math.abs(finalPercentage) / 100));
+        updatePlayerPoints(betAmount + winnings);
+        stockResultElement.innerHTML = `WIN<br>+${formatPoints(winnings)}`;
+        stockResultElement.className = 'stock-result show win';
     } else {
-      ctx.lineTo(x, y)
+        remainingPoints = Math.floor(betAmount * (Math.abs(finalPercentage) / 100));
+        updatePlayerPoints(betAmount - remainingPoints);
+        stockResultElement.innerHTML = `LOSS<br>-${formatPoints(betAmount)}`;
+        stockResultElement.className = 'stock-result show loss';
     }
-  })
-
-  // Line style
-  ctx.strokeStyle = currentPercentage >= 0 ? "var(--color-success-500)" : "var(--color-error-500)"
-  ctx.lineWidth = 3
-  ctx.stroke()
-
-  // Add gradient fill
-  const gradient = ctx.createLinearGradient(0, 0, 0, stockCanvas.height)
-  if (currentPercentage >= 0) {
-    gradient.addColorStop(0, "rgba(0, 230, 89, 0.2)")
-    gradient.addColorStop(0.5, "rgba(0, 230, 89, 0.05)")
-    gradient.addColorStop(1, "rgba(0, 230, 89, 0)")
-  } else {
-    gradient.addColorStop(0, "rgba(255, 0, 0, 0)")
-    gradient.addColorStop(0.5, "rgba(255, 0, 0, 0.05)")
-    gradient.addColorStop(1, "rgba(255, 0, 0, 0.2)")
-  }
-
-  ctx.beginPath()
-  ctx.moveTo(0, centerY)
-
-  graphPoints.forEach((point, i) => {
-    const x = (point.time / 10) * stockCanvas.width
-    const y = centerY - point.value * scaleY
-    ctx.lineTo(x, y)
-  })
-
-  const lastPoint = graphPoints[graphPoints.length - 1]
-  const lastX = (lastPoint.time / 10) * stockCanvas.width
-
-  ctx.lineTo(lastX, centerY)
-  ctx.closePath()
-  ctx.fillStyle = gradient
-  ctx.fill()
-
-  // Draw current position dot
-  if (graphPoints.length > 0) {
-    const lastPoint = graphPoints[graphPoints.length - 1]
-    const x = (lastPoint.time / 10) * stockCanvas.width
-    const y = centerY - lastPoint.value * scaleY
-
-    ctx.beginPath()
-    ctx.arc(x, y, 6, 0, Math.PI * 2)
-    ctx.fillStyle = currentPercentage >= 0 ? "var(--color-success-500)" : "var(--color-error-500)"
-    ctx.fill()
-
-    ctx.beginPath()
-    ctx.arc(x, y, 4, 0, Math.PI * 2)
-    ctx.fillStyle = "#fff"
-    ctx.fill()
-  }
+    const gameResult = { result: finalPercentage > 0 ? "up" : "down", percentage: Math.abs(finalPercentage) };
+    addToStockHistory(gameResult);
+    setTimeout(() => {
+        toggleControls(true);
+        stockResultElement.classList.remove('show', 'win', 'loss');
+        renderCurrentState();
+    }, 3000);
 }
 
-// Draw grid
-function drawGrid() {
-  const centerY = stockCanvas.height / 2
-
-  // Draw center line (0%)
-  ctx.beginPath()
-  ctx.moveTo(0, centerY)
-  ctx.lineTo(stockCanvas.width, centerY)
-  ctx.strokeStyle = "rgba(255, 255, 255, 0.2)"
-  ctx.lineWidth = 1
-  ctx.stroke()
-
-  // Draw +100%, +50%, -50%, and -100% lines
-  ctx.beginPath()
-
-  // +100%
-  ctx.moveTo(0, 0)
-  ctx.lineTo(stockCanvas.width, 0)
-
-  // +50%
-  ctx.moveTo(0, centerY / 2)
-  ctx.lineTo(stockCanvas.width, centerY / 2)
-
-  // -50%
-  ctx.moveTo(0, centerY + centerY / 2)
-  ctx.lineTo(stockCanvas.width, centerY + centerY / 2)
-
-  // -100%
-  ctx.moveTo(0, stockCanvas.height)
-  ctx.lineTo(stockCanvas.width, stockCanvas.height)
-
-  // Vertical grid lines
-  for (let i = 1; i < 10; i++) {
-    const x = (i / 10) * stockCanvas.width
-    ctx.moveTo(x, 0)
-    ctx.lineTo(x, stockCanvas.height)
-  }
-
-  ctx.strokeStyle = "rgba(255, 255, 255, 0.1)"
-  ctx.stroke()
-
-  // Label the lines
-  ctx.fillStyle = "rgba(255, 255, 255, 0.5)"
-  ctx.font = "12px var(--font-primary)"
-  ctx.textAlign = "left"
-  ctx.fillText("+100%", 5, 15)
-  ctx.fillText("+50%", 5, centerY / 2 - 5)
-  ctx.fillText("0%", 5, centerY - 5)
-  ctx.fillText("-50%", 5, centerY + centerY / 2 - 5)
-  ctx.fillText("-100%", 5, stockCanvas.height - 5)
+// --- Chart Path & Animation Logic ---
+function generateKeyframes() {
+    let points = [{ time: 0, value: 0 }];
+    let lastTime = 0;
+    const numKeyframes = 3 + Math.floor(Math.random() * 3);
+    for (let i = 1; i < numKeyframes; i++) {
+        const nextTime = lastTime + (GAME_DURATION - lastTime) / (numKeyframes - i + Math.random());
+        points.push({ time: nextTime, value: Math.random() * 180 - 90 }); // Clamped for better visuals
+        lastTime = nextTime;
+    }
+    points.push({ time: GAME_DURATION, value: Math.random() * 180 - 90 });
+    return points;
 }
 
-// Render empty chart
-function renderEmptyChart() {
-  ctx.clearRect(0, 0, stockCanvas.width, stockCanvas.height)
-  drawGrid()
+function getValueAtTime(t) {
+    const time = Math.max(0, Math.min(t, GAME_DURATION));
+    if (!keyframes || keyframes.length < 2) return 0;
+    let p0, p1, p2, p3;
+    for (let i = 0; i < keyframes.length - 1; i++) {
+        if (time >= keyframes[i].time && time <= keyframes[i+1].time) {
+            p1 = keyframes[i];
+            p2 = keyframes[i+1];
+            p0 = i > 0 ? keyframes[i-1] : p1;
+            p3 = i < keyframes.length - 2 ? keyframes[i+2] : p2;
+            break;
+        }
+    }
+    if (!p1) {
+        p1 = keyframes[keyframes.length - 2];
+        p2 = keyframes[keyframes.length - 1];
+        p0 = keyframes.length > 2 ? keyframes[keyframes.length - 3] : p1;
+        p3 = p2;
+    }
+    const segmentDuration = p2.time - p1.time;
+    const timeIntoSegment = time - p1.time;
+    const t_norm = segmentDuration > 0 ? timeIntoSegment / segmentDuration : 0;
+    return cubicHermiteSpline(p0.value, p1.value, p2.value, p3.value, t_norm);
 }
 
-// Resize canvas
+function cubicHermiteSpline(p0, p1, p2, p3, t) {
+    const t2 = t * t;
+    const t3 = t2 * t;
+    const a0 = -0.5*p0 + 1.5*p1 - 1.5*p2 + 0.5*p3;
+    const a1 = p0 - 2.5*p1 + 2*p2 - 0.5*p3;
+    const a2 = -0.5*p0 + 0.5*p2;
+    const a3 = p1;
+    return a0*t3 + a1*t2 + a2*t + a3;
+}
+
+// --- NEW: Dynamic Y-Axis Scaling ---
+function getChartBounds(paths, padding = 0.1) {
+    let min = 0, max = 0;
+    paths.forEach(path => {
+        path.forEach(point => {
+            if (point.value < min) min = point.value;
+            if (point.value > max) max = point.value;
+        });
+    });
+
+    // Add padding to prevent chart touching the edges
+    const range = Math.max(max - min, 20); // Ensure a minimum range of 20% for small movements
+    const paddingAmount = range * padding;
+    min -= paddingAmount;
+    max += paddingAmount;
+    
+    // Ensure 0 is always visible if the range crosses it
+    if (min > -10 && max > 10) min = -10;
+    if (max < 10 && min < -10) max = 10;
+    
+    return { min: Math.max(-105, min), max: Math.min(105, max) };
+}
+
+// --- Rendering Engine ---
+function renderCurrentState() {
+    if (isPlaying) return;
+    const lastGame = pastGamesData.length > 0 ? [pastGamesData[0]] : [];
+    const bounds = getChartBounds(lastGame);
+
+    ctx.clearRect(0, 0, stockCanvas.width, stockCanvas.height);
+    drawGrid(bounds);
+    
+    if (isBacktesting) {
+        renderHistoryView();
+    } else if (pastGamesData.length > 0) {
+        if (chartType === 'candlestick') {
+            renderCandlestickChart(lastGame[0], bounds);
+        } else {
+            drawChartPath(lastGame[0], bounds, false, true); // Render static line
+        }
+        updateMultiplierText(lastGame[0][lastGame[0].length - 1].value);
+    } else {
+        updateMultiplierText(0);
+    }
+}
+
+function renderLiveChart(elapsed) {
+    const path = [];
+    const step = GAME_DURATION / 200; 
+    for (let t = 0; t <= elapsed; t += step) {
+        path.push({ time: t, value: getValueAtTime(t) });
+    }
+    path.push({ time: elapsed, value: getValueAtTime(elapsed) });
+    
+    const bounds = getChartBounds([path]);
+    
+    ctx.clearRect(0, 0, stockCanvas.width, stockCanvas.height);
+    drawGrid(bounds);
+    drawChartPath(path, bounds, false, false);
+    updateMultiplierText(path[path.length - 1].value);
+}
+
+function renderHistoryView() {
+    const bounds = getChartBounds(pastGamesData);
+    drawGrid(bounds);
+    if (pastGamesData.length > 0) {
+        pastGamesData.forEach(gamePath => drawChartPath(gamePath, bounds, true, false));
+    }
+    updateMultiplierText(0);
+}
+
+function renderCandlestickChart(pathData, bounds) {
+    const { width, height } = stockCanvas;
+    const range = bounds.max - bounds.min;
+    if (range === 0) return;
+    const scaleY = height / range;
+    
+    for (let i = 0; i < GAME_DURATION; i++) {
+        const pointsInInterval = pathData.filter(p => p.time >= i && p.time < i + 1);
+        if (pointsInInterval.length < 2) continue;
+        const open = pointsInInterval[0].value, close = pointsInInterval[pointsInInterval.length - 1].value;
+        const high = Math.max(...pointsInInterval.map(p => p.value)), low = Math.min(...pointsInInterval.map(p => p.value));
+        const x = ((i + 0.5) / GAME_DURATION) * width;
+        const color = close >= open ? 'var(--color-success-500)' : 'var(--color-error-500)';
+        
+        // Wick
+        const wickHighY = height - (high - bounds.min) * scaleY;
+        const wickLowY = height - (low - bounds.min) * scaleY;
+        ctx.strokeStyle = color; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(x, wickHighY); ctx.lineTo(x, wickLowY); ctx.stroke();
+        
+        // Body
+        const bodyTopY = height - (Math.max(open, close) - bounds.min) * scaleY;
+        const bodyHeight = Math.abs(open - close) * scaleY;
+        ctx.fillStyle = color;
+        ctx.fillRect(x - 5, bodyTopY, 10, Math.max(1, bodyHeight));
+    }
+}
+
+function drawGrid(bounds) {
+    const { width, height } = stockCanvas;
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.1)";
+    ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+    ctx.font = "12px var(--font-primary)";
+    ctx.textAlign = "left";
+    
+    const range = bounds.max - bounds.min;
+    if (range === 0) return;
+    
+    const numLines = 5;
+    for (let i = 0; i <= numLines; i++) {
+        const value = bounds.min + (range / numLines) * i;
+        const y = height - (height / numLines) * i;
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke();
+        ctx.fillText(`${value.toFixed(1)}%`, 5, y - 5);
+    }
+}
+
+function drawChartPath(pathData, bounds, isGhost, isStatic) {
+    if (pathData.length < 2) return;
+    const { width, height } = stockCanvas;
+    const range = bounds.max - bounds.min;
+    if (range === 0) return;
+    const scaleY = height / range;
+    
+    const lastValue = pathData[pathData.length - 1].value;
+    let color = isStatic ? 'var(--color-gold)' : (isGhost ? 'rgba(255, 255, 255, 0.2)' : (lastValue >= 0 ? 'var(--color-success-500)' : 'var(--color-error-500)'));
+    
+    ctx.beginPath();
+    pathData.forEach((point, i) => {
+        const x = (point.time / GAME_DURATION) * width;
+        const y = height - (point.value - bounds.min) * scaleY;
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    });
+    
+    ctx.strokeStyle = color;
+    ctx.lineWidth = isGhost ? 1.5 : 3;
+    if (isGhost) ctx.setLineDash([2, 4]);
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.stroke();
+    ctx.setLineDash([]);
+}
+
+// --- UI Helpers ---
+function updateMultiplierText(value) {
+    currentMultiplierElement.textContent = `${value >= 0 ? '+' : ''}${value.toFixed(2)}%`;
+    currentMultiplierElement.style.color = isPlaying ? (value >= 0 ? 'var(--color-success-500)' : 'var(--color-error-500)') : 'var(--color-gold)';
+}
+
+function toggleControls(enabled) {
+    stockBetInput.disabled = !enabled;
+    startStockButton.disabled = !enabled;
+    btnUp.disabled = !enabled;
+    btnDown.disabled = !enabled;
+    document.querySelectorAll('.view-btn, .btn-subtle').forEach(b => b.disabled = !enabled);
+    if (enabled) {
+        btnUp.classList.remove('selected');
+        btnDown.classList.remove('selected');
+        selectedDirection = null;
+    }
+}
+
 function resizeCanvas() {
-  const container = stockCanvas.parentElement
-  const containerWidth = container.clientWidth
-  const containerHeight = container.clientHeight
-
-  // Set canvas dimensions to match container, accounting for padding
-  stockCanvas.width = containerWidth - 20 // Adjust for padding
-  stockCanvas.height = containerHeight - 60 // Adjust for padding and info bar
-
-  // Ensure minimum height
-  if (stockCanvas.height < 150) {
-    stockCanvas.height = 150
-  }
-
-  if (!isPlaying) {
-    renderEmptyChart()
-  } else {
-    renderChart()
-  }
+    stockCanvas.width = chartContainer.clientWidth;
+    stockCanvas.height = chartContainer.clientHeight;
 }
 
-// Initialize on load
-document.addEventListener("DOMContentLoaded", () => {
-  if (document.getElementById("stock-chart")) {
-    initializeStock()
-  }
-})
+// --- Data Persistence ---
+function addToStockHistory(game) {
+    const item = document.createElement("div");
+    item.className = `stock-history-item ${game.result}`;
+    const icon = game.result === 'up' ? SVG_ICON_UP : SVG_ICON_DOWN;
+    item.innerHTML = `${icon}<span>${Math.round(game.percentage)}%</span>`;
+    stockHistoryContainer.prepend(item);
+    if (stockHistoryContainer.children.length > MAX_HISTORY) {
+        stockHistoryContainer.removeChild(stockHistoryContainer.lastChild);
+    }
+    saveStockHistory();
+}
 
-// Add window resize event listener to ensure canvas resizes properly
-window.addEventListener("resize", () => {
-  if (stockCanvas) {
-    resizeCanvas()
-  }
-})
+function saveStockHistory() {
+    const history = Array.from(stockHistoryContainer.children).map(item => item.outerHTML);
+    localStorage.setItem("stock_history_v7", JSON.stringify(history));
+}
+
+function loadStockHistory() {
+    const historyHTML = JSON.parse(localStorage.getItem("stock_history_v7") || "[]");
+    stockHistoryContainer.innerHTML = historyHTML.join('');
+}
+
+// CRITICAL FIX: Save the entire array, not just one path.
+function saveGameData(path) {
+    pastGamesData.unshift(path);
+    if (pastGamesData.length > MAX_HISTORY) pastGamesData.pop();
+    localStorage.setItem('stock_past_games_v7', JSON.stringify(pastGamesData));
+}
+
+function loadPastGamesData() {
+    pastGamesData = JSON.parse(localStorage.getItem('stock_past_games_v7') || "[]");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.getElementById("stock-screen")) initializeStock();
+});
