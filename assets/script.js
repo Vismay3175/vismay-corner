@@ -537,6 +537,98 @@ $(document).ready(function () {
     $(this).animate({ left: "10px" }, 200).animate({ left: "0px" }, 200);
   });
 
+  // =================================================================
+// START: ROBUST 3D PARALLAX STARFIELD BACKGROUND FOR RELAX ZONE
+// =================================================================
+document.addEventListener('DOMContentLoaded', function() {
+    const canvas = document.getElementById('relaxZoneCanvas');
+    if (!canvas) {
+        console.error('Starfield Error: Canvas element #relaxZoneCanvas not found!');
+        return;
+    }
+
+    const ctx = canvas.getContext('2d');
+    let width, height, stars = [];
+    const starCount = 1000;
+    const speed = 20;
+
+    // Star constructor
+    function Star() {
+        this.x = (Math.random() - 0.5) * width;
+        this.y = (Math.random() - 0.5) * height;
+        this.z = Math.random() * width;
+        this.pz = this.z;
+    }
+
+    Star.prototype.update = function() {
+        this.z -= speed;
+        if (this.z < 1) {
+            this.z = width + Math.random() * 100; // Reset farther back
+            this.x = (Math.random() - 0.5) * width;
+            this.y = (Math.random() - 0.5) * height;
+            this.pz = this.z;
+        }
+    };
+
+    Star.prototype.draw = function() {
+        const sx = (this.x / this.z) * width / 2 + width / 2;
+        const sy = (this.y / this.z) * height / 2 + height / 2;
+        
+        if (sx < 0 || sx > width || sy < 0 || sy > height) {
+             return; // Don't draw if it's off-screen
+        }
+
+        const r = Math.max(0.1, (1 - this.z / width) * 2.5);
+        const px = (this.x / this.pz) * width / 2 + width / 2;
+        const py = (this.y / this.pz) * height / 2 + height / 2;
+        
+        this.pz = this.z;
+
+        ctx.beginPath();
+        ctx.moveTo(px, py);
+        ctx.lineTo(sx, sy);
+        ctx.strokeStyle = "rgba(0, 217, 255, 0.4)";
+        ctx.lineWidth = r * 2;
+        ctx.stroke();
+        
+        ctx.beginPath();
+        ctx.arc(sx, sy, r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
+        ctx.fill();
+    };
+
+    function setup() {
+        width = canvas.offsetWidth;
+        height = canvas.offsetHeight;
+        canvas.width = width;
+        canvas.height = height;
+        stars = [];
+        for (let i = 0; i < starCount; i++) {
+            stars.push(new Star());
+        }
+    }
+
+    function animate() {
+        ctx.fillStyle = 'rgba(9, 10, 15, 0.4)'; // Use the dark background color
+        ctx.fillRect(0, 0, width, height);
+        
+        for (let star of stars) {
+            star.update();
+            star.draw();
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    // Initialize and run
+    setup();
+    requestAnimationFrame(animate); // Start animation loop
+    window.addEventListener('resize', setup); // Add resize listener
+});
+// =================================================================
+// END: ROBUST 3D PARALLAX STARFIELD BACKGROUND
+// =================================================================
+
   // Form submission handling
   $("#contactForm").on("submit", function (e) {
     e.preventDefault(); // Prevent the form from submitting immediately
@@ -665,7 +757,7 @@ $(document).ready(function () {
     // Get the new rotation controls
     const modalRotateLeft = document.getElementById('modalRotateLeft');
     const modalRotateRight = document.getElementById('modalRotateRight');
-    const modalFlipVertical = document.getElementById('modalFlipVertical');
+    // const modalFlipVertical = document.getElementById('modalFlipVertical');
     
     const galleryImages = document.querySelectorAll('#documents .swiper-slide img');
     let currentImageIndex;
@@ -729,10 +821,10 @@ $(document).ready(function () {
         applyTransform();
     });
 
-    modalFlipVertical.addEventListener('click', () => {
-        currentScaleY *= -1; // Toggles between 1 and -1
-        applyTransform();
-    });
+    // modalFlipVertical.addEventListener('click', () => {
+    //     currentScaleY *= -1; // Toggles between 1 and -1
+    //     applyTransform();
+    // });
 
     document.addEventListener('keydown', (e) => {
         if (!modal.classList.contains('show')) return;

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="assets/style_royal_blue.css" rel="stylesheet" id="themeLink"/>
     <link href="assets/ai-showcase-styles.css" rel="stylesheet" id="themeLink"/>
+    <link href="assets/personalised-chatbot.css" rel="stylesheet" id="themeLink"/>
   </head>
   <body>
     <!-- Navigation -->
@@ -58,9 +59,9 @@
             <li class="nav-item">
               <a class="nav-link" href="#gallery">Portfolio</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="#playground">Playground</a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link" href="#contact">Contact</a>
             </li>
@@ -1129,7 +1130,98 @@
   </div>
 </section> -->
 
-    <section id="playground" class="playground-section">
+    <!-- Contact Section -->
+    <!-- <section id="contact" class="py-5">
+      <div class="container">
+        <h2 class="primary-text-color text-center mb-5">Get In Touch</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <form id="contactForm" class="contact-form">
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <textarea
+                  class="form-control"
+                  rows="5"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <section id="contact" class="py-5">
+      <div class="container">
+        <h2 class="primary-text-color text-center mb-5">Get In Touch</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <form id="contactForm" class="contact-form">
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control funny-input"
+                  id="name"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="email"
+                  class="form-control funny-input"
+                  id="email"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <textarea
+                  class="form-control funny-input"
+                  id="message"
+                  rows="5"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100 fun-button">
+                Send Message <span>🚀</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <div class="section-divider-container">
+        <div class="section-divider"></div>
+    </div>
+
+     <section id="relax-zone" class="playground-section" style="background-color: #0f121d; padding: 80px 0;">
+      <div class="container">
+        <h2 class="primary-text-color text-center mb-3">Need a Quick Break?</h2>
+        <p class="lead text-center text-white-50 mb-5" style="max-width: 700px; margin-left: auto; margin-right: auto;">
+          Here are a few interactive demos I built to relax and experiment with different web technologies. Feel free to explore.
+        </p>
       <div class="container">
         <h2 class="primary-text-color text-center mb-5">Playground</h2>
         <div class="game-container">
@@ -1363,88 +1455,78 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <!-- <section id="contact" class="py-5">
-      <div class="container">
-        <h2 class="primary-text-color text-center mb-5">Get In Touch</h2>
-        <div class="row justify-content-center">
-          <div class="col-lg-6">
-            <form id="contactForm" class="contact-form">
-              <div class="mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Your Name"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <input
-                  type="email"
-                  class="form-control"
-                  placeholder="Your Email"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <textarea
-                  class="form-control"
-                  rows="5"
-                  placeholder="Your Message"
-                  required
-                ></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary w-100">
-                Send Message
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section> -->
+    <!-- Floating Toggle Button -->
+    <button id="vo-chatbot-toggle" aria-label="Open Chat">
+        <img src="https://img.icons8.com/color/96/robot-2.png" alt="AI Robot Assistant" />
+    </button>
 
-    <section id="contact" class="py-5">
-      <div class="container">
-        <h2 class="primary-text-color text-center mb-5">Get In Touch</h2>
-        <div class="row justify-content-center">
-          <div class="col-lg-6">
-            <form id="contactForm" class="contact-form">
-              <div class="mb-3">
-                <input
-                  type="text"
-                  class="form-control funny-input"
-                  id="name"
-                  placeholder="Your Name"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <input
-                  type="email"
-                  class="form-control funny-input"
-                  id="email"
-                  placeholder="Your Email"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <textarea
-                  class="form-control funny-input"
-                  id="message"
-                  rows="5"
-                  placeholder="Your Message"
-                  required
-                ></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary w-100 fun-button">
-                Send Message <span>🚀</span>
-              </button>
-            </form>
-          </div>
+    <!-- Chat Panel -->
+    <div id="vo-chatbot">
+        <!-- Header -->
+        <div class="vo-header">
+            <div class="vo-avatar">
+                <img src="https://img.icons8.com/color/96/robot-2.png" alt="AI Assistant Robot" />
+            </div>
+            <div class="vo-header-text">
+                <h3>Vismay Oza</h3>
+                <p>AI Portfolio Assistant</p>
+            </div>
+            <button class="vo-settings" aria-label="Settings">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
+            </button>
         </div>
-      </div>
-    </section>
 
+        <!-- Messages Area -->
+        <div class="vo-messages" id="vo-messages">
+            <!-- Welcome State is dynamically inserted by JS -->
+        </div>
+
+        <!-- Composer -->
+        <div class="vo-composer">
+            <!-- Quick Prompts will appear here if chat history exists -->
+            <div id="vo-quick-prompts" class="vo-quick-prompts"></div>
+
+            <div class="vo-input-group">
+                <textarea id="vo-textarea" class="vo-textarea" placeholder="Ask anything about my work..." rows="1"></textarea>
+                <button id="vo-send-btn" class="vo-send-btn" disabled>
+                    <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                </button>
+            </div>
+            <div class="vo-controls">
+                <select id="vo-model-select" class="vo-model-select">
+                    <option value="gemini-1.5-flash">Gemini 1.5 Flash</option>
+                    <option value="gemini-1.5-pro">Gemini 1.5 Pro</option>
+                </select>
+                <div class="vo-status" id="vo-status">Ready</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- API Key Modal -->
+    <div id="vo-key-modal">
+        <div class="vo-modal-content">
+            <h3>🔑 Enter Your Gemini API Key</h3>
+            <p>Your API key stays secure in your browser and is only used to call Google's Gemini API directly.</p>
+            <div class="vo-key-input-group">
+                <input type="password" id="vo-key-input" class="vo-key-input" placeholder="AIzaSy..."/>
+                <button id="vo-key-toggle" class="vo-key-toggle" type="button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="vo-checkbox-group">
+                <input type="checkbox" id="vo-remember-key" class="vo-checkbox">
+                <label for="vo-remember-key" class="vo-checkbox-label">Remember my key (stored locally)</label>
+            </div>
+            <div class="vo-modal-actions">
+                <button id="vo-save-key" class="vo-btn vo-btn-primary">Save Key</button>
+                <button id="vo-get-key" class="vo-btn vo-btn-secondary">Get API Key</button>
+            </div>
+        </div>
+    </div>
     
     <!-- Footer -->
     <footer class="bg-dark text-white py-4">
@@ -1476,5 +1558,6 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="assets/script.js"></script>
     <script src="assets/ai-showcase-scripts.js"></script>
+    <script src="assets/personalised-chatbot.js"></script>
   </body>
 </html>

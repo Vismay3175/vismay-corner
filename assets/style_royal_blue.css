@@ -2001,6 +2001,56 @@ section:nth-child(even) {
   color: white;
 }
 
+.section-divider-container {
+  background-color: #0d0f1a;
+  padding: 0; /* No vertical padding */
+  overflow: hidden;
+}
+
+/* We need to add a little margin back to the line itself */
+.section-divider {
+  width: 80%;
+  height: 1px;
+  margin: 10px auto; /* Add a small margin so it's not glued to the edge */
+  background: linear-gradient(90deg, 
+    rgba(0, 217, 255, 0) 0%, 
+    rgba(0, 217, 255, 0.5) 50%, 
+    rgba(0, 217, 255, 0) 100%
+  );
+  opacity: 0.7;
+}
+
+/* =============================================
+   Relax Zone - Animated Background Enhancement
+   ============================================= */
+
+#relax-zone {
+  position: relative; /* This is crucial for positioning the canvas */
+  padding: 100px 0;
+  /* REMOVE the background from here, the canvas will create it */
+  overflow: hidden; /* Keep this to prevent scrollbars */
+}
+
+#relaxZoneCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Places canvas behind the content */
+}
+
+#relax-zone .container {
+  position: relative; /* Puts container on top of the canvas */
+  z-index: 2;
+}
+
+/* Optional: Add a subtle glow to the text to make it pop */
+#relax-zone h2,
+#relax-zone .lead {
+  text-shadow: 0 0 15px rgba(0, 217, 255, 0.4);
+}
+
 /* For smaller screens */
 @media (max-width: 768px) {
   .modal-image {
@@ -2012,6 +2062,41 @@ section:nth-child(even) {
   }
   .modal-caption {
     text-align: center;
+  }
+
+   .gaming-arena-banner .banner-content {
+    flex-direction: column;
+    padding: 20px 15px;
+  }
+
+  .gaming-arena-banner .banner-title {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .gaming-arena-banner .banner-subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .gaming-arena-banner .game-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .gaming-arena-banner .game-card {
+    /* width: calc(50% - 10px); */
+    max-width: 200px;
+    /* height: auto; */
+    padding: 15px;
+    margin: 0;
+  }
+
+  .gaming-arena-banner .banner-cta {
+    margin: 0 auto;
   }
 }
 
