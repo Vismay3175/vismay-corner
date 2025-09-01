@@ -159,7 +159,7 @@
             </a>
             <a href="assets/pdf_files/Vismay-Oza-Resume.pdf" class="btn-secondary-hero" download>
               <i class="bi bi-download"></i>
-              Download CV
+              Download Resume
             </a>
           </div>
           
@@ -948,61 +948,53 @@
         <h2 class="primary-text-color text-center mb-5">
           Credentials & Documents
         </h2>
-        <div class="row">
-          <div class="col-12 col-lg-4"></div>
-          <!-- Resume -->
-          <div class="col-12 col-lg-4">
-            <div class="document-card">
-              <i class="bi bi-file-earmark-person document-icon"></i>
-              <h3 class="document-title">Professional Resume</h3>
-              <p class="document-info">
-                Complete overview of my professional experience and skills
-              </p>
-              <div class="document-actions">
-                <a
-                  href="assets/pdf_files/Vismay-Oza-Resume.pdf"
-                  class="btn btn-view"
-                  target="_blank"
-                >
-                  <i class="bi bi-eye"></i> View
-                </a>
-                <a
-                  href="assets/pdf_files/Vismay-Oza-Resume.pdf"
-                  class="btn btn-download"
-                  download
-                >
-                  <i class="bi bi-download"></i> Download
-                </a>
+        <div class="doc-selector-wrapper">
+          <!-- The Toggle Switch -->
+          <div class="doc-toggle">
+            <button class="toggle-option active" data-target="#resume-content">Resume</button>
+            <button class="toggle-option" data-target="#cv-content">Detailed CV</button>
+          </div>
+
+          <!-- The Content that will change -->
+          <div class="doc-content-container">
+            <!-- Resume Content (Visible by default) -->
+            <div id="resume-content" class="doc-content active">
+              <div class="document-card">
+                <i class="bi bi-file-earmark-person document-icon"></i>
+                <h3 class="document-title">Professional Resume</h3>
+                <p class="document-info">
+                  A concise summary of my key skills and professional experience.
+                </p>
+                <div class="document-actions">
+                  <a href="assets/pdf_files/Vismay-Oza-Resume.pdf" class="btn btn-view" target="_blank">
+                    <i class="bi bi-eye"></i> View
+                  </a>
+                  <a href="assets/pdf_files/Vismay-Oza-Resume.pdf" class="btn btn-download" download>
+                    <i class="bi bi-download"></i> Download
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- CV Content (Hidden by default) -->
+            <div id="cv-content" class="doc-content">
+              <div class="document-card">
+                <i class="bi bi-file-earmark-text document-icon"></i>
+                <h3 class="document-title">Detailed CV</h3>
+                <p class="document-info">
+                  A comprehensive document detailing all my projects and experiences.
+                </p>
+                <div class="document-actions">
+                  <a href="assets/pdf_files/Vismay-Oza-CV.pdf" class="btn btn-view" target="_blank">
+                    <i class="bi bi-eye"></i> View
+                  </a>
+                  <a href="assets/pdf_files/Vismay-Oza-CV.pdf" class="btn btn-download" download>
+                    <i class="bi bi-download"></i> Download
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-
-          <!-- Certifications -->
-          <!-- <div class="col-md-6 col-lg-4">
-            <div class="document-card">
-              <i class="bi bi-patch-check document-icon"></i>
-              <h3 class="document-title">Technical Certifications</h3>
-              <p class="document-info">
-                Professional certifications and course completions
-              </p>
-              <div class="document-actions">
-                <a
-                  href="documents/certifications.pdf"
-                  class="btn btn-view"
-                  target="_blank"
-                >
-                  <i class="bi bi-eye"></i> View
-                </a>
-                <a
-                  href="documents/certifications.pdf"
-                  class="btn btn-download"
-                  download
-                >
-                  <i class="bi bi-download"></i> Download
-                </a>
-              </div>
-            </div>
-          </div> -->
         </div>
         <div class="container">
           <div class="swiper mySwiper">

@@ -2051,6 +2051,70 @@ section:nth-child(even) {
   text-shadow: 0 0 15px rgba(0, 217, 255, 0.4);
 }
 
+/* =============================================
+   Unique Document Toggle Component
+   ============================================= */
+
+.doc-selector-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 600px; /* Controls the max width of the card */
+  margin: 0 auto 30px auto; /* Centers the component */
+}
+
+.doc-toggle {
+  display: flex;
+  background-color: rgba(0, 217, 255, 0.1);
+  border-radius: 50px;
+  padding: 5px;
+  border: 1px solid rgba(0, 217, 255, 0.2);
+}
+
+.toggle-option {
+  padding: 10px 25px;
+  border: none;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.toggle-option.active {
+  background-color: var(--primary-color);
+  color: #000;
+  box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3);
+}
+
+.doc-content-container {
+  width: 100%;
+}
+
+.doc-content {
+  display: none; /* Hide inactive content */
+}
+
+.doc-content.active {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* For smaller screens */
 @media (max-width: 768px) {
   .modal-image {

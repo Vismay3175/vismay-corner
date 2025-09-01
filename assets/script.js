@@ -360,6 +360,31 @@ document.head.appendChild(style)
 
 
 $(document).ready(function () {
+  // =================================================================
+// START: INTERACTIVE DOCUMENT TOGGLE LOGIC
+// =================================================================
+// document.addEventListener('DOMContentLoaded', function() {
+  const toggleButtons = document.querySelectorAll('.toggle-option');
+  const contentPanels = document.querySelectorAll('.doc-content');
+
+  toggleButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Get the target content ID from the button's data attribute
+      const targetId = button.dataset.target;
+
+      // Remove 'active' class from all buttons and content panels
+      toggleButtons.forEach(btn => btn.classList.remove('active'));
+      contentPanels.forEach(panel => panel.classList.remove('active'));
+
+      // Add 'active' class to the clicked button and the target content
+      button.classList.add('active');
+      document.querySelector(targetId).classList.add('active');
+    });
+  });
+// });
+// =================================================================
+// END: INTERACTIVE DOCUMENT TOGGLE LOGIC
+// =================================================================
   let theme = localStorage.getItem("selectedTheme");
   if (theme && theme == "royal-blue") {
     $("#themeLink").attr("href", "assets/style_royal_blue.css");
