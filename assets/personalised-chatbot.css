@@ -40,16 +40,17 @@ body {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  width: 64px;
-  height: 64px;
-  background: var(--accent-gradient);
+  width: 200px;
+  height: 200px;
+  /* background: var(--accent-gradient); */
+  background: none;
   border: none;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   cursor: pointer;
   z-index: 10001;
   transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3),
-    0 4px 16px rgba(124, 58, 237, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  /* box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3),
+    0 4px 16px rgba(124, 58, 237, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,20 +59,42 @@ body {
 
 #vo-chatbot-toggle:hover {
   transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 16px 48px rgba(0, 217, 255, 0.4),
-    0 8px 24px rgba(124, 58, 237, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  /* box-shadow: 0 16px 48px rgba(0, 217, 255, 0.4), */
+    /* 0 8px 24px rgba(124, 58, 237, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2); */
 }
 
 #vo-chatbot-toggle img {
-  width: 40px;
-  height: 40px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 #vo-chatbot-toggle.open img {
-  transform: rotate(180deg) scale(0.9);
+  display: none;
+}
+
+#vo-chatbot-toggle.open::after {
+  content: "X";
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 80px;
+}
+
+#vo-chatbot-toggle.open {
+  height: 80px;
+  width: 80px;
+  background: var(--accent-gradient);
+  border-radius: 50%;
+  box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3),
+    0 4px 16px rgba(124, 58, 237, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    content: "X";
 }
 
 /* Chat Panel */
@@ -443,7 +466,7 @@ body {
 
 /* Controls */
 .vo-controls {
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
   margin-top: 16px;
