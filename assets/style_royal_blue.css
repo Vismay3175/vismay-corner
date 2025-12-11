@@ -2115,6 +2115,14 @@ section:nth-child(even) {
   }
 }
 
+.skill-card-back {
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 /* For smaller screens */
 @media (max-width: 768px) {
   .modal-image {
