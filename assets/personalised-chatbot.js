@@ -4,7 +4,7 @@ class VismayBot {
     this.isOpen = false;
     this.messages = [];
     this.isStreaming = false;
-    this.currentModel = "gemini-1.5-flash";
+    this.currentModel = "gemini-2.5-flash";
     this.chatHistoryKey = "vo-chat-history";
     this.maxHistoryMessages = 20;
 

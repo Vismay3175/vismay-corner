@@ -683,11 +683,14 @@ body {
 /* Mobile Responsiveness */
 @media (max-width: 480px) {
   #vo-chatbot {
-    width: calc(100vw - 32px);
-    height: calc(100vh - 140px);
-    right: 16px;
-    bottom: 80px;
+    /* width: calc(100vw - 32px); */
+    /* height: calc(100vh - 140px); */
+    width: 95vw;
+    height: 90vh;
+    right: 10px;
+    /* bottom: 80px; */
     border-radius: 20px;
+    bottom: 50px;
   }
   .vo-header,
   .vo-messages,
@@ -696,5 +699,23 @@ body {
   }
   .vo-composer {
     padding: 12px 20px 20px 20px;
+  }
+
+  #vo-chatbot-toggle.open {
+    height: 60px;
+    width: 60px;
+  }
+
+  #vo-chatbot-toggle {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+  }
+
+  #vo-chatbot-toggle > img {
+    width: 150px;
+    height: 150px;
   }
 }
