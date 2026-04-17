@@ -1,0 +1,251 @@
+/* Animations */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutDown {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseScale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes dealCard {
+  0% {
+    transform: translateY(-200px) translateX(100px) rotateY(180deg) scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) translateX(0) rotateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes flipCard {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(90deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes celebrate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes goldPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(217, 165, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(217, 165, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(217, 165, 102, 0);
+  }
+}
+
+@keyframes revealTile {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(90deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes tileWin {
+  0% {
+    transform: scale(1) rotateY(180deg);
+    box-shadow: 0 0 0 0 rgba(217, 165, 102, 0.7);
+  }
+  50% {
+    transform: scale(1.1) rotateY(180deg);
+    box-shadow: 0 0 15px 5px rgba(217, 165, 102, 0.7);
+  }
+  100% {
+    transform: scale(1) rotateY(180deg);
+    box-shadow: 0 0 0 0 rgba(217, 165, 102, 0.7);
+  }
+}
+
+@keyframes tileLose {
+  0%, 20%, 40%, 60%, 80% {
+    transform: translateX(-5px) rotateY(180deg);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(5px) rotateY(180deg);
+  }
+  100% {
+    transform: translateX(0) rotateY(180deg);
+  }
+}
+
+@keyframes notificationIn {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes notificationOut {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes gradientBg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animation Classes */
+.fadeIn {
+  animation: fadeIn var(--transition-normal) forwards;
+}
+
+.fadeOut {
+  animation: fadeOut var(--transition-normal) forwards;
+}
+
+.slideInUp {
+  animation: slideInUp var(--transition-normal) forwards;
+}
+
+.slideOutDown {
+  animation: slideOutDown var(--transition-normal) forwards;
+}
+
+.pulseScale {
+  animation: pulseScale 1s infinite ease-in-out;
+}
+
+.dealCard {
+  animation: dealCard 0.5s forwards;
+}
+
+.flipCard {
+  animation: flipCard 0.5s forwards;
+}
+
+.shimmer {
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0) 0%, 
+    rgba(255, 255, 255, 0.2) 25%, 
+    rgba(255, 255, 255, 0.2) 50%, 
+    rgba(255, 255, 255, 0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.celebrate {
+  animation: celebrate 0.5s ease-in-out;
+}
+
+.goldPulse {
+  animation: goldPulse 1.5s infinite;
+}
+
+.revealTile {
+  animation: revealTile 0.5s forwards;
+}
+
+.tileWin {
+  animation: tileWin 1s forwards;
+}
+
+.tileLose {
+  animation: tileLose 0.5s forwards;
+}
+
+.notificationIn {
+  animation: notificationIn 0.3s forwards;
+}
+
+.notificationOut {
+  animation: notificationOut 0.3s forwards;
+}
+
+.gradientAnimation {
+  background-size: 200% 200%;
+  animation: gradientBg 3s ease infinite;
+}

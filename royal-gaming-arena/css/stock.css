@@ -1,0 +1,190 @@
+/* Stock Market Game - Polished UI Styles */
+.stock-game-container {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: var(--space-4);
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Left Controls Panel */
+.stock-controls-panel {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.control-group label {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-neutral-300);
+    font-size: var(--font-size-sm);
+}
+
+.amount-input-group {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-neutral-900);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-neutral-600);
+}
+.amount-input-group:focus-within {
+    border-color: var(--color-gold);
+}
+
+.currency-icon {
+    padding-left: var(--space-3);
+    color: var(--color-neutral-400);
+}
+
+.amount-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--color-neutral-100);
+    padding: var(--space-3);
+    font-size: var(--font-size-md);
+    width: 100%;
+}
+
+.quick-bet-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: var(--space-2);
+}
+
+.btn-subtle {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-neutral-300);
+    padding: var(--space-2);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+.btn-subtle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.direction-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+}
+
+.direction-btn {
+    padding: var(--space-3);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-bold);
+    border: 2px solid var(--color-neutral-700);
+    transition: all var(--transition-fast);
+}
+.direction-btn .icon { margin-right: var(--space-2); }
+.direction-btn.up { background-color: var(--color-success-800); }
+.direction-btn.down { background-color: var(--color-error-800); }
+.direction-btn.selected.up { background-color: var(--color-success-500); border-color: var(--color-success-300); }
+.direction-btn.selected.down { background-color: var(--color-error-500); border-color: var(--color-error-300); }
+
+.place-bet-btn {
+    width: 100%;
+    padding: var(--space-4);
+    font-size: var(--font-size-lg);
+}
+
+/* Right Chart Panel */
+.stock-chart-panel {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(4, 33, 94, 0.5) 0%, rgba(9, 24, 56, 0.8) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#stock-chart {
+    width: 100%;
+    height: 100%;
+}
+
+/* Chart Overlays */
+.stock-branding {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-25deg);
+    font-family: var(--font-display);
+    font-size: var(--font-size-5xl);
+    color: rgba(255, 255, 255, 0.04);
+    pointer-events: none;
+}
+
+.stock-info {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--space-2) var(--space-4);
+    text-align: right;
+}
+.stock-stat-label { font-size: var(--font-size-sm); color: var(--color-neutral-300); }
+.stock-stat-value { font-size: var(--font-size-2xl); font-weight: bold; }
+
+.stock-view-controls {
+    position: absolute;
+    bottom: var(--space-4);
+    left: var(--space-4);
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: var(--space-2);
+    border-radius: var(--radius-lg);
+}
+.view-btn { background: transparent; border: 1px solid var(--color-neutral-600); }
+.view-btn.active { background-color: var(--color-gold); color: var(--color-neutral-900); border-color: var(--color-gold); }
+
+/* History in Left Panel */
+.stock-history-container {
+    margin-top: auto; /* Pushes history to the bottom */
+}
+.stock-history {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+}
+.stock-history-item {
+    padding: var(--space-2);
+    width: 48px; /* Consistent sizing */
+    height: 48px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: var(--font-size-xs);
+    color: #fff;
+}
+.stock-history-item.up { background-color: var(--color-success-500); }
+.stock-history-item.down { background-color: var(--color-error-500); }
+.stock-history-item .icon { width: 1.5em; height: 1.5em; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .stock-game-container {
+        grid-template-columns: 1fr; /* Stack on smaller screens */
+    }
+    .stock-history-container {
+        margin-top: var(--space-5);
+    }
+}

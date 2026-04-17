@@ -1,0 +1,290 @@
+/* Limbo Game Specific Styles */
+.limbo-game {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .limbo-settings {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+    padding: var(--space-4);
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-lg);
+    flex-wrap: wrap;
+  }
+  
+  .limbo-container {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(135deg, rgba(4, 33, 94, 0.5) 0%, rgba(9, 24, 56, 0.8) 100%);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+  
+  .limbo-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-6);
+    min-height: 200px;
+    position: relative;
+  }
+  
+  .limbo-multiplier {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-gold);
+    text-shadow: 0 0 10px rgba(217, 165, 102, 0.5);
+    transition: all var(--transition-normal);
+    text-align: center;
+    margin-bottom: var(--space-4);
+  }
+  
+  .limbo-multiplier.win {
+    color: var(--color-success-500);
+    animation: celebrate 0.5s ease-in-out;
+  }
+  
+  .limbo-multiplier.lose {
+    color: var(--color-error-500);
+  }
+  
+  .limbo-target-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+  
+  .limbo-target-label {
+    font-size: var(--font-size-md);
+    color: var(--color-neutral-300);
+  }
+  
+  .limbo-target-value {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-gold);
+  }
+  
+  .limbo-controls {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  
+  .limbo-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    justify-content: center;
+  }
+  
+  .limbo-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    min-width: 150px;
+  }
+  
+  .limbo-input-group label {
+    font-size: var(--font-size-sm);
+    color: var(--color-neutral-300);
+  }
+  
+  .limbo-input-group input {
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-neutral-100);
+    font-size: var(--font-size-md);
+  }
+  
+  .limbo-input-group input:focus {
+    border-color: var(--color-gold);
+    outline: none;
+  }
+  
+  .limbo-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+  
+  .limbo-bet-button {
+    min-width: 120px;
+  }
+  
+  .limbo-payout-info {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-3) var(--space-4);
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius-md);
+    margin-top: var(--space-2);
+  }
+  
+  .limbo-payout-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .limbo-payout-label {
+    font-size: var(--font-size-sm);
+    color: var(--color-neutral-300);
+  }
+  
+  .limbo-payout-value {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-gold);
+  }
+  
+  .limbo-result {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-normal);
+    z-index: 10;
+  }
+  
+  .limbo-result.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .limbo-branding {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-25deg);
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    color: rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
+    pointer-events: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 1;
+  }
+  
+  .limbo-history-container {
+    margin-top: var(--space-4);
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+  }
+  
+  .limbo-history-container h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-3);
+    color: var(--color-neutral-200);
+  }
+  
+  .limbo-history {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  
+  .limbo-history-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-2) var(--space-3);
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-md);
+    transition: background-color var(--transition-fast);
+  }
+  
+  .limbo-history-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  .limbo-history-multiplier {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-gold);
+  }
+  
+  .limbo-history-target {
+    color: var(--color-neutral-300);
+  }
+  
+  .limbo-history-result {
+    font-weight: var(--font-weight-bold);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+  }
+  
+  .limbo-history-result.win {
+    background-color: rgba(0, 230, 89, 0.2);
+    color: var(--color-success-500);
+  }
+  
+  .limbo-history-result.loss {
+    background-color: rgba(255, 0, 0, 0.2);
+    color: var(--color-error-500);
+  }
+  
+  .limbo-progress {
+    width: 100%;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    margin-top: var(--space-2);
+  }
+  
+  .limbo-progress-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--color-gold-dark), var(--color-gold), var(--color-gold-light));
+    border-radius: var(--radius-full);
+    transition: width 0.1s linear;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .limbo-settings {
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+  
+    .limbo-inputs {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .limbo-input-group {
+      width: 100%;
+    }
+  
+    .limbo-multiplier {
+      font-size: var(--font-size-3xl);
+    }
+  }
+  
