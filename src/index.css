@@ -118,6 +118,14 @@
     -ms-overflow-style: none; /* IE and Edge */
   }
   
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100vw;
+    position: relative;
+    max-width: 100%;
+  }
+  
   html::-webkit-scrollbar,
   body::-webkit-scrollbar {
     display: none; /* Chrome, Safari, and Opera */
@@ -137,11 +145,15 @@
 
   .nav-scrolled {
     @apply py-2 md:py-2 shadow-xl shadow-black/10;
-    width: calc(100% - 3rem) !important;
+    left: 1.5rem !important;
+    right: 1.5rem !important;
   }
   @media (min-width: 768px) {
     .nav-scrolled {
+      left: 50% !important;
+      right: auto !important;
       width: 90% !important;
+      transform: translateX(-50%) !important;
     }
   }
 
