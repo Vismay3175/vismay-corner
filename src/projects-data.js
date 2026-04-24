@@ -1,6 +1,6 @@
 export const projects = [
   { 
-    image: "/projects/infostay.png", 
+    image: "/projects/infostay.webp", 
     title: "INFOSTAY", 
     status: "Live",
     description: "Hospitality Marketplace (CRM) with real-time notifications and automated booking workflows.",
@@ -19,7 +19,7 @@ export const projects = [
     sourceUrl: "#"
   },
   { 
-    image: "/projects/perfectstay-logo.png", 
+    image: "/projects/perfectstay-logo.webp", 
     title: "PERFECTSTAY", 
     status: "Live",
     description: "Property Management Ecosystem featuring AI-powered booking assistant and social feed generation.",
@@ -40,7 +40,7 @@ export const projects = [
     sourceUrl: "#"
   },
   { 
-    image: "/projects/loscop.png", 
+    image: "/projects/loscop.webp", 
     title: "LOSCOP", 
     status: "Live",
     description: "Product Tracking System with Stripe payment integration and real-time chat.",
@@ -58,7 +58,7 @@ export const projects = [
     sourceUrl: "#"
   },
   { 
-    image: "/projects/altaseira-logo.png", 
+    image: "/projects/altaseira-logo.webp", 
     title: "ALTASEIRA", 
     status: "Live",
     description: "Platform Revamp with advanced reporting and RTL/LTR support.",
@@ -76,7 +76,7 @@ export const projects = [
     sourceUrl: "#"
   },
   { 
-    image: "/projects/ciy-club.png", 
+    image: "/projects/ciy-club.webp", 
     title: "CIY.CLUB", 
     status: "Live",
     description: "Community-driven platform featuring a student dashboard to track skills and learning paths with a matrix-type UI, plus automated certificate generation upon level completion.",
@@ -99,7 +99,7 @@ export const projects = [
     sourceUrl: "#"
   },
   { 
-    image: "/projects/tiraLogo.png", 
+    image: "/projects/tiraLogo.webp", 
     title: "MY TIRA", 
     status: "Live",
     description: "E-commerce platform for beauty and wellness products, featuring Stripe payment integration, inventory management, and a comprehensive admin panel for shop operations.",
@@ -119,7 +119,7 @@ export const projects = [
     sourceUrl: "#"
   },
   { 
-    image: "/projects/FiarPlay.png", 
+    image: "/projects/FiarPlay.webp", 
     title: "FAIRPLAY GIVEAWAYS", 
     status: "Live",
     description: "High-performance, transparent giveaway and ecommerce ecosystem designed to redefine how online competitions and retail interact.",
@@ -140,7 +140,7 @@ export const projects = [
     sourceUrl: "#"
   },
   { 
-    image: "/projects/pride-mile.png", 
+    image: "/projects/pride-mile.webp", 
     title: "PRIDEMILE", 
     status: "Offline",
     description: "Backend API Service for high-traffic product search and user subscriptions.",
@@ -158,7 +158,7 @@ export const projects = [
     sourceUrl: "#"
   },
   { 
-    image: "/projects/atvn-logo.png", 
+    image: "/projects/atvn-logo.webp", 
     title: "ATVN CAR REPAIRING", 
     status: "Offline",
     description: "Platform Enhancement with role-based security and automated notifications.",
@@ -176,7 +176,7 @@ export const projects = [
     sourceUrl: "#"
   },
   { 
-    image: "/projects/hotspot-management.png", 
+    image: "/projects/hotspot-management.webp", 
     title: "HOTSPOT GUEST WIFI", 
     status: "Offline",
     description: "Guest WiFi Management Portal with UniFi Controller API integration.",
@@ -197,7 +197,7 @@ export const projects = [
 
 export const aiLabProjects = [
   { 
-    image: "/projects/ai-featured/work-bestie.png", 
+    image: "/projects/ai-featured/work-bestie.webp", 
     title: "WORK BESTIE", 
     status: "Live",
     description: "AI-powered workplace companion for productivity and mental well-being.",
@@ -215,7 +215,7 @@ export const aiLabProjects = [
     sourceUrl: "#"
   },
   { 
-    image: "/projects/ai-featured/custom-resume.png", 
+    image: "/projects/ai-featured/custom-resume.webp", 
     title: "CUSTOM RESUME", 
     status: "Live",
     description: "Intelligent resume builder that tailors content based on job descriptions using LLMs.",
@@ -233,7 +233,7 @@ export const aiLabProjects = [
     sourceUrl: "#"
   },
   { 
-    image: "/projects/ai-featured/runner-game.png", 
+    image: "/projects/ai-featured/runner-game.webp", 
     title: "RUNNER GAME", 
     status: "Live",
     description: "Infinite runner game with procedural level generation and AI-controlled obstacles.",
@@ -251,7 +251,7 @@ export const aiLabProjects = [
     sourceUrl: "#"
   },
   { 
-    image: "/projects/ai-featured/puzzle-and-games.png", 
+    image: "/projects/ai-featured/puzzle-and-games.webp", 
     title: "GAMING LOUNGE", 
     status: "Live",
     description: "AI-generated puzzles and logic games that adapt to player skill levels.",
@@ -269,7 +269,7 @@ export const aiLabProjects = [
     sourceUrl: "#"
   },
   { 
-    image: "/projects/ai-featured/royal-gaming.png", 
+    image: "/projects/ai-featured/royal-gaming.webp", 
     title: "ROYAL GAMING", 
     status: "Live",
     description: "High-performance gaming platform with AI-driven matchmaking and fraud detection.",

@@ -15,19 +15,19 @@ const certificates = [
   {
     title: "Data Analysis using Python",
     issuer: "IBM Skills Network",
-    img: "/documents/data-analysis-using-python.png",
+    img: "/documents/data-analysis-using-python.webp",
     desc: "Comprehensive data analysis techniques using Python libraries."
   },
   {
     title: "Explore Emerging Tech",
     issuer: "IBM",
-    img: "/documents/explore-emerging-tech.png",
+    img: "/documents/explore-emerging-tech.webp",
     desc: "Exploration of emerging technologies and their applications."
   },
   {
     title: "Laravel Framework Expert",
     issuer: "TestDome",
-    img: "/documents/Vismay-Oza-Laravel-TestDome-Certificate.png",
+    img: "/documents/Vismay-Oza-Laravel-TestDome-Certificate.webp",
     desc: "Advanced backend development with Laravel ecosystem."
   },
   {
