@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Vismay Oza | Software Developer</title>
     <meta name="description" content="Vismay Oza is a Software Developer specializing in scalable backend systems, high-performance architectures, and AI-driven solutions." />
     <meta name="keywords" content="Vismay Oza, Software Developer, Laravel Developer, PHP Expert, AI Developer, Web Development Portfolio, vismay.site, Gemini API, OpenAI Integration" />
@@ -10,6 +10,7 @@
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#ff4d6d" />
     <link rel="canonical" href="https://vismay.site/" />
+    <link rel="preload" as="image" href="/Confident professional in modern office (1).png" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
@@ -237,33 +238,14 @@
   </head>
   <body class="bg-surface selection:bg-secondary/20 selection:text-secondary overflow-x-hidden">
     <div class="loader flex-col">
-      <div class="loader-ganesha opacity-0 translate-y-4 flex flex-col items-center justify-center gap-4 mb-8">
-        
-        <!-- Real Lord Ganesha Idol Image (User will upload this to public folder) -->
-        <div class="relative w-28 h-28 md:w-32 md:h-32 mb-2">
-          <!-- Enchanting glowing aura behind the idol -->
-          <div class="absolute inset-0 bg-secondary/30 rounded-full blur-xl animate-pulse"></div>
-          <div class="absolute inset-0 bg-gradient-to-t from-secondary/40 to-transparent rounded-full blur-md"></div>
-          <!-- The Image (fallback to glowing Om if image is not found/loaded) -->
-          <img src="/ganesha-idol.png" alt="Lord Ganesha" class="w-full h-full object-contain relative z-10 drop-shadow-[0_10px_15px_rgba(255,77,109,0.5)]" onerror="this.style.display='none'; document.getElementById('om-fallback').style.display='block';">
-          
-          <!-- Fallback Om SVG (shows only if the idol image is missing) -->
-          <svg id="om-fallback" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-full drop-shadow-[0_0_20px_rgba(255,77,109,0.6)]" style="display:none;">
-            <path d="M 50 10 C 25 10 10 30 10 50 C 10 70 30 90 50 90 C 70 90 90 70 90 50 C 90 30 75 10 50 10 Z M 50 15 C 70 15 85 30 85 50 C 85 70 70 85 50 85 C 30 85 15 70 15 50 C 15 30 30 15 50 15 Z" fill="none" class="stroke-secondary" stroke-width="2" opacity="0.5"/>
-            <path d="M 50 20 C 35 20 20 35 20 50 C 20 65 35 80 50 80 C 65 80 80 65 80 50 C 80 35 65 20 50 20 Z" fill="none" class="stroke-secondary" stroke-width="1.5" stroke-dasharray="4 4"/>
-            <text x="50" y="55" font-family="'Inter', sans-serif" font-weight="600" font-size="42" class="fill-secondary" text-anchor="middle" dominant-baseline="central">ॐ</text>
-          </svg>
-        </div>
 
-        <div class="text-secondary font-semibold tracking-[0.25em] text-sm md:text-md text-center drop-shadow-[0_0_12px_rgba(255,77,109,0.5)]">|| श्री गणेशाय नमः ||</div>
-      </div>
       <div class="loader-text">Vismay Oza</div>
       <div class="loader-bar mt-8"></div>
     </div>
     <div class="custom-cursor"></div>
     <div class="custom-cursor-follower"></div>
 
-    <nav id="navbar" style="top: max(1rem, env(safe-area-inset-top));" class="fixed left-4 right-4 md:left-1/2 md:right-auto md:-translate-x-1/2 md:w-[95%] max-w-[1400px] z-[100] glass-nav border border-white/10 flex justify-between items-center px-4 md:px-8 py-2.5 md:py-1.5 rounded-2xl transition-all duration-500 shadow-2xl shadow-black/5">
+    <nav id="navbar" style="top: max(1rem, env(safe-area-inset-top));" class="fixed left-4 right-4 md:inset-x-0 md:mx-auto md:w-[95%] max-w-[1400px] z-[100] glass-nav border border-white/10 flex justify-between items-center px-4 md:px-8 py-2.5 md:py-1.5 rounded-2xl transition-all duration-500 shadow-2xl shadow-black/5">
       <div class="group cursor-pointer">
         <a href="#hero" class="flex items-center gap-3 md:gap-4 group-hover:scale-105 transition-transform">
           <div class="relative">
@@ -278,7 +260,7 @@
       </div>
       
       <!-- Desktop Menu -->
-      <div class="hidden md:flex gap-3 lg:gap-4 font-label tracking-[0.1em] text-[11px] uppercase font-bold">
+      <div class="hidden md:flex gap-2 lg:gap-4 font-label tracking-[0.1em] text-[11px] uppercase font-bold flex-nowrap items-center">
         <a class="nav-link relative text-on-surface group py-1" href="#hero">
           HOME
           <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-secondary group-hover:w-full transition-all duration-500"></span>
@@ -324,7 +306,7 @@
         </a>
         
         <!-- Mobile Menu Toggle -->
-        <button id="mobile-menu-toggle" class="md:hidden w-10 h-10 flex flex-col items-end justify-center gap-1.5 text-on-surface hover:text-secondary transition-colors">
+        <button id="mobile-menu-toggle" aria-label="Toggle Mobile Menu" class="md:hidden w-10 h-10 flex flex-col items-end justify-center gap-1.5 text-on-surface hover:text-secondary transition-colors">
           <span class="w-6 h-0.5 bg-current rounded-full transition-all duration-300"></span>
           <span class="w-5 h-0.5 bg-current rounded-full transition-all duration-300"></span>
           <span class="w-4 h-0.5 bg-current rounded-full transition-all duration-300"></span>
@@ -349,7 +331,7 @@
               <div class="text-[8px] font-bold tracking-[0.1em] text-secondary uppercase">Software Developer</div>
             </div>
           </div>
-          <button id="mobile-menu-close" class="w-12 h-12 rounded-2xl bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-secondary hover:text-white transition-all">
+          <button id="mobile-menu-close" aria-label="Close Mobile Menu" class="w-12 h-12 rounded-2xl bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-secondary hover:text-white transition-all">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
           </button>
         </div>
@@ -435,7 +417,7 @@
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary via-secondary-dim to-secondary">Vismay Oza</span>
               </h1>
 
-              <div class="hero-reveal font-body text-xl md:text-3xl text-on-surface-variant font-medium opacity-80 mb-6 flex flex-wrap items-center gap-2 opacity-0 translate-y-5">
+              <div class="hero-reveal font-body text-xl md:text-3xl text-on-surface font-medium mb-6 flex flex-wrap items-center gap-2 opacity-0 translate-y-5">
                 <span>I specialize in</span> <span id="typing-text" class="text-secondary font-black"></span>
               </div>
 
@@ -459,7 +441,7 @@
                   </span>
                   <div class="absolute inset-0 bg-gradient-to-r from-secondary to-secondary opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </a>
-                <a class="group relative px-10 py-5 border-2 border-outline-variant rounded-2xl font-label text-xs font-black uppercase tracking-widest overflow-hidden transition-all hover:border-secondary hover:text-secondary" href="#">
+                <a class="group relative px-10 py-5 border-2 border-outline-variant rounded-2xl font-label text-xs font-black uppercase tracking-widest overflow-hidden transition-all hover:border-secondary hover:text-secondary" href="/pdf_files/Vismay-Oza-Resume.pdf" target="_blank">
                   <span class="relative z-10 flex items-center gap-2">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                     Download Resume
@@ -468,13 +450,13 @@
                 
                 <!-- Social Icons in Hero -->
                 <div class="flex items-center gap-4">
-                  <a href="https://github.com/Vismay3175" target="_blank" class="w-12 h-12 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center text-on-surface/60 hover:text-secondary hover:border-secondary/50 hover:bg-secondary/5 hover:scale-110 transition-all duration-500 group shadow-lg">
+                  <a href="https://github.com/Vismay3175" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="w-12 h-12 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center text-on-surface/60 hover:text-secondary hover:border-secondary/50 hover:bg-secondary/5 hover:scale-110 transition-all duration-500 group shadow-lg">
                     <svg class="w-5 h-5 transition-transform duration-500 group-hover:rotate-12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                   </a>
-                  <a href="https://www.linkedin.com/in/vismay-oza/" target="_blank" class="w-12 h-12 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center text-on-surface/60 hover:text-secondary hover:border-secondary/50 hover:bg-secondary/5 hover:scale-110 transition-all duration-500 group shadow-lg">
+                  <a href="https://www.linkedin.com/in/vismay-oza/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="w-12 h-12 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center text-on-surface/60 hover:text-secondary hover:border-secondary/50 hover:bg-secondary/5 hover:scale-110 transition-all duration-500 group shadow-lg">
                     <svg class="w-5 h-5 transition-transform duration-500 group-hover:rotate-12" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                   </a>
-                  <a href="https://www.instagram.com/vismay_.3175/" target="_blank" class="w-12 h-12 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center text-on-surface/60 hover:text-secondary hover:border-secondary/50 hover:bg-secondary/5 hover:scale-110 transition-all duration-500 group shadow-lg">
+                  <a href="https://www.instagram.com/vismay_.3175/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile" class="w-12 h-12 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center text-on-surface/60 hover:text-secondary hover:border-secondary/50 hover:bg-secondary/5 hover:scale-110 transition-all duration-500 group shadow-lg">
                     <svg class="w-5 h-5 transition-transform duration-500 group-hover:rotate-12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                   </a>
                 </div>
@@ -559,10 +541,10 @@
               <div class="absolute left-6 top-0 bottom-0 w-[1px] bg-gradient-to-b from-secondary/50 via-secondary/20 to-transparent md:hidden z-0"></div>
 
               <!-- Navigation Arrows -->
-              <button id="odyssey-prev" class="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-on-surface hover:bg-secondary hover:text-white transition-all duration-300 opacity-0 group-hover/odyssey:opacity-100 hidden md:flex">
+              <button id="odyssey-prev" aria-label="Previous Story" class="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-on-surface hover:bg-secondary hover:text-white transition-all duration-300 opacity-0 group-hover/odyssey:opacity-100 hidden md:flex">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
               </button>
-              <button id="odyssey-next" class="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-on-surface hover:bg-secondary hover:text-white transition-all duration-300 opacity-0 group-hover/odyssey:opacity-100 hidden md:flex">
+              <button id="odyssey-next" aria-label="Next Story" class="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-on-surface hover:bg-secondary hover:text-white transition-all duration-300 opacity-0 group-hover/odyssey:opacity-100 hidden md:flex">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
               </button>
 
@@ -678,7 +660,7 @@
                           <h3 class="font-headline text-lg font-bold text-on-surface leading-tight">Software Developer</h3>
                         </div>
                       </div>
-                      <p class="text-[11px] text-on-surface-variant leading-relaxed opacity-70 mb-3 block">Spearheading architectural initiatives at Devstree. Promoted for high-impact leadership: Orchestrated 12+ enterprise apps, slashed latency by 40%, and sustained 99.3% production uptime.</p>
+                      <p class="text-[11px] text-on-surface-variant leading-relaxed opacity-90 mb-3 block">Spearheading architectural initiatives at Devstree. Promoted for high-impact leadership: Orchestrated 12+ enterprise apps, slashed latency by 40%, and sustained 99.3% production uptime.</p>
                       <div class="flex flex-wrap gap-2">
                         <span class="px-2 py-1 bg-secondary/5 text-[9px] font-bold text-secondary rounded-md">Architecture</span>
                         <span class="px-2 py-1 bg-secondary/5 text-[9px] font-bold text-secondary rounded-md">Mentorship</span>
@@ -707,7 +689,7 @@
                           <h3 class="font-headline text-lg font-bold text-on-surface">AI & Beyond</h3>
                         </div>
                       </div>
-                      <p class="text-xs text-on-surface-variant leading-relaxed opacity-70">Integrating AI solutions and exploring the next frontier of full-stack development.</p>
+                      <p class="text-xs text-on-surface-variant leading-relaxed opacity-90">Integrating AI solutions and exploring the next frontier of full-stack development.</p>
                     </div>
                   </div>
                 </div>
@@ -732,7 +714,7 @@
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
               <div class="lg:col-span-5 space-y-8">
-                <p class="font-body text-xl text-on-surface-variant leading-relaxed opacity-80">
+                <p class="font-body text-xl text-on-surface leading-relaxed opacity-90">
                   With 3+ years of hands-on mastery in building scalable, enterprise-level applications, I engineer robust backend architectures and high-performance data systems. My mission is to bridge the gap between traditional backend excellence and the frontier of intelligent automation.
                 </p>
                 <div class="space-y-4">
@@ -741,8 +723,8 @@
                       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.952 11.952 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                     </div>
                     <div>
-                      <h4 class="font-bold text-on-surface">Strategic Architecture</h4>
-                      <p class="text-xs text-on-surface-variant opacity-60">Architecting full-stack ecosystems tailored for enterprise-level traffic and seamless scalability.</p>
+                      <h3 class="font-bold text-on-surface text-base">Strategic Architecture</h3>
+                      <p class="text-xs text-on-surface-variant opacity-90">Architecting full-stack ecosystems tailored for enterprise-level traffic and seamless scalability.</p>
                     </div>
                   </div>
                   <div class="flex items-center gap-4 group">
@@ -750,8 +732,8 @@
                       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                     </div>
                     <div>
-                      <h4 class="font-bold text-on-surface">Hyper-Optimization</h4>
-                      <p class="text-xs text-on-surface-variant opacity-60">Delivering mission-critical performance gains, including 40% latency reduction through meticulous tuning.</p>
+                      <h3 class="font-bold text-on-surface text-base">Hyper-Optimization</h3>
+                      <p class="text-xs text-on-surface-variant opacity-90">Delivering mission-critical performance gains, including 40% latency reduction through meticulous tuning.</p>
                     </div>
                   </div>
                   <div class="flex items-center gap-4 group">
@@ -759,8 +741,8 @@
                       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
                     </div>
                     <div>
-                      <h4 class="font-bold text-on-surface">Analytical Engineering</h4>
-                      <p class="text-xs text-on-surface-variant opacity-60">Leveraging system metrics and data intelligence to drive high-impact technical decisions.</p>
+                      <h3 class="font-bold text-on-surface text-base">Analytical Engineering</h3>
+                      <p class="text-xs text-on-surface-variant opacity-90">Leveraging system metrics and data intelligence to drive high-impact technical decisions.</p>
                     </div>
                   </div>
                 </div>
@@ -973,11 +955,11 @@
                     <h3 class="font-headline text-3xl font-black text-on-surface mb-4">Resume</h3>
                     <p class="text-on-surface-variant text-base max-w-sm mb-10 opacity-70">A concise summary of my professional background, skills, and key achievements.</p>
                     <div class="flex gap-4">
-                      <a href="/documents/Vismay-Oza-resume.jpg" target="_blank" class="px-8 py-4 border-2 border-outline-variant rounded-2xl font-label text-[10px] font-black uppercase tracking-widest hover:border-secondary hover:text-secondary transition-all flex items-center gap-2">
+                      <a href="/pdf_files/Vismay-Oza-Resume.pdf" target="_blank" class="px-8 py-4 border-2 border-outline-variant rounded-2xl font-label text-[10px] font-black uppercase tracking-widest hover:border-secondary hover:text-secondary transition-all flex items-center gap-2">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
                         View
                       </a>
-                      <a href="/documents/Vismay-Oza-resume.jpg" download class="px-8 py-4 bg-secondary text-white rounded-2xl font-label text-[10px] font-black uppercase tracking-widest hover:bg-secondary-dim transition-all shadow-lg shadow-secondary/20 flex items-center gap-2">
+                      <a href="/pdf_files/Vismay-Oza-Resume.pdf" download class="px-8 py-4 bg-secondary text-white rounded-2xl font-label text-[10px] font-black uppercase tracking-widest hover:bg-secondary-dim transition-all shadow-lg shadow-secondary/20 flex items-center gap-2">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                         Download
                       </a>
@@ -994,11 +976,11 @@
                     <h3 class="font-headline text-3xl font-black text-on-surface mb-4">Detailed CV</h3>
                     <p class="text-on-surface-variant text-base max-w-sm mb-10 opacity-70">A comprehensive document detailing all my projects, experiences, and technical journey.</p>
                     <div class="flex gap-4">
-                      <a href="/documents/Vismay-Oza-resume.jpg" target="_blank" class="px-8 py-4 border-2 border-outline-variant rounded-2xl font-label text-[10px] font-black uppercase tracking-widest hover:border-secondary hover:text-secondary transition-all flex items-center gap-2">
+                      <a href="/pdf_files/Vismay-Oza-CV.pdf" target="_blank" class="px-8 py-4 border-2 border-outline-variant rounded-2xl font-label text-[10px] font-black uppercase tracking-widest hover:border-secondary hover:text-secondary transition-all flex items-center gap-2">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
                         View
                       </a>
-                      <a href="/documents/Vismay-Oza-resume.jpg" download class="px-8 py-4 bg-secondary text-white rounded-2xl font-label text-[10px] font-black uppercase tracking-widest hover:bg-secondary-dim transition-all shadow-lg shadow-secondary/20 flex items-center gap-2">
+                      <a href="/pdf_files/Vismay-Oza-CV.pdf" download class="px-8 py-4 bg-secondary text-white rounded-2xl font-label text-[10px] font-black uppercase tracking-widest hover:bg-secondary-dim transition-all shadow-lg shadow-secondary/20 flex items-center gap-2">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                         Download
                       </a>
@@ -1134,7 +1116,7 @@ Let's build <br/> something <span class="text-transparent bg-clip-text bg-gradie
           <div class="max-w-4xl mx-auto bg-surface-container-low border border-outline-variant/30 rounded-[2.5rem] p-8 md:p-12 shadow-2xl">
             <!-- Game Mode Selector -->
             <div class="bg-surface-container-high p-6 rounded-2xl mb-8 border border-outline-variant/20">
-              <h4 class="text-center font-bold text-on-surface mb-4">Select Game Mode</h4>
+              <h3 class="text-center font-bold text-on-surface mb-4">Select Game Mode</h3>
               <div class="flex justify-center gap-8">
                 <label class="flex items-center gap-3 cursor-pointer group">
                   <input type="radio" name="gameMode" value="ai" checked class="w-4 h-4 accent-secondary">
@@ -1174,10 +1156,10 @@ Let's build <br/> something <span class="text-transparent bg-clip-text bg-gradie
             <!-- Instructions -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 bg-surface-container-high/50 rounded-3xl border border-outline-variant/10">
               <div>
-                <h5 class="text-secondary font-black text-xs uppercase tracking-widest mb-6 flex items-center gap-2">
+                <h4 class="text-secondary font-black text-xs uppercase tracking-widest mb-6 flex items-center gap-2">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                   Player Controls:
-                </h5>
+                </h4>
                 <ul class="space-y-4 text-sm text-on-surface-variant opacity-80">
                   <li class="flex items-center gap-3">
                     <span class="w-6 h-6 rounded-lg bg-surface-container-high flex items-center justify-center border border-outline-variant/30 font-bold">W</span>
@@ -1190,10 +1172,10 @@ Let's build <br/> something <span class="text-transparent bg-clip-text bg-gradie
                 </ul>
               </div>
               <div>
-                <h5 class="text-secondary font-black text-xs uppercase tracking-widest mb-6 flex items-center gap-2">
+                <h4 class="text-secondary font-black text-xs uppercase tracking-widest mb-6 flex items-center gap-2">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                   Game Info:
-                </h5>
+                </h4>
                 <ul class="space-y-4 text-sm text-on-surface-variant opacity-80">
                   <li class="flex items-center gap-3">
                     <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
@@ -1232,7 +1214,7 @@ Let's build <br/> something <span class="text-transparent bg-clip-text bg-gradie
               </p>
             </div>
             <div class="md:col-span-3">
-              <h4 class="font-label text-[10px] uppercase tracking-[0.4em] font-black text-secondary mb-8">Navigation</h4>
+              <h3 class="font-label text-[10px] uppercase tracking-[0.4em] font-black text-secondary mb-8">Navigation</h3>
               <ul class="space-y-4 font-label text-xs uppercase tracking-widest font-bold">
                 <li><a href="#hero" class="text-on-surface-variant hover:text-secondary transition-colors">Home</a></li>
                 <li><a href="#skills" class="text-on-surface-variant hover:text-secondary transition-colors">Skills</a></li>
@@ -1243,9 +1225,9 @@ Let's build <br/> something <span class="text-transparent bg-clip-text bg-gradie
               </ul>
             </div>
             <div class="md:col-span-3">
-              <h4 class="font-label text-[10px] uppercase tracking-[0.4em] font-black text-secondary mb-8">Social</h4>
+              <h3 class="font-label text-[10px] uppercase tracking-[0.4em] font-black text-secondary mb-8">Social</h3>
               <ul class="space-y-4 font-label text-xs uppercase tracking-widest font-bold">
-                <li><a href="https://www.linkedin.com/in/vismay-oza/" target="_blank" class="text-on-surface-variant hover:text-secondary transition-colors flex items-center gap-3 group">
+                <li><a href="https://www.linkedin.com/in/vismay-oza/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="text-on-surface-variant hover:text-secondary transition-colors flex items-center gap-3 group">
                   <div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-all">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                   </div>
@@ -1257,7 +1239,7 @@ Let's build <br/> something <span class="text-transparent bg-clip-text bg-gradie
                   </div>
                   Instagram
                 </a></li>
-                <li><a href="https://github.com/Vismay3175" target="_blank" class="text-on-surface-variant hover:text-secondary transition-colors flex items-center gap-3 group">
+                <li><a href="https://github.com/Vismay3175" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="text-on-surface-variant hover:text-secondary transition-colors flex items-center gap-3 group">
                   <div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-all">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                   </div>
@@ -1296,7 +1278,7 @@ Let's build <br/> something <span class="text-transparent bg-clip-text bg-gradie
             </div>
           </div>
         </div>
-        <button id="chat-close" class="p-2.5 hover:bg-white/20 rounded-xl transition-all hover:rotate-90 active:scale-90">
+        <button id="chat-close" aria-label="Close Chat" class="p-2.5 hover:bg-white/20 rounded-xl transition-all hover:rotate-90 active:scale-90">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
         </button>
       </div>
@@ -1317,7 +1299,7 @@ Let's build <br/> something <span class="text-transparent bg-clip-text bg-gradie
               class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl px-5 py-3 text-sm focus:border-rose-400 focus:bg-white outline-none transition-all shadow-sm"
             >
           </div>
-          <button type="submit" class="w-12 h-12 bg-rose-500 text-white rounded-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all shadow-lg hover:shadow-rose-500/30">
+          <button type="submit" aria-label="Send Message" class="w-12 h-12 bg-rose-500 text-white rounded-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all shadow-lg hover:shadow-rose-500/30">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-horizontal"><path d="m3 3 3 9-3 9 19-9Z"/><path d="M6 12h16"/></svg>
           </button>
         </form>
@@ -1326,7 +1308,7 @@ Let's build <br/> something <span class="text-transparent bg-clip-text bg-gradie
 
     <!-- Chat Toggle Button -->
     <div id="chat-toggle-wrapper" class="fixed bottom-8 right-8 z-[9999]">
-      <button id="chat-toggle" class="relative w-20 h-20 md:w-32 md:h-32 flex items-center justify-center hover:scale-110 active:scale-95 group overflow-hidden">
+      <button id="chat-toggle" aria-label="Open AI Assistant" class="relative w-20 h-20 md:w-32 md:h-32 flex items-center justify-center hover:scale-110 active:scale-95 group overflow-hidden">
         <lottie-player 
           src="/my-animation.json"
           background="transparent"
@@ -1354,7 +1336,7 @@ Let's build <br/> something <span class="text-transparent bg-clip-text bg-gradie
     <!-- Certificate Modal -->
     <div id="cert-modal" data-lenis-prevent class="certificate-modal">
       <div class="modal-content-wrapper">
-        <button class="close-modal" id="close-cert-modal">&times;</button>
+        <button class="close-modal" id="close-cert-modal" aria-label="Close Modal">&times;</button>
         <img id="modal-img" src="" alt="Certificate" referrerPolicy="no-referrer">
         <div class="modal-controls">
           <button class="modal-btn" id="rotate-ccw" title="Rotate Counter-Clockwise">
@@ -1375,7 +1357,7 @@ Let's build <br/> something <span class="text-transparent bg-clip-text bg-gradie
     <!-- Project Detail Overlay -->
     <div id="project-overlay" data-lenis-prevent class="fixed inset-0 z-[200] bg-surface/95 backdrop-blur-2xl translate-y-full overflow-y-auto overscroll-behavior-contain">
       <div class="container mx-auto px-6 py-24 max-w-6xl relative">
-        <button id="close-project-overlay" class="fixed top-8 right-8 z-[210] w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center border border-outline-variant/20 hover:bg-secondary hover:text-white transition-all duration-300 shadow-xl">
+        <button id="close-project-overlay" aria-label="Close Project Details" class="fixed top-8 right-8 z-[210] w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center border border-outline-variant/20 hover:bg-secondary hover:text-white transition-all duration-300 shadow-xl">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
         

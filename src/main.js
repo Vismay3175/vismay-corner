@@ -96,15 +96,7 @@ function initLoader(callback) {
     }
   });
 
-  const ganesha = document.querySelector('.loader-ganesha');
-  if (ganesha) {
-    tl.to(ganesha, {
-      opacity: 1,
-      y: 0,
-      duration: 1.2,
-      ease: 'power3.out'
-    });
-  }
+
 
   tl.from(chars, {
     y: 50,
