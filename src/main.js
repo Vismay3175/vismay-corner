@@ -5,7 +5,7 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import Lenis from 'lenis';
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
-import '@lottiefiles/lottie-player';
+
 
 // Expose to window for other scripts
 window.gsap = gsap;
@@ -19,6 +19,10 @@ import { initDocuments } from './documents.js';
 import { initPlayground } from './playground.js';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+window.addEventListener('load', () => {
+  import('@lottiefiles/lottie-player').catch(err => console.error('Error loading lottie-player:', err));
+});
 
 // Initialize animations
 window.addEventListener('DOMContentLoaded', () => {
@@ -40,19 +44,24 @@ window.addEventListener('DOMContentLoaded', () => {
     if (typeof initTextSplitting === 'function') initTextSplitting();
     if (typeof initHeroAnimations === 'function') initHeroAnimations();
     if (typeof initScrollAnimations === 'function') initScrollAnimations();
-    if (typeof initParallaxEffects === 'function') initParallaxEffects();
-    if (typeof init3DEffects === 'function') init3DEffects();
+    const isMobile = window.innerWidth < 768;
+    
+    if (!isMobile) {
+      if (typeof initParallaxEffects === 'function') initParallaxEffects();
+      if (typeof init3DEffects === 'function') init3DEffects();
+      if (typeof init3DScroll === 'function') init3DScroll();
+      if (typeof initHeroInteractive === 'function') initHeroInteractive();
+    }
+    
     if (typeof initImageReveals === 'function') initImageReveals();
     if (typeof initTypingEffect === 'function') initTypingEffect();
     if (typeof initOdysseyAnimations === 'function') initOdysseyAnimations();
     if (typeof initDocuments === 'function') initDocuments();
     if (typeof initPlayground === 'function') initPlayground();
-    if (typeof init3DScroll === 'function') init3DScroll();
     if (typeof initFooterYear === 'function') initFooterYear();
     if (typeof initHeaderSync === 'function') initHeaderSync();
     if (typeof initProjectOverlay === 'function') initProjectOverlay();
     if (typeof initMobileMenu === 'function') initMobileMenu();
-    if (typeof initHeroInteractive === 'function') initHeroInteractive();
   });
 
   // Update ScrollTrigger on Lenis scroll
