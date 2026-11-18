@@ -123,7 +123,7 @@ function initTypingEffect() {
   const textElement = document.getElementById('typing-text');
   if (!textElement) return;
 
-  const words = ["Scalable Backend Architectures", "High-Performance Data Systems", "Laravel Enterprise Solutions", "Strategic AI Implementations"];
+  const words = ["Laravel Backend Engineering", "AI Integration with OpenAI", "Payment & Messaging Integrations", "Hotel Channel Manager Sync"];
   let wordIndex = 0;
   let charIndex = 0;
   let isDeleting = false;

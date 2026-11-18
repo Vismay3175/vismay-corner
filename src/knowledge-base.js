@@ -3,28 +3,30 @@ import { projects } from './projects-data.js';
 
 const personalInfo = {
   name: "Vismay Oza",
-  role: "Software Developer",
-  location: "India",
+  headline: "Laravel Backend Engineer | AI Integration Developer",
+  role: "Software Developer – Backend",
+  location: "Ahmedabad, Gujarat, India",
   experience: "over 3 years",
   industryTenure: "3+ years",
-  education: "Pursuing B.Tech in IT at Silver Oak University",
+  education: "B.Tech in Information Technology (2022 – 2026) at Silver Oak College of Engineering & Technology, Ahmedabad",
   achievements: {
-    projectsCount: "15+",
-    latencyReduction: "40%",
-    uptime: "99.3%",
-    monthlyUsers: "50K+"
+    livePlatforms: "7+",
+    xeroSyncSpeedup: "~70%",
+    loscopSubscriptions: "100K+",
+    timeToProduction: "3 months"
   },
   contact: {
-    email: "vismy3175@gmail.com",
+    email: "vismay3175@gmail.com",
     linkedin: "https://www.linkedin.com/in/vismay-oza/",
     instagram: "https://www.instagram.com/vismay_.3175",
-    github: "https://github.com/Vismay3175"
+    github: "https://github.com/VismayOza"
   },
   skills: {
-    backend: ["Laravel", "PHP", "MySQL", "API Architecture", "Redis Caching", "Infrastructure Optimization"],
-    data: ["Python", "SQL for Analytics", "BI / Analysis", "System Metrics"],
-    tools: ["Docker", "Git", "Linux / CLI", "CI/CD", "Queues"],
-    soft: ["Mentorship", "Agile / Lead", "Problem Solving"]
+    backend: ["PHP 8", "Laravel", "MySQL", "REST APIs", "Eloquent", "Queues & Jobs", "Node.js", "Socket.io", "Redis"],
+    ai: ["OpenAI API", "Function Calling", "Prompt Engineering", "RAG", "MCP"],
+    integrations: ["Stripe", "URWAY", "Twilio", "Xero", "STAAH / SU Channel Manager", "Webhooks"],
+    security: ["Passport (OAuth2)", "Sanctum", "JWT", "RBAC", "2FA"],
+    devops: ["AWS S3", "Linux", "Laravel Forge", "Nginx", "DigitalOcean", "Git", "Postman"]
   }
 };
 
@@ -33,54 +35,50 @@ const intents = [
     name: "GREETING",
     keywords: ["hi", "hello", "hey", "greetings", "who are you", "good morning", "good afternoon", "good evening"],
     responses: [
-      "Welcome. I am the high-performance digital assistant for Vismay Oza. I am engineered to provide sophisticated and comprehensive insights into his technical mastery, professional odyssey, and architectural impact. How may I facilitate your inquiry today?",
-      "Greetings. I serve as the intelligent interface for Vismay Oza's professional portfolio. I can provide detailed, authoritative information regarding his full-stack expertise, system optimization achievements, and strategic technical vision. Please specify the area you wish to explore."
+      "Welcome. I am the assistant for Vismay Oza's portfolio. Ask me about his experience, skills, projects or how to contact him.",
+      "Greetings. I serve as the intelligent interface for Vismay Oza's professional portfolio. I can answer questions about his Laravel and AI integration work, projects and experience. What would you like to know?"
     ]
   },
   {
     name: "WHO_IS_VISMAY",
     keywords: ["who is", "tell me about", "profile", "vismay oza"],
     responses: [
-      "Vismay Oza is an elite Software Developer with over 3 years of hands-on mastery in building scalable, production-grade web systems. He specializes in transforming complex business requirements into high-performance architectures, with a proven track record in backend system design and infrastructure optimization.\n\nCurrently, he is spearheading architectural initiatives at Devstree IT Services while pursuing his B.Tech in IT at Silver Oak University. His professional philosophy is centered on deep systems knowledge and data-driven technical decision-making."
+      "Vismay Oza is a Laravel Backend Engineer and AI Integration Developer with 3+ years building production Laravel/PHP systems for SaaS, CRM, hospitality and e-commerce.\n\nHe works as a Software Developer – Backend at Devstree IT Services, Ahmedabad (Apr 2023 – Present), through an industry-integrated B.Tech in IT at Silver Oak College of Engineering & Technology. He shipped an OpenAI booking assistant and integrations with Stripe, Twilio, Xero and hotel channel managers, and moved from a non-CS (biology) background to production code within 3 months."
     ]
   },
   {
     name: "SKILLS",
     keywords: ["summarize", "key skills", "tech expertise", "skills", "tech stack", "technology", "what can you do", "programming", "languages", "expertise", "excellence", "mastery"],
     responses: [
-      "Vismay possesses a multi-faceted technical arsenal designed for enterprise-level performance and data intelligence:\n\n- **Core Backend Systems:** Mastering Laravel, PHP, and MySQL with a focus on API Architecture and high-concurrency systems.\n- **Performance & Infrastructure:** Expert in Redis Caching and System Optimization, achieving up to 40% latency reduction in production environments.\n- **Data & Analytics:** Proficient in Python, SQL for Analytics, and Business Intelligence to drive technical strategy through measurable system metrics.\n- **Modern Engineering Tools:** Highly skilled in Docker, Git, Linux/CLI, and CI/CD pipelines for seamless deployment and orchestration.",
-      "His technical expertise is categorized into four strategic domains to ensure holistic system excellence:\n\n1. **High-Performance Backend:** Delivering secure, scalable, and robust server-side logic using the Laravel ecosystem.\n2. **System Hyper-Optimization:** Tuning databases and infrastructure to sustain mission-critical uptime and extreme user loads.\n3. **Intelligent Data Analysis:** Transforming raw system data into actionable technical insights using analytical tools.\n4. **Leadership & Agile Mastery:** Guiding junior talent and orchestrating complex projects within agile frameworks."
+      "Vismay's core skills:\n\n- **Backend:** " + personalInfo.skills.backend.join(", ") + "\n- **AI / LLM:** " + personalInfo.skills.ai.join(", ") + "\n- **Integrations:** " + personalInfo.skills.integrations.join(", ") + "\n- **Security & Auth:** " + personalInfo.skills.security.join(", ") + "\n- **DevOps & Tools:** " + personalInfo.skills.devops.join(", ")
     ]
   },
   {
     name: "INTRO_EMAIL",
     keywords: ["write an intro email", "intro email", "draft email", "email template"],
     responses: [
-      "Subject: Strategic Software Developer Introduction: Vismay Oza\n\nDear [Hiring Manager Name],\n\nI am introducing Vismay Oza, a Software Developer with 3+ years of mastery in architecting high-availability, production-grade systems. Vismay specializes in transforming enterprise-level business requirements into high-performance architectures, having successfully orchestrated 12+ enterprise applications with a consistent 99.3% production uptime record.\n\nHis unique blend of backend architectural thinking and data system strategy makes him a formidable asset for performance-critical projects. You may explore his full technical odyssey and production projects at " + window.location.origin + " or initiate direct professional dialogue at " + personalInfo.contact.email + ".\n\nSincerely,\n[Your Name]"
+      "Subject: Introduction: Vismay Oza, Laravel Backend Engineer\n\nDear [Hiring Manager Name],\n\nI am introducing Vismay Oza, a Laravel Backend Engineer and AI Integration Developer with 3+ years of production experience at Devstree IT Services. He has delivered backend features and REST APIs for 7+ live platforms across SaaS, CRM, hospitality and e-commerce, shipped an OpenAI chatbot and booking assistant, and integrated Stripe, URWAY, Twilio, Xero and STAAH / SU channel managers. He also made Xero sync about 70% faster.\n\nYou can see his projects at " + window.location.origin + " or contact him at " + personalInfo.contact.email + ".\n\nSincerely,\n[Your Name]"
     ]
   },
   {
     name: "CONTACT",
     keywords: ["get in touch", "contact", "email", "hire", "reach", "linkedin", "github", "social", "touch", "connect"],
     responses: [
-      "Vismay Oza maintains a responsive professional presence across several strategic channels. For detailed technical inquiries or professional opportunities, he recommends the following:\n\n- **Direct Email:** " + personalInfo.contact.email + "\n- **Professional Network:** [LinkedIn Profile](" + personalInfo.contact.linkedin + ")\n- **Technical Repository:** [GitHub Portfolio](" + personalInfo.contact.github + ")\n\nHe is currently open to strategic opportunities that leverage his expertise in scalable backend architectures and data systems.",
-      "To initiate a professional collaboration or technical discussion, you may connect with Vismay through these authenticated platforms:\n\n- **Primary Email:** " + personalInfo.contact.email + "\n- **LinkedIn Mastery:** " + personalInfo.contact.linkedin + "\n- **Open Source Contributions:** " + personalInfo.contact.github
+      "You can reach Vismay here:\n\n- **Email:** " + personalInfo.contact.email + "\n- **LinkedIn:** [LinkedIn Profile](" + personalInfo.contact.linkedin + ")\n- **GitHub:** [GitHub Profile](" + personalInfo.contact.github + ")\n- **Location:** " + personalInfo.location
     ]
   },
   {
     name: "EXPERIENCE",
     keywords: ["experience", "years", "background", "work history", "career", "how long", "tenure", "education"],
     responses: [
-      "Vismay has spent over 3 years excelling in the architecting of scalable, enterprise-level web systems. His career is marked by high-impact leadership at Devstree IT Services, where he has successfully orchestrated over 12 complex enterprise applications. He currently balances his professional leadership with academic advancement, pursuing a B.Tech in IT at Silver Oak University (Grad 2026).",
-      "With a career spanning 3+ years, Vismay has solidified his position as a specialist in backend systems and infrastructure optimization. His tenure at Devstree has been defined by his ability to maintain 99.3% production uptime while driving mission-critical system accelerations."
+      "**Software Developer – Backend, Devstree IT Services Pvt. Ltd., Ahmedabad** (Apr 2023 – Present)\n\n- Built backend features and REST APIs for 7+ production platforms across SaaS, CRM and hospitality.\n- Shipped an OpenAI chatbot and booking assistant that handles guest queries and completes reservations.\n- Integrated Stripe, URWAY, Twilio and STAAH / SU channel managers with webhook-driven workflows.\n- Made Xero sync ~70% faster, optimized MySQL and ran deployments on Forge, Nginx and AWS S3.\n\n**Education:** " + personalInfo.education + ", through an industry-integrated program (full-time work Monday to Friday, coursework on Saturdays). HSC (Science) at S.S. Divine, Ahmedabad (2022); SSC at Shree Satya Sai Vidyalaya, Jamnagar (2020)."
     ]
   },
   {
     name: "PROJECTS",
     keywords: ["notable projects", "projects", "work", "portfolio", "built", "apps", "websites", "high-impact", "architectures"],
     responses: [
-      "Vismay's portfolio is a testament to technical rigor and architectural excellence. Notable production projects include:\n\n- **Infostay:** A sophisticated Hospitality CRM with real-time architectures.\n- **Pridemile:** High-traffic Backend API Service (currently Offline).\n- **PerfectStay:** A high-performance, AI-integrated Property Ecosystem.\n- **Hotspot Guest WiFi:** Networking hardware API integration (currently Offline).\n- **ATVN Car Repairing:** Secure RBAC & 2FA platform enhancement (currently Offline).\n\nHe has orchestrated 15+ high-impact applications, maintaining 99.3%+ uptime and meticulously optimized system performance.",
-      "He has spearheaded the development of 15+ complex applications, focusing on architectural scalability and user-centric performance. His portfolio includes high-impact backend services like **Pridemile** and **Hotspot Guest WiFi** (now offline for maintenance) alongside live systems like **CIY.CLUB** and **PerfectStay**."
+      "Key projects:\n\n- **PerfectStay:** Property management platform with an OpenAI Function Calling booking assistant, STAAH / SU sync and Xero invoicing (~70% faster sync).\n- **Infostay:** Hospitality marketplace (CRM) with Node.js / Socket.io / Redis messaging and a GPT guest assistant.\n- **Loscop:** QR-based product tracking with Stripe subscriptions for 100K+ active subscriptions.\n- **CIY CLUB:** Multi-role LMS with progress tracking, auto-generated certificates and Twilio alerts.\n- **My Tira:** E-commerce backend with two-phase Stripe payments and multi-language content.\n- **Altaseira:** Analytics dashboard with Arabic RTL, real-time messaging and URWAY payments.\n- **Pridemile, ATVN, Hotspot Guest WiFi:** Search API and billing, RBAC and 2FA, and UniFi / Buddy WiFi access (currently offline).\n\nAsk about any project by name for details."
     ]
   },
   {
@@ -121,7 +119,7 @@ export function getLocalResponse(query) {
     }
     
     if (normalizedQuery.includes('projects') || normalizedQuery.includes('each project')) {
-      return "Vismay has orchestrated several high-impact enterprise applications. Here is an executive summary of his key production projects:\n\n" + 
+      return "Here is a summary of Vismay's key production projects:\n\n" + 
         projects.slice(0, 5).map(p => `**${p.title}**: ${p.description}${p.status === 'Offline' ? ' (Currently Offline)' : ''}`).join('\n\n') + 
         "\n\nWould you like more granular details on a specific architecture like **PerfectStay** or **Infostay**?";
     }
@@ -158,7 +156,7 @@ export function getLocalResponse(query) {
   if (bestIntent && maxMatches > 0) {
     // Special handling for EXPERIENCE to be more direct
     if (bestIntent.name === 'EXPERIENCE' && (normalizedQuery.includes('how long') || normalizedQuery.includes('tenure'))) {
-      return `Vismay Oza has established over ${personalInfo.experience} of excellence in the IT sector. He currently serves as a ${personalInfo.role} at Devstree, where he spearheads scalable backend architectures and system-wide optimizations.`;
+      return `Vismay Oza has established over ${personalInfo.experience} of excellence in the IT sector. He currently serves as a ${personalInfo.role} at Devstree, where he builds Laravel backends, REST APIs and AI and payment integrations.`;
     }
     const randomIndex = Math.floor(Math.random() * bestIntent.responses.length);
     return bestIntent.responses[randomIndex];

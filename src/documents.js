@@ -1,20 +1,20 @@
 
 const certificates = [
   {
-    title: "C & C++ Language Certificate",
-    issuer: "KRIS COMPUTER",
+    title: "C & C++ Course Completion",
+    issuer: "KICT",
     img: "/documents/Vismay-Oza-CC-certificate.jpg",
     desc: "Certified proficiency in C and C++ programming languages."
   },
   {
-    title: "Google Cloud Certification",
+    title: "Google Cloud AI Workshop – ADK, A2A, MCP & RAG",
     issuer: "Google Developer Groups",
     img: "/documents/Vismay-Oza-GDG-Gandhinagar-Workshop.jpeg",
-    desc: "Successful completion of ADK, A2A, MCP & RAG on Google Cloud workshop."
+    desc: "Google Developer Groups Gandhinagar workshop on ADK, A2A, MCP and RAG on Google Cloud."
   },
   {
-    title: "Data Analysis using Python",
-    issuer: "IBM Skills Network",
+    title: "Data Analysis with Python",
+    issuer: "IBM",
     img: "/documents/data-analysis-using-python.webp",
     desc: "Comprehensive data analysis techniques using Python libraries."
   },
@@ -25,10 +25,10 @@ const certificates = [
     desc: "Exploration of emerging technologies and their applications."
   },
   {
-    title: "Laravel Framework Expert",
+    title: "Laravel Public Skills Test",
     issuer: "TestDome",
     img: "/documents/Vismay-Oza-Laravel-TestDome-Certificate.webp",
-    desc: "Advanced backend development with Laravel ecosystem."
+    desc: "TestDome public skills test for the Laravel framework."
   },
   {
     title: "JavaScript LU Certificate",
@@ -37,32 +37,32 @@ const certificates = [
     desc: "Certification for JavaScript proficiency."
   },
   {
-    title: "PHP LU Certificate",
+    title: "PHP Essentials Bootcamp",
     issuer: "LetsUpgrade",
     img: "/documents/Vismay-Oza-PHP-LU-Certifcate.jpg",
     desc: "Certification for PHP proficiency."
   },
   {
-    title: "Python LU Certificate",
+    title: "Python Essentials Bootcamp",
     issuer: "LetsUpgrade",
     img: "/documents/Vismay-Oza-Python-LU-Certificate.jpg",
     desc: "Certification for Python proficiency."
   },
   {
-    title: "SQL LU Certificate",
+    title: "SQL Essentials Bootcamp",
     issuer: "LetsUpgrade",
     img: "/documents/Vismay-Oza-SQL-LU-Certificate.jpg",
     desc: "Certification for SQL proficiency."
   },
   {
     title: "Laravel Basic Quiz",
-    issuer: "CareerNinja LearnTube",
+    issuer: "CareerNinja",
     img: "/documents/Vismay-Oza-Laravel-Basic-Quiz-CareerNinjaLearnTube-Certificate.jpg",
     desc: "Basic Laravel proficiency quiz certification."
   },
   {
     title: "PHP Basic Quiz",
-    issuer: "CareerNinja LearnTube",
+    issuer: "CareerNinja",
     img: "/documents/Vismay-Basic-PHP-Basic-Quiz-CareerNinjaLearnTube-Certificate.jpg",
     desc: "Basic PHP proficiency quiz certification."
   }
