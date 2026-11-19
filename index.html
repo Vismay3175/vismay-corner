@@ -13,6 +13,8 @@
     <link rel="preload" as="image" href="/hero-vismay.webp" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Inter:wght@300;400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Inter:wght@300;400;600&display=swap"></noscript>
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -249,7 +251,7 @@
       <div class="group cursor-pointer">
         <a href="#hero" class="flex items-center gap-3 md:gap-4 group-hover:scale-105 transition-transform">
           <div class="relative">
-            <img src="/logo.png" alt="Vismay Oza Logo" class="w-11 h-11 md:w-14 md:h-14 lg:w-16 lg:h-16 object-cover rounded-full border-2 border-secondary/30 p-0.5 shadow-lg shadow-secondary/10" loading="lazy">
+            <img src="/logo-160.webp" width="64" height="64" alt="Vismay Oza Logo" class="w-11 h-11 md:w-14 md:h-14 lg:w-16 lg:h-16 object-cover rounded-full border-2 border-secondary/30 p-0.5 shadow-lg shadow-secondary/10" loading="lazy">
             <div class="absolute -top-1 -left-1 w-3 h-3 md:w-4 md:h-4 bg-secondary/20 rounded-full blur-sm"></div>
           </div>
           <div class="hidden sm:block">
@@ -325,7 +327,7 @@
       <div class="flex flex-col h-full p-10 relative z-10">
         <div class="flex justify-between items-center mb-12">
           <div class="flex items-center gap-4">
-            <img src="/logo.png" alt="Logo" class="w-16 h-16 rounded-full border-2 border-secondary/30 p-0.5 shadow-md shadow-secondary/10 object-cover">
+            <img src="/logo-160.webp" width="64" height="64" alt="Logo" class="w-16 h-16 rounded-full border-2 border-secondary/30 p-0.5 shadow-md shadow-secondary/10 object-cover">
             <div>
               <div class="text-xl font-black tracking-[0.2em] text-on-surface uppercase">VISMAY</div>
               <div class="text-[8px] font-bold tracking-[0.1em] text-secondary uppercase">Laravel Backend Engineer</div>
@@ -1127,7 +1129,7 @@ Let's build <br/> something <span class="text-transparent bg-clip-text bg-gradie
       <div class="p-5 bg-gradient-to-r from-pink-500 to-rose-500 text-white flex items-center justify-between relative z-10 shadow-md">
         <div class="flex items-center gap-4">
             <div class="relative">
-              <img src="/logo.webp" alt="Vismay Oza Logo" class="w-12 h-12 object-cover rounded-full border-2 border-white/40 p-0.5 shadow-lg shadow-black/10" referrerPolicy="no-referrer">
+              <img src="/logo-160.webp" width="48" height="48" alt="Vismay Oza Logo" class="w-12 h-12 object-cover rounded-full border-2 border-white/40 p-0.5 shadow-lg shadow-black/10" referrerPolicy="no-referrer">
               <div class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-green-400 border-2 border-rose-500 rounded-full shadow-sm"></div>
             </div>
           <div>
@@ -1169,7 +1171,7 @@ Let's build <br/> something <span class="text-transparent bg-clip-text bg-gradie
     <!-- Chat Toggle Button -->
     <div id="chat-toggle-wrapper" class="fixed bottom-8 right-8 z-[9999]">
       <button id="chat-toggle" aria-label="Open AI Assistant" class="relative w-20 h-20 md:w-32 md:h-32 flex items-center justify-center hover:scale-110 active:scale-95 group overflow-hidden">
-        <lottie-player 
+        <lottie-player aria-hidden="true" 
           src="/my-animation.json"
           background="transparent"
           speed="1"
@@ -1178,7 +1180,7 @@ Let's build <br/> something <span class="text-transparent bg-clip-text bg-gradie
           autoplay
           class="relative z-10 md:hidden"
         ></lottie-player>
-        <lottie-player 
+        <lottie-player aria-hidden="true" 
           src="/my-animation.json"
           background="transparent"
           speed="1"

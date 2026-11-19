@@ -5,7 +5,20 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import Lenis from 'lenis';
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
-import '@lottiefiles/lottie-player';
+// Chatbot animation is decorative: load it after the page is idle, and strip the
+// aria-label lottie adds to its SVG text so the accessibility tree stays valid.
+function loadLottie() {
+  import('@lottiefiles/lottie-player').then(() => {
+    document.querySelectorAll('lottie-player').forEach((player) => {
+      const strip = () => player.shadowRoot?.querySelectorAll('[aria-label]').forEach((el) => el.removeAttribute('aria-label'));
+      player.addEventListener('ready', strip);
+      player.addEventListener('load', strip);
+      setTimeout(strip, 1500);
+    });
+  });
+}
+if ('requestIdleCallback' in window) requestIdleCallback(loadLottie, { timeout: 3000 });
+else setTimeout(loadLottie, 2000);
 
 // Expose to window for other scripts
 window.gsap = gsap;
