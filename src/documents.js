@@ -1,10 +1,11 @@
 
+// Weaker quiz/bootcamp certificates were removed from the showcase; their images stay in /public/documents.
 const certificates = [
   {
-    title: "C & C++ Course Completion",
-    issuer: "KICT",
-    img: "/documents/Vismay-Oza-CC-certificate.jpg",
-    desc: "Certified proficiency in C and C++ programming languages."
+    title: "Laravel Public Skills Test",
+    issuer: "TestDome",
+    img: "/documents/Vismay-Oza-Laravel-TestDome-Certificate.webp",
+    desc: "TestDome public skills test for the Laravel framework."
   },
   {
     title: "Google Cloud AI Workshop – ADK, A2A, MCP & RAG",
@@ -16,55 +17,13 @@ const certificates = [
     title: "Data Analysis with Python",
     issuer: "IBM",
     img: "/documents/data-analysis-using-python.webp",
-    desc: "Comprehensive data analysis techniques using Python libraries."
+    desc: "Data analysis techniques using Python libraries."
   },
   {
     title: "Explore Emerging Tech",
     issuer: "IBM",
     img: "/documents/explore-emerging-tech.webp",
     desc: "Exploration of emerging technologies and their applications."
-  },
-  {
-    title: "Laravel Public Skills Test",
-    issuer: "TestDome",
-    img: "/documents/Vismay-Oza-Laravel-TestDome-Certificate.webp",
-    desc: "TestDome public skills test for the Laravel framework."
-  },
-  {
-    title: "JavaScript LU Certificate",
-    issuer: "LetsUpgrade",
-    img: "/documents/Vismay Oza JS LU Certificate.jpg",
-    desc: "Certification for JavaScript proficiency."
-  },
-  {
-    title: "PHP Essentials Bootcamp",
-    issuer: "LetsUpgrade",
-    img: "/documents/Vismay-Oza-PHP-LU-Certifcate.jpg",
-    desc: "Certification for PHP proficiency."
-  },
-  {
-    title: "Python Essentials Bootcamp",
-    issuer: "LetsUpgrade",
-    img: "/documents/Vismay-Oza-Python-LU-Certificate.jpg",
-    desc: "Certification for Python proficiency."
-  },
-  {
-    title: "SQL Essentials Bootcamp",
-    issuer: "LetsUpgrade",
-    img: "/documents/Vismay-Oza-SQL-LU-Certificate.jpg",
-    desc: "Certification for SQL proficiency."
-  },
-  {
-    title: "Laravel Basic Quiz",
-    issuer: "CareerNinja",
-    img: "/documents/Vismay-Oza-Laravel-Basic-Quiz-CareerNinjaLearnTube-Certificate.jpg",
-    desc: "Basic Laravel proficiency quiz certification."
-  },
-  {
-    title: "PHP Basic Quiz",
-    issuer: "CareerNinja",
-    img: "/documents/Vismay-Basic-PHP-Basic-Quiz-CareerNinjaLearnTube-Certificate.jpg",
-    desc: "Basic PHP proficiency quiz certification."
   }
 ];
 
@@ -96,7 +55,8 @@ export function initDocuments() {
   const wrapper = document.getElementById('certificate-wrapper');
   if (wrapper) {
     // Use the certificates array directly
-    const loopedCertificates = [...certificates];
+    // Duplicate the short list so Swiper loop mode has enough slides
+    const loopedCertificates = [...certificates, ...certificates];
     
     loopedCertificates.forEach((cert, index) => {
       const slide = document.createElement('div');

@@ -17,11 +17,16 @@ window.Swiper = Swiper;
 import { initChat } from './chat.js';
 import { initDocuments } from './documents.js';
 import { initPlayground } from './playground.js';
+import { initContactForm } from './contact.js';
+import './skills.js';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 // Initialize animations
 window.addEventListener('DOMContentLoaded', () => {
+  // Contact form works independently of animations
+  initContactForm();
+
   if (typeof gsap === 'undefined') {
     console.error('GSAP is not loaded');
     return;
@@ -748,9 +753,9 @@ function initProjectOverlay() {
           <div class="relative z-10 space-y-6">
               <div class="flex items-center gap-4">
                 <h1 class="font-headline text-5xl md:text-7xl font-black text-on-surface tracking-tight">${project.title}</h1>
-                ${project.status === 'Offline' ? `
+                ${project.badge ? `
                   <span class="px-4 py-1.5 bg-rose-500/10 border border-rose-500/30 text-rose-500 text-[10px] font-black uppercase tracking-[0.2em] rounded-full backdrop-blur-sm shadow-sm">
-                    Offline
+                    ${project.badge}
                   </span>
                 ` : ''}
               </div>
@@ -759,11 +764,11 @@ function initProjectOverlay() {
               <div class="flex flex-wrap gap-4 pt-4">
                   <div class="flex items-center gap-2 px-4 py-2 bg-surface rounded-lg border border-outline-variant/20">
                       <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                      <span class="text-sm font-label text-on-surface">2023 - Present</span>
+                      <span class="text-sm font-label text-on-surface">${project.period || '2023 - Present'}</span>
                   </div>
                   <div class="flex items-center gap-2 px-4 py-2 bg-surface rounded-lg border border-outline-variant/20">
                       <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                      <span class="text-sm font-label text-on-surface">Full Stack Developer</span>
+                      <span class="text-sm font-label text-on-surface">${project.role || 'Backend Developer'}</span>
                   </div>
               </div>
           </div>
@@ -777,6 +782,38 @@ function initProjectOverlay() {
                       ${project.longDescription || project.description}
                   </p>
               </div>
+
+              ${project.caseStudy ? `
+              <div class="space-y-8">
+                  <h2 class="font-headline text-3xl font-bold text-secondary">Case Study</h2>
+                  <div class="space-y-3">
+                      <h3 class="font-label text-[10px] uppercase tracking-widest font-black text-on-surface/50">Problem</h3>
+                      <p class="text-on-surface-variant text-lg leading-relaxed opacity-80">${project.caseStudy.problem}</p>
+                  </div>
+                  <div class="space-y-3">
+                      <h3 class="font-label text-[10px] uppercase tracking-widest font-black text-on-surface/50">Approach</h3>
+                      <ul class="grid grid-cols-1 gap-3">
+                          ${project.caseStudy.approach.map(a => `
+                              <li class="flex items-start gap-3 text-on-surface-variant opacity-90">
+                                  <div class="w-1.5 h-1.5 rounded-full bg-secondary mt-2.5 shrink-0"></div>
+                                  <span>${a}</span>
+                              </li>
+                          `).join('')}
+                      </ul>
+                  </div>
+                  <div class="space-y-3">
+                      <h3 class="font-label text-[10px] uppercase tracking-widest font-black text-on-surface/50">Result</h3>
+                      <ul class="grid grid-cols-1 gap-3">
+                          ${project.caseStudy.results.map(r => `
+                              <li class="flex items-start gap-3 text-on-surface opacity-90 font-semibold">
+                                  <div class="w-1.5 h-1.5 rounded-full bg-secondary mt-2.5 shrink-0"></div>
+                                  <span>${r}</span>
+                              </li>
+                          `).join('')}
+                      </ul>
+                  </div>
+              </div>
+              ` : ''}
 
               <div class="space-y-6">
                   <h2 class="font-headline text-3xl font-bold text-secondary">Key Features & Contributions</h2>
@@ -800,13 +837,13 @@ function initProjectOverlay() {
               </div>
 
               <div class="flex flex-col gap-4">
-                  ${project.status === 'Offline' ? `
-                    <button disabled class="px-8 py-4 bg-gray-200 text-gray-400 rounded-full font-label text-xs font-black uppercase tracking-widest cursor-not-allowed border border-gray-300">Project Currently Offline</button>
-                  ` : (project.liveUrls ? project.liveUrls.map(link => `
-                    <a href="${link.url}" target="_blank" class="px-8 py-4 bg-secondary text-white rounded-full font-label text-xs font-black uppercase tracking-widest hover:bg-secondary-dim transition-all shadow-lg shadow-secondary/20 text-center">${link.label} →</a>
-                  `).join('') : `
-                    <a href="${project.liveUrl}" target="_blank" class="px-8 py-4 bg-secondary text-white rounded-full font-label text-xs font-black uppercase tracking-widest hover:bg-secondary-dim transition-all shadow-lg shadow-secondary/20 text-center">Visit Live Project →</a>
-                  `)}
+                  ${project.liveUrls ? project.liveUrls.map(link => `
+                    <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-secondary text-white rounded-full font-label text-xs font-black uppercase tracking-widest hover:bg-secondary-dim transition-all shadow-lg shadow-secondary/20 text-center">${link.label} →</a>
+                  `).join('') : project.liveUrl ? `
+                    <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-secondary text-white rounded-full font-label text-xs font-black uppercase tracking-widest hover:bg-secondary-dim transition-all shadow-lg shadow-secondary/20 text-center">Visit Live Project →</a>
+                  ` : `
+                    <p class="px-6 py-4 bg-surface-container-high text-on-surface-variant rounded-2xl text-sm leading-relaxed border border-outline-variant/20 text-center">${project.linkNote || 'Private client project under NDA. Happy to walk through the architecture in an interview.'}</p>
+                  `}
               </div>
           </aside>
       </section>

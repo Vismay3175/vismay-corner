@@ -18,7 +18,6 @@ const personalInfo = {
   contact: {
     email: "vismay3175@gmail.com",
     linkedin: "https://www.linkedin.com/in/vismay-oza/",
-    instagram: "https://www.instagram.com/vismay_.3175",
     github: "https://github.com/VismayOza"
   },
   skills: {
@@ -78,7 +77,7 @@ const intents = [
     name: "PROJECTS",
     keywords: ["notable projects", "projects", "work", "portfolio", "built", "apps", "websites", "high-impact", "architectures"],
     responses: [
-      "Key projects:\n\n- **PerfectStay:** Property management platform with an OpenAI Function Calling booking assistant, STAAH / SU sync and Xero invoicing (~70% faster sync).\n- **Infostay:** Hospitality marketplace (CRM) with Node.js / Socket.io / Redis messaging and a GPT guest assistant.\n- **Loscop:** QR-based product tracking with Stripe subscriptions for 100K+ active subscriptions.\n- **CIY CLUB:** Multi-role LMS with progress tracking, auto-generated certificates and Twilio alerts.\n- **My Tira:** E-commerce backend with two-phase Stripe payments and multi-language content.\n- **Altaseira:** Analytics dashboard with Arabic RTL, real-time messaging and URWAY payments.\n- **Pridemile, ATVN, Hotspot Guest WiFi:** Search API and billing, RBAC and 2FA, and UniFi / Buddy WiFi access (currently offline).\n\nAsk about any project by name for details."
+      "Key projects:\n\n- **PerfectStay:** Holiday-rental property management platform with an OpenAI booking assistant, STAAH and SU channel managers, Xero and Hubdoc accounting (~70% faster Xero sync), automated owner payouts and WhatsApp notifications.\n- **Phoenix Token:** Crypto token investment platform with reversible hash-based transaction approvals, BOOST bonus payouts, pre-sale and P2P market modules, DeepL auto-translation and admin-editable notification emails.\n- **Infostay:** All-in-one digital guest platform for hotels: AI guest guide, in-stay ordering, service bookings, in-room TV, real-time chat and staff HR.\n- **CIY.CLUB:** Bilingual academy platform with role-based dashboards, student progress tracking, automatic certificate PDFs and WhatsApp alerts via Twilio.\n- **My Tira:** E-commerce backend with Stripe authorize-then-capture payments, EN / FR content and push notifications.\n- **Altaseira:** Arabic-first services marketplace with URWAY wallet and commission payments and RTL / LTR localization.\n- **Loscop:** QR-based product tracking with Stripe subscriptions for 100K+ active subscriptions.\n- **Pridemile, ATVN, Hotspot Guest WiFi:** Search API and billing, RBAC and 2FA, and UniFi / Buddy WiFi access (private client projects).\n\nAsk about any project by name for details."
     ]
   },
   {
