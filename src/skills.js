@@ -69,7 +69,7 @@ function renderSkills() {
           <div class="w-12 h-12 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-colors duration-500">
             ${icon(g.icon, 'w-6 h-6')}
           </div>
-          <span class="font-label text-[10px] font-black tracking-[0.3em] text-on-surface/30">${String(i + 1).padStart(2, '0')}</span>
+          <span class="font-label text-[10px] font-black tracking-[0.3em] text-on-surface/80">${String(i + 1).padStart(2, '0')}</span>
         </div>
         <h3 class="font-headline text-xl md:text-2xl font-bold text-on-surface mb-2">${g.title}</h3>
         <p class="text-sm text-on-surface-variant leading-relaxed opacity-80 mb-6">${g.summary}</p>
@@ -77,8 +77,8 @@ function renderSkills() {
           ${g.skills.map(s => `<li class="px-3 py-1.5 bg-surface-container-high border border-outline-variant/20 rounded-full text-[11px] font-semibold text-on-surface-variant hover:bg-secondary hover:text-white hover:border-secondary transition-colors">${s}</li>`).join('')}
         </ul>
         <div class="mt-auto pt-5 border-t border-outline-variant/15">
-          <span class="block font-label text-[9px] uppercase tracking-[0.25em] font-black text-secondary/70 mb-1">Used in</span>
-          <span class="text-xs font-semibold text-on-surface/70">${g.usedIn.join(' · ')}</span>
+          <span class="block font-label text-[9px] uppercase tracking-[0.25em] font-black text-secondary mb-1">Used in</span>
+          <span class="text-xs font-semibold text-on-surface/80">${g.usedIn.join(' · ')}</span>
         </div>
       </article>
     `).join('');

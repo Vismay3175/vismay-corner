@@ -25,7 +25,7 @@ function createProjectCard(project, index, type) {
     : 'group relative bg-surface-container-low border border-outline-variant/30 rounded-[2rem] overflow-hidden hover:border-secondary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-secondary/10';
   
   const label = type === 'ai' ? 'AI Lab' : (project.badge || null);
-  const labelClass = type === 'ai' ? 'bg-secondary/90' : 'bg-rose-500/90';
+  const labelClass = 'bg-secondary';
 
   card.innerHTML = `
     ${type !== 'ai' ? `

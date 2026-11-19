@@ -556,13 +556,13 @@ function initHeaderSync() {
         navLinks.forEach(link => {
           link.classList.remove('active');
           link.classList.remove('text-on-surface');
-          link.classList.add('text-on-surface/60');
+          link.classList.add('text-on-surface/80');
           
           const href = link.getAttribute('href');
           if (href === `#${id}` || href === `/#${id}`) {
             link.classList.add('active');
             link.classList.add('text-on-surface');
-            link.classList.remove('text-on-surface/60');
+            link.classList.remove('text-on-surface/80');
           }
         });
       }
@@ -800,11 +800,11 @@ function initProjectOverlay() {
               <div class="space-y-8">
                   <h2 class="font-headline text-3xl font-bold text-secondary">Case Study</h2>
                   <div class="space-y-3">
-                      <h3 class="font-label text-[10px] uppercase tracking-widest font-black text-on-surface/50">Problem</h3>
+                      <h3 class="font-label text-[10px] uppercase tracking-widest font-black text-on-surface/80">Problem</h3>
                       <p class="text-on-surface-variant text-lg leading-relaxed opacity-80">${project.caseStudy.problem}</p>
                   </div>
                   <div class="space-y-3">
-                      <h3 class="font-label text-[10px] uppercase tracking-widest font-black text-on-surface/50">Approach</h3>
+                      <h3 class="font-label text-[10px] uppercase tracking-widest font-black text-on-surface/80">Approach</h3>
                       <ul class="grid grid-cols-1 gap-3">
                           ${project.caseStudy.approach.map(a => `
                               <li class="flex items-start gap-3 text-on-surface-variant opacity-90">
@@ -815,7 +815,7 @@ function initProjectOverlay() {
                       </ul>
                   </div>
                   <div class="space-y-3">
-                      <h3 class="font-label text-[10px] uppercase tracking-widest font-black text-on-surface/50">Result</h3>
+                      <h3 class="font-label text-[10px] uppercase tracking-widest font-black text-on-surface/80">Result</h3>
                       <ul class="grid grid-cols-1 gap-3">
                           ${project.caseStudy.results.map(r => `
                               <li class="flex items-start gap-3 text-on-surface opacity-90 font-semibold">
@@ -843,7 +843,7 @@ function initProjectOverlay() {
 
           <aside class="space-y-8">
               <div class="p-8 bg-surface-container-high rounded-3xl border border-outline-variant/20 space-y-6">
-                  <h4 class="font-label text-[10px] uppercase tracking-widest font-black text-on-surface/50">Tech Stack</h4>
+                  <h4 class="font-label text-[10px] uppercase tracking-widest font-black text-on-surface/80">Tech Stack</h4>
                   <div class="flex flex-wrap gap-2">
                       ${(project.techStack || project.features).map(f => `<span class="px-4 py-2 bg-surface text-secondary text-xs font-bold rounded-full border border-secondary/20">${f}</span>`).join('')}
                   </div>

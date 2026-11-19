@@ -10,7 +10,7 @@ const certificates = [
   {
     title: "Google Cloud AI Workshop – ADK, A2A, MCP & RAG",
     issuer: "Google Developer Groups",
-    img: "/documents/Vismay-Oza-GDG-Gandhinagar-Workshop.jpeg",
+    img: "/documents/Vismay-Oza-GDG-Gandhinagar-Workshop.webp",
     desc: "Google Developer Groups Gandhinagar workshop on ADK, A2A, MCP and RAG on Google Cloud."
   },
   {
@@ -65,7 +65,7 @@ export function initDocuments() {
         <div class="certificate-slide-item" data-index="${index % certificates.length}">
           <img src="${cert.img}" alt="${cert.title}" referrerPolicy="no-referrer">
           <div class="cert-overlay">
-            <p class="text-white text-xs font-black uppercase tracking-widest mb-1 opacity-60">${cert.issuer}</p>
+            <p class="text-white text-xs font-black uppercase tracking-widest mb-1 opacity-80">${cert.issuer}</p>
             <h4 class="text-white text-lg font-bold leading-tight">${cert.title}</h4>
           </div>
         </div>
