@@ -31,6 +31,7 @@ import { initChat } from './chat.js';
 import { initDocuments } from './documents.js';
 import { initPlayground } from './playground.js';
 import { initContactForm } from './contact.js';
+import { initHowIWork } from './how-i-work.js';
 import './skills.js';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -39,6 +40,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 window.addEventListener('DOMContentLoaded', () => {
   // Contact form works independently of animations
   initContactForm();
+  initHowIWork();
 
   if (typeof gsap === 'undefined') {
     console.error('GSAP is not loaded');
@@ -271,9 +273,9 @@ function initCustomCursor() {
 function initTextSplitting() {
   const titles = document.querySelectorAll('.font-headline');
   titles.forEach(title => {
-    if (title.classList.contains('hero-reveal')) return;
-    const text = title.textContent;
-    title.innerHTML = text.split(' ').map(word => 
+    if (title.classList.contains('hero-reveal') || title.closest('[data-no-split]')) return;
+    const text = title.textContent.trim();
+    title.innerHTML = text.split(/\s+/).map(word => 
       `<span class="split-word"><span class="split-char-wrapper">${word}</span></span>`
     ).join(' ');
   });
@@ -416,31 +418,16 @@ function initScrollAnimations() {
     });
   }
 
-  // Skill cards reveal
-  gsap.utils.toArray('.skill-card').forEach((card, i) => {
-    gsap.from(card, {
-      scrollTrigger: {
-        trigger: card,
-        start: 'top 85%',
-      },
-      opacity: 0,
-      y: 60,
-      duration: 1,
-      delay: i * 0.1,
-      ease: 'power4.out',
-      onComplete: () => {
-        const progress = card.querySelector('.skill-progress');
-        if (progress) {
-          gsap.to(progress, {
-            width: progress.dataset.progress,
-            duration: 2,
-            ease: 'expo.out'
-          });
-        }
-      }
-    });
+  // Skill cards reveal: one quick, staggered fade per batch of cards entering the screen,
+  // started as soon as a card's top reaches the bottom edge so nothing appears late.
+  gsap.set('.skill-card', { opacity: 0, y: 24 });
+  ScrollTrigger.batch('.skill-card', {
+    start: 'top 98%',
+    once: true,
+    onEnter: (batch) => gsap.fromTo(batch,
+      { opacity: 0, y: 24 },
+      { opacity: 1, y: 0, duration: 0.55, stagger: 0.06, ease: 'power3.out', overwrite: true }),
   });
-
   // Project items reveal
   gsap.utils.toArray('.project-item').forEach((item, i) => {
     const isEven = i % 2 === 0;
@@ -574,6 +561,18 @@ function initHeaderSync() {
 }
 
 function initOdysseyAnimations() {
+  // Vertical career timeline: reveal intro panel and entries on scroll
+  gsap.utils.toArray('.journey-item').forEach((item, i) => {
+    gsap.from(item, {
+      scrollTrigger: { trigger: item, start: 'top 85%' },
+      opacity: 0,
+      y: 40,
+      duration: 0.9,
+      delay: (i % 2) * 0.08,
+      ease: 'power3.out',
+    });
+  });
+
   const track = document.querySelector('.odyssey-track');
   if (!track) return;
 

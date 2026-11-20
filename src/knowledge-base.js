@@ -13,7 +13,14 @@ const personalInfo = {
     livePlatforms: "7+",
     xeroSyncSpeedup: "~70%",
     loscopSubscriptions: "100K+",
-    timeToProduction: "3 months"
+    timeToProduction: "3 months",
+    clientProjects: "11",
+    apisIntegrated: "12+ (Stripe, Razorpay, URWAY, Buddy, Xero, Hubdoc, Twilio, Firebase, STAAH, SU, UniFi, OpenAI, Pusher, AWS S3)",
+    paymentGateways: "4 (Stripe, Razorpay, URWAY, Buddy)",
+    realTimeSystems: "3 (Infostay guest chat on Socket.IO, Loscop chat, Altaseira on Pusher / Laravel WebSockets)",
+    aiFeaturesLive: "2 (PerfectStay AI booking assistant, Infostay guest assistance engine)",
+    channelManagers: "2 (STAAH, SU)",
+    startedAt: "April 2023"
   },
   contact: {
     email: "vismay3175@gmail.com",
@@ -71,6 +78,13 @@ const intents = [
     keywords: ["experience", "years", "background", "work history", "career", "how long", "tenure", "education"],
     responses: [
       "**Software Developer – Backend, Devstree IT Services Pvt. Ltd., Ahmedabad** (Apr 2023 – Present)\n\n- Built backend features and REST APIs for 7+ production platforms across SaaS, CRM and hospitality.\n- Shipped an OpenAI chatbot and booking assistant that handles guest queries and completes reservations.\n- Integrated Stripe, URWAY, Twilio and STAAH / SU channel managers with webhook-driven workflows.\n- Made Xero sync ~70% faster, optimized MySQL and ran deployments on Forge, Nginx and AWS S3.\n\n**Education:** " + personalInfo.education + ", through an industry-integrated program (full-time work Monday to Friday, coursework on Saturdays). HSC (Science) at S.S. Divine, Ahmedabad (2022); SSC at Shree Satya Sai Vidyalaya, Jamnagar (2020)."
+    ]
+  },
+  {
+    name: "IMPACT",
+    keywords: ["impact", "numbers", "metrics", "achievements", "results", "stats", "accomplishments"],
+    responses: [
+      "Vismay's work in numbers:\n\n- **" + personalInfo.achievements.xeroSyncSpeedup + "** faster Xero invoice sync\n- **" + personalInfo.achievements.loscopSubscriptions + "** active subscriptions on Loscop\n- **" + personalInfo.achievements.clientProjects + "** client projects, " + personalInfo.achievements.livePlatforms + " of them live platforms\n- **APIs integrated:** " + personalInfo.achievements.apisIntegrated + "\n- **Payment gateways:** " + personalInfo.achievements.paymentGateways + "\n- **Real-time systems:** " + personalInfo.achievements.realTimeSystems + "\n- **AI features in production:** " + personalInfo.achievements.aiFeaturesLive + "\n- **Channel managers:** " + personalInfo.achievements.channelManagers + "\n- First production feature within **" + personalInfo.achievements.timeToProduction + "** of starting in " + personalInfo.achievements.startedAt + "."
     ]
   },
   {

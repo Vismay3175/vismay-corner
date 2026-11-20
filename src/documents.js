@@ -27,29 +27,54 @@ const certificates = [
   }
 ];
 
+const DOCS = {
+  resume: {
+    file: '/pdf_files/Vismay-Oza-Resume.pdf',
+    name: 'resume',
+    desc: 'My experience, projects and skills on a single page. Start here if you only have a minute.',
+    inside: ['Summary', 'Skills', 'Experience', 'Key projects', 'Education'],
+  },
+  cv: {
+    file: '/pdf_files/Vismay-Oza-CV.pdf',
+    name: 'CV',
+    desc: 'Every project I have worked on, what I built in each one and how it turned out. Worth a read before a technical interview.',
+    inside: ['Career highlights', 'Full skill map', 'Responsibilities', 'Key projects', 'My contributions'],
+  },
+};
+
+// Resume / CV picker: swaps the front paper, details and links.
+function initDocDesk() {
+  const stage = document.getElementById('doc-stage');
+  const options = document.querySelectorAll('.doc-option');
+  if (!stage || !options.length) return;
+
+  const desc = document.getElementById('doc-desc');
+  const inside = document.getElementById('doc-inside');
+  const view = document.getElementById('doc-view');
+  const download = document.getElementById('doc-download');
+  const downloadName = document.getElementById('doc-download-name');
+  const detail = document.getElementById('doc-detail');
+
+  const select = (key) => {
+    const doc = DOCS[key];
+    if (!doc || stage.dataset.active === key) return;
+    stage.dataset.active = key;
+    options.forEach((o) => o.setAttribute('aria-pressed', String(o.dataset.doc === key)));
+    detail?.classList.remove('is-swapping');
+    void detail?.offsetWidth; // restart fade animation
+    detail?.classList.add('is-swapping');
+    if (desc) desc.textContent = doc.desc;
+    if (inside) inside.innerHTML = doc.inside.map((i) => `<li>${i}</li>`).join('');
+    if (view) view.href = doc.file;
+    if (download) download.href = doc.file;
+    if (downloadName) downloadName.textContent = doc.name;
+  };
+
+  options.forEach((o) => o.addEventListener('click', () => select(o.dataset.doc)));
+}
+
 export function initDocuments() {
-  // Resume/CV Toggle
-  const showResumeBtn = document.getElementById('show-resume');
-  const showCvBtn = document.getElementById('show-cv');
-  const docCard = document.getElementById('doc-card');
-
-  if (showResumeBtn && showCvBtn && docCard) {
-    showResumeBtn.addEventListener('click', () => {
-      docCard.classList.remove('is-flipped');
-      showResumeBtn.classList.add('bg-secondary', 'text-white', 'shadow-lg', 'shadow-secondary/20');
-      showResumeBtn.classList.remove('text-on-surface-variant', 'hover:bg-white/50');
-      showCvBtn.classList.remove('bg-secondary', 'text-white', 'shadow-lg', 'shadow-secondary/20');
-      showCvBtn.classList.add('text-on-surface-variant', 'hover:bg-white/50');
-    });
-
-    showCvBtn.addEventListener('click', () => {
-      docCard.classList.add('is-flipped');
-      showCvBtn.classList.add('bg-secondary', 'text-white', 'shadow-lg', 'shadow-secondary/20');
-      showCvBtn.classList.remove('text-on-surface-variant', 'hover:bg-white/50');
-      showResumeBtn.classList.remove('bg-secondary', 'text-white', 'shadow-lg', 'shadow-secondary/20');
-      showResumeBtn.classList.add('text-on-surface-variant', 'hover:bg-white/50');
-    });
-  }
+  initDocDesk();
 
   // Certificate Slider Injection
   const wrapper = document.getElementById('certificate-wrapper');

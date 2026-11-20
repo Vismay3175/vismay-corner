@@ -238,7 +238,7 @@
       });
     </script>
   </head>
-  <body class="bg-surface selection:bg-secondary/20 selection:text-secondary overflow-x-hidden">
+  <body class="bg-surface selection:bg-secondary/20 selection:text-secondary overflow-x-clip">
     <div class="loader flex-col">
 
       <div class="loader-text">Vismay Oza</div>
@@ -478,8 +478,8 @@
                     <div class="font-label text-[9px] uppercase tracking-widest font-bold opacity-80">Years Exp</div>
                   </div>
                   <div>
-                    <div class="text-3xl font-black text-on-surface mb-1">~70%</div>
-                    <div class="font-label text-[9px] uppercase tracking-widest font-bold opacity-80">Faster Xero Sync</div>
+                    <div class="text-3xl font-black text-on-surface mb-1">12+</div>
+                    <div class="font-label text-[9px] uppercase tracking-widest font-bold opacity-80">APIs Integrated</div>
                   </div>
                 </div>
               </div>
@@ -521,7 +521,7 @@
       </section>
 
         <!-- The Odyssey Section (Horizontal Growth Story) -->
-        <section id="odyssey" class="section-3d pt-12 pb-24 md:pt-24 md:pb-48 bg-surface relative">
+        <section id="odyssey" class="section-3d pt-12 pb-24 md:pt-24 md:pb-32 bg-surface relative">
           <div class="absolute inset-0 pointer-events-none overflow-hidden">
             <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,77,109,0.05),transparent_70%)]"></div>
             <div class="blob-parallax absolute -top-20 -left-20 w-[800px] h-[800px] bg-secondary/10 blur-[140px] rounded-full animate-pulse"></div>
@@ -534,184 +534,167 @@
             <h2 class="section-title reveal-text uppercase">Growth Story</h2>
           </div>
 
-            <!-- Horizontal Scroll Container -->
-            <div class="relative group/odyssey container mx-auto px-6 md:px-12">
-              <!-- Mobile Timeline Line -->
-              <div class="absolute left-6 top-0 bottom-0 w-[1px] bg-gradient-to-b from-secondary/50 via-secondary/20 to-transparent md:hidden z-0"></div>
+          <div class="container mx-auto px-6 md:px-12 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
-              <!-- Navigation Arrows -->
-              <button id="odyssey-prev" aria-label="Previous Story" class="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-on-surface hover:bg-secondary hover:text-white transition-all duration-300 opacity-0 group-hover/odyssey:opacity-100 hidden md:flex">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-              </button>
-              <button id="odyssey-next" aria-label="Next Story" class="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-on-surface hover:bg-secondary hover:text-white transition-all duration-300 opacity-0 group-hover/odyssey:opacity-100 hidden md:flex">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-              </button>
-
-              <div class="odyssey-track overflow-y-visible overflow-x-auto pb-[100px] pt-[100px] md:pb-[320px] md:pt-[320px] cursor-grab active:cursor-grabbing scroll-smooth no-scrollbar">
-                <div class="flex flex-col md:flex-row items-center w-full md:min-w-max px-6 md:px-24 relative gap-12 md:gap-0">
-                  
-                  <!-- Background line removed, using segment lines -->
-                
-                <!-- Stop 3: B.Tech Journey (Bottom) -->
-                <div class="odyssey-stop timeline-segment !flex-col md:!flex-row w-[90vw] md:!w-[300px] h-auto md:!h-[2px]">
-                  <div class="timeline-glow"></div>
-                  <div class="timeline-line hidden md:block"></div>
-                  <div class="timeline-dot mb-4 md:mb-0">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
-                  </div>
-                  <div class="timeline-connector bottom hidden md:block"></div>
-                  
-                  <div class="odyssey-card bottom">
-                    <div class="glass-card odyssey-glass-card p-6 shadow-xl group hover:scale-[1.02] transition-all duration-500">
-                      <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 rounded-2xl bg-secondary/15 flex items-center justify-center text-secondary shadow-lg shadow-secondary/5">
-                          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                        </div>
-                        <div>
-                          <span class="text-[10px] font-black text-secondary uppercase tracking-widest block mb-0.5">2022 — 2026</span>
-                          <h3 class="font-headline text-lg font-bold text-on-surface leading-tight">B.Tech in IT</h3>
-                        </div>
-                      </div>
-                      <p class="text-xs text-on-surface-variant leading-relaxed opacity-80 mb-4">B.Tech in Information Technology at Silver Oak College of Engineering &amp; Technology, Ahmedabad, through an industry-integrated program: full-time at Devstree Monday to Friday, coursework on Saturdays.</p>
-                      <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-secondary/5 text-[10px] font-bold text-secondary-dim rounded-lg border border-secondary/10">Grad 2026</span>
-                        <span class="px-3 py-1 bg-secondary/5 text-[10px] font-bold text-secondary-dim rounded-lg border border-secondary/10">Industry-Integrated</span>
-                      </div>
+              <!-- Intro panel -->
+              <aside class="lg:col-span-4 lg:sticky lg:top-32 journey-item">
+                <div class="bg-surface-container-low border border-outline-variant/30 rounded-[2rem] p-8 md:p-10">
+                  <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary/10 text-secondary-dim font-label text-[10px] font-black uppercase tracking-[0.2em] mb-6">
+                    <span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                    Open to backend roles
+                  </span>
+                  <h3 class="font-headline text-2xl md:text-3xl font-black text-on-surface leading-tight mb-4">Building production backends since 2023.</h3>
+                  <p class="text-on-surface-variant leading-relaxed mb-8">Laravel backend developer shipping APIs, payment flows and AI features for live platforms. I moved into software from a biology background, so learning fast and debugging methodically are habits, not buzzwords.</p>
+                  <dl class="grid grid-cols-3 gap-4 pt-6 border-t border-outline-variant/20">
+                    <div>
+                      <dt class="font-label text-[10px] uppercase tracking-widest font-bold text-on-surface-variant mb-1">Started</dt>
+                      <dd class="font-headline text-2xl font-black text-on-surface">Apr '23</dd>
                     </div>
-                  </div>
-                </div>
-
-                <!-- Stop 4: Professional Debut (Top) -->
-                <div class="odyssey-stop timeline-segment !flex-col md:!flex-row w-[90vw] md:!w-[300px] h-auto md:!h-[2px]">
-                  <div class="timeline-glow"></div>
-                  <div class="timeline-line hidden md:block"></div>
-                  <div class="timeline-dot mb-4 md:mb-0">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                  </div>
-                  <div class="timeline-connector top hidden md:block"></div>
-                  
-                  <div class="odyssey-card top">
-                    <div class="glass-card odyssey-glass-card p-6 shadow-xl group hover:scale-[1.02] transition-all duration-500">
-                      <div class="flex items-center gap-4 mb-4">
-                        <div class="w-12 h-12 rounded-2xl bg-secondary/15 flex items-center justify-center text-secondary shadow-lg shadow-secondary/5 mb-4">
-                          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                        </div>
-                        <div>
-                          <span class="text-[10px] font-black text-secondary uppercase tracking-widest block mb-0.5">APR 2023 — PRESENT</span>
-                          <h3 class="font-headline text-lg font-bold text-on-surface leading-tight">Software Developer – Backend</h3>
-                        </div>
-                      </div>
-                      <p class="text-[11px] text-on-surface-variant leading-relaxed opacity-90 mb-3 block">Devstree IT Services, Ahmedabad. Built backend features and REST APIs for 7+ production platforms, shipped an OpenAI chatbot and booking assistant, integrated Stripe, URWAY, Twilio and STAAH / SU, and made Xero sync ~70% faster.</p>
-                      <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-secondary/5 text-[9px] font-bold text-secondary-dim rounded-md">Laravel</span>
-                        <span class="px-2 py-1 bg-secondary/5 text-[9px] font-bold text-secondary-dim rounded-md">AI Integration</span>
-                      </div>
+                    <div>
+                      <dt class="font-label text-[10px] uppercase tracking-widest font-bold text-on-surface-variant mb-1">AI features live</dt>
+                      <dd class="font-headline text-2xl font-black text-on-surface">2</dd>
                     </div>
-                  </div>
-                </div>
-
-                <!-- Stop 5: Future & Growth (Bottom) -->
-                <div class="odyssey-stop timeline-segment !flex-col md:!flex-row w-[90vw] md:!w-[300px] h-auto md:!h-[2px]">
-                  <div class="timeline-glow"></div>
-                  <div class="timeline-line hidden md:block"></div>
-                  <div class="timeline-dot mb-4 md:mb-0">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                  </div>
-                  <div class="timeline-connector bottom hidden md:block"></div>
-                  
-                  <div class="odyssey-card bottom">
-                    <div class="glass-card odyssey-glass-card p-6 shadow-xl group hover:scale-[1.02] transition-all duration-500">
-                      <div class="flex items-center gap-4 mb-4">
-                        <div class="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary">
-                          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                        </div>
-                        <div>
-                          <span class="text-[10px] font-black text-secondary uppercase tracking-widest block">FUTURE</span>
-                          <h3 class="font-headline text-lg font-bold text-on-surface">AI & Beyond</h3>
-                        </div>
-                      </div>
-                      <p class="text-xs text-on-surface-variant leading-relaxed opacity-90">Going deeper into applied AI on top of Laravel: Function Calling, RAG and MCP in production systems.</p>
+                    <div>
+                      <dt class="font-label text-[10px] uppercase tracking-widest font-bold text-on-surface-variant mb-1">First ship</dt>
+                      <dd class="font-headline text-2xl font-black text-secondary">3 mo</dd>
                     </div>
-                  </div>
+                  </dl>
                 </div>
+              </aside>
 
+              <!-- Timeline -->
+              <div class="lg:col-span-8 relative">
+              <div class="absolute left-[19px] md:left-[23px] top-3 bottom-3 w-px bg-gradient-to-b from-secondary/60 via-secondary/30 to-transparent" aria-hidden="true"></div>
+              <ol class="relative space-y-8 md:space-y-10" aria-label="Career timeline">
 
+                <!-- Education -->
+                <li class="journey-item relative pl-14 md:pl-20">
+                  <div class="absolute left-0 top-1 w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface border-2 border-secondary/40 flex items-center justify-center text-secondary shadow-lg shadow-secondary/10" aria-hidden="true">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
+                  </div>
+                  <article class="bg-surface-container-low border border-outline-variant/30 rounded-[1.75rem] p-6 md:p-8 hover:border-secondary/40 hover:shadow-xl hover:shadow-secondary/5 transition-all duration-500">
+                    <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+                      <span class="font-label text-[11px] font-black uppercase tracking-[0.2em] text-secondary-dim">2022 — 2026</span>
+                      <span class="px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/30 text-[11px] font-semibold text-on-surface-variant">Education</span>
+                    </div>
+                    <h3 class="font-headline text-xl md:text-2xl font-bold text-on-surface mb-1">B.Tech in Information Technology</h3>
+                    <p class="text-sm font-semibold text-on-surface-variant mb-4">Silver Oak College of Engineering &amp; Technology, Ahmedabad</p>
+                    <p class="text-on-surface-variant leading-relaxed">Industry-integrated program: full-time at Devstree from Monday to Friday, with coursework on Saturdays, so classroom learning went straight into production work.</p>
+                    <ul class="flex flex-wrap gap-2 mt-5">
+                      <li class="px-3 py-1.5 rounded-full bg-surface-container-high border border-outline-variant/20 text-[11px] font-semibold text-on-surface-variant">Graduating 2026</li>
+                      <li class="px-3 py-1.5 rounded-full bg-surface-container-high border border-outline-variant/20 text-[11px] font-semibold text-on-surface-variant">Work-integrated</li>
+                    </ul>
+                  </article>
+                </li>
+
+                <!-- Devstree -->
+                <li class="journey-item relative pl-14 md:pl-20">
+                  <div class="absolute left-0 top-1 w-10 h-10 md:w-12 md:h-12 rounded-full bg-secondary flex items-center justify-center text-white shadow-lg shadow-secondary/30" aria-hidden="true">
+                    <span class="absolute inset-0 rounded-full bg-secondary/40 animate-ping"></span>
+                    <svg class="relative w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                  </div>
+                  <article class="bg-surface-container-low border-2 border-secondary/30 rounded-[1.75rem] p-6 md:p-8 shadow-xl shadow-secondary/5 hover:border-secondary/50 transition-all duration-500">
+                    <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+                      <span class="font-label text-[11px] font-black uppercase tracking-[0.2em] text-secondary-dim">Apr 2023 — Present</span>
+                      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary text-white text-[11px] font-bold">
+                        <span class="w-1.5 h-1.5 rounded-full bg-white"></span>Current role
+                      </span>
+                    </div>
+                    <h3 class="font-headline text-xl md:text-2xl font-bold text-on-surface mb-1">Software Developer – Backend</h3>
+                    <p class="text-sm font-semibold text-on-surface-variant mb-5">Devstree IT Services · Ahmedabad</p>
+                    <ul class="space-y-3 text-on-surface-variant leading-relaxed">
+                      <li class="flex gap-3"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span>Backend features and REST APIs for 7+ production platforms across hospitality, fintech, education and e-commerce.</span></li>
+                      <li class="flex gap-3"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span>Shipped an OpenAI booking assistant with tool calling that takes a guest from enquiry to confirmed booking.</span></li>
+                      <li class="flex gap-3"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span>Integrated Stripe, URWAY, Twilio WhatsApp, Xero, Hubdoc and the STAAH / SU channel managers.</span></li>
+                      <li class="flex gap-3"><span class="mt-2 w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span><span>Made Xero sync ~70% faster with asynchronous HTTP request pooling.</span></li>
+                    </ul>
+                    <ul class="flex flex-wrap gap-2 mt-6">
+                      <li class="px-3 py-1.5 rounded-full bg-secondary/10 text-[11px] font-bold text-secondary-dim">Laravel</li>
+                      <li class="px-3 py-1.5 rounded-full bg-secondary/10 text-[11px] font-bold text-secondary-dim">OpenAI</li>
+                      <li class="px-3 py-1.5 rounded-full bg-secondary/10 text-[11px] font-bold text-secondary-dim">Payments</li>
+                      <li class="px-3 py-1.5 rounded-full bg-secondary/10 text-[11px] font-bold text-secondary-dim">Integrations</li>
+                    </ul>
+                  </article>
+                </li>
+
+                <!-- Next -->
+                <li class="journey-item relative pl-14 md:pl-20">
+                  <div class="absolute left-0 top-1 w-10 h-10 md:w-12 md:h-12 rounded-full bg-surface border-2 border-dashed border-secondary/40 flex items-center justify-center text-secondary" aria-hidden="true">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                  </div>
+                  <article class="bg-surface-container-low/60 border border-dashed border-outline-variant/50 rounded-[1.75rem] p-6 md:p-8 hover:border-secondary/40 transition-all duration-500">
+                    <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+                      <span class="font-label text-[11px] font-black uppercase tracking-[0.2em] text-secondary-dim">Next</span>
+                      <span class="px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/30 text-[11px] font-semibold text-on-surface-variant">Focus</span>
+                    </div>
+                    <h3 class="font-headline text-xl md:text-2xl font-bold text-on-surface mb-3">Applied AI on Laravel</h3>
+                    <p class="text-on-surface-variant leading-relaxed">Going deeper into AI inside real business systems: function calling, RAG and MCP in production Laravel applications.</p>
+                  </article>
+                </li>
+              </ol>
               </div>
             </div>
-            
           </div>
-          
+
           <!-- Decorative Journey Blobs -->
           <div class="absolute top-1/4 -left-32 w-96 h-96 bg-secondary/5 blur-[120px] rounded-full"></div>
           <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-secondary/5 blur-[120px] rounded-full"></div>
         </section>
 
-        <!-- Vision & Philosophy Section -->
-        <section id="vision" class="section-3d py-24 bg-surface relative overflow-hidden">
-          <div class="container mx-auto px-6 md:px-12">
-            <div class="section-header">
-              <span class="section-label">Core Philosophy</span>
-              <h2 class="section-title reveal-text uppercase">Architectural Vision</h2>
+        <!-- How I Work Section -->
+        <section id="vision" class="section-3d py-24 bg-surface relative overflow-x-clip">
+          <div class="container mx-auto px-6 md:px-12 relative z-10" data-no-split>
+            <div class="hw-scroll" id="hw-scroll">
+            <div class="hw-sticky" id="hw-sticky">
+            <div class="section-header hw-header">
+              <span class="section-label">How I work</span>
+              <h2 class="section-title">From schema to support</h2>
             </div>
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-              <div class="lg:col-span-5 space-y-8">
-                <p class="font-body text-xl text-on-surface leading-relaxed opacity-90">
-                  With 3+ years at Devstree IT Services, I usually own a feature from the first database schema to deployment and the support that follows. My strongest area is connecting business systems to the outside world: payments, messaging, accounting and hotel channel managers, and now applied AI.
-                </p>
-                <div class="space-y-4">
-                  <div class="flex items-center gap-4 group">
-                    <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all">
-                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.952 11.952 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                    </div>
-                    <div>
-                      <h3 class="font-bold text-on-surface text-base">AI in Production</h3>
-                      <p class="text-xs text-on-surface-variant opacity-90">Shipped an OpenAI chatbot and an AI booking assistant that completes reservations end-to-end.</p>
-                    </div>
-                  </div>
-                  <div class="flex items-center gap-4 group">
-                    <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all">
-                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                    </div>
-                    <div>
-                      <h3 class="font-bold text-on-surface text-base">Performance</h3>
-                      <p class="text-xs text-on-surface-variant opacity-90">~70% faster Xero sync with async HTTP request pooling, and a sub-second booking grid after removing N+1 queries.</p>
-                    </div>
-                  </div>
-                  <div class="flex items-center gap-4 group">
-                    <div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all">
-                      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
-                    </div>
-                    <div>
-                      <h3 class="font-bold text-on-surface text-base">Integrations</h3>
-                      <p class="text-xs text-on-surface-variant opacity-90">Stripe, URWAY, Buddy, Twilio, Xero and STAAH / SU channel managers with webhook-driven workflows.</p>
-                    </div>
-                  </div>
-                </div>
+            <p class="hw-intro max-w-3xl mx-auto text-center text-lg text-on-surface-variant leading-relaxed">
+              I usually own a feature end to end: the database design, the API, the third-party connections, the release and the fixes after it goes live.
+            </p>
+            <div class="hw max-w-6xl mx-auto" id="hw">
+              <!-- Stage rail -->
+              <div class="hw-rail" role="tablist" aria-label="Stages of a feature">
+                <div class="hw-track" aria-hidden="true"><span class="hw-track-fill" id="hw-fill"></span></div>
+                <button class="hw-step" role="tab" id="hw-tab-0" aria-controls="hw-panel" aria-selected="true" data-step="0"><span class="hw-dot">01</span><span class="hw-name">Model</span></button>
+                <button class="hw-step" role="tab" id="hw-tab-1" aria-controls="hw-panel" aria-selected="false" tabindex="-1" data-step="1"><span class="hw-dot">02</span><span class="hw-name">Build</span></button>
+                <button class="hw-step" role="tab" id="hw-tab-2" aria-controls="hw-panel" aria-selected="false" tabindex="-1" data-step="2"><span class="hw-dot">03</span><span class="hw-name">Connect</span></button>
+                <button class="hw-step" role="tab" id="hw-tab-3" aria-controls="hw-panel" aria-selected="false" tabindex="-1" data-step="3"><span class="hw-dot">04</span><span class="hw-name">Add AI</span></button>
+                <button class="hw-step" role="tab" id="hw-tab-4" aria-controls="hw-panel" aria-selected="false" tabindex="-1" data-step="4"><span class="hw-dot">05</span><span class="hw-name">Ship</span></button>
               </div>
-              
-              <div class="lg:col-span-7 bg-surface-container-high/50 rounded-[3rem] p-12 border border-outline-variant/20 relative overflow-hidden group hover:border-secondary/30 transition-all duration-700">
-                <div class="absolute top-0 right-0 p-8">
-                  <svg class="w-16 h-16 text-secondary opacity-5" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C14.9124 8 14.017 7.10457 14.017 6V3H21.017V15C21.017 18.3137 18.3307 21 15.017 21H14.017ZM3 21L3 18C3 16.8954 3.89543 16 5 16H8C8.55228 16 9 15.5523 9 15V9C9 8.44772 8.55228 8 8 8H5C3.89543 8 3 7.10457 3 6V3H10V15C10 18.3137 7.31371 21 4 21H3Z"></path></svg>
+
+              <!-- Stage panel -->
+              <div class="hw-panel" id="hw-panel" role="tabpanel" aria-labelledby="hw-tab-0">
+                <div class="hw-panel-main">
+                  <p class="hw-kicker"><span id="hw-num">01</span> / 05 · <span id="hw-label">Schema &amp; data</span></p>
+                  <h3 id="hw-title" class="font-headline text-2xl md:text-4xl font-black text-on-surface tracking-tight mb-4">Get the data model right first.</h3>
+                  <p id="hw-body" class="text-on-surface-variant leading-relaxed mb-6"></p>
+                  <ul id="hw-tools" class="hw-tools"></ul>
                 </div>
-                <h3 class="font-headline text-3xl font-black text-on-surface mb-8 italic">"The best engineers understand not just how to build systems, but why they perform the way they do."</h3>
-                <div class="space-y-6">
-                  <p class="text-lg text-on-surface-variant/90 leading-relaxed font-body">
-                    I came into software from a biology background, taught myself backend fundamentals while working full-time through an industry-integrated B.Tech, and shipped my first production feature within three months. Learning fast, asking the right questions and taking ownership is what I bring to every team.
-                  </p>
-                  <div class="grid grid-cols-2 gap-6 pt-6 border-t border-outline-variant/10">
-                    <div>
-                      <div class="text-secondary font-black text-2xl">100K+</div>
-                      <div class="text-[10px] uppercase tracking-widest font-bold opacity-80">Active Subscriptions (Loscop)</div>
-                    </div>
-                    <div>
-                      <div class="text-on-surface font-black text-2xl">~70%</div>
-                      <div class="text-[10px] uppercase tracking-widest font-bold opacity-80">Faster Xero Sync</div>
-                    </div>
-                  </div>
+                <div class="hw-proof">
+                  <p class="hw-proof-label">From production</p>
+                  <p id="hw-proof-metric" class="hw-proof-metric">Sub-second</p>
+                  <p id="hw-proof-text" class="text-on-surface-variant leading-relaxed"></p>
                 </div>
-                
+                <div class="hw-progress" aria-hidden="true"><span id="hw-timer"></span></div>
               </div>
+              <p class="hw-scroll-hint" id="hw-hint" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m-6-6 6 6 6-6"/></svg>
+                Keep scrolling to walk through each stage
+              </p>
             </div>
+            </div>
+            </div>
+
+            <!-- Impact numbers -->
+            <dl class="hw-stats max-w-6xl mx-auto mt-10 md:mt-14">
+              <div><dt>Faster Xero invoice sync</dt><dd><span class="hw-count" data-to="70" data-prefix="~" data-suffix="%">~70%</span></dd></div>
+              <div><dt>Client projects delivered</dt><dd><span class="hw-count" data-to="11">11</span></dd></div>
+              <div><dt>Real-time systems shipped</dt><dd><span class="hw-count" data-to="3">3</span></dd></div>
+              <div><dt>Hotel channel managers kept in sync</dt><dd><span class="hw-count" data-to="2">2</span></dd></div>
+            </dl>
           </div>
         </section>
 
@@ -801,57 +784,64 @@
             <h2 class="section-title reveal-text">Documents</h2>
           </div>
 
-          <!-- Resume/CV Toggle Card -->
-          <div class="container mx-auto px-6 mb-24 relative z-10">
-            <div class="flex justify-center mb-12">
-              <div class="bg-surface-container-high p-1.5 rounded-2xl flex gap-2 border border-outline-variant/20 shadow-lg">
-                <button id="show-resume" class="px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all bg-secondary text-white shadow-lg shadow-secondary/20">Resume</button>
-                <button id="show-cv" class="px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all text-on-surface-variant hover:bg-white/50">Detailed CV</button>
-              </div>
-            </div>
+          <!-- Resume / CV desk -->
+          <div class="container mx-auto px-6 md:px-12 mb-24 relative z-10" data-no-split>
+            <div class="doc-desk grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center max-w-6xl mx-auto">
 
-            <div class="document-card-container" id="doc-card">
-              <div class="document-card-inner">
-                <!-- Front: Resume -->
-                <div class="document-card-front">
-                  <div class="w-full h-full p-10 flex flex-col items-center text-center relative overflow-hidden group">
-                    <div class="shine"></div>
-                    <div class="w-20 h-20 bg-secondary/10 rounded-3xl flex items-center justify-center text-secondary mb-8 group-hover:bg-secondary group-hover:text-white transition-all duration-500">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
-                    </div>
-                    <h3 class="font-headline text-3xl font-black text-on-surface mb-4">Resume</h3>
-                    <p class="text-on-surface-variant text-base max-w-sm mb-10 opacity-80">A concise summary of my professional background, skills, and key achievements.</p>
-                    <div class="flex gap-4">
-                      <a href="/pdf_files/Vismay-Oza-Resume.pdf" target="_blank" class="px-8 py-4 border-2 border-outline-variant rounded-2xl font-label text-[10px] font-black uppercase tracking-widest hover:border-secondary hover:text-secondary transition-all flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                        View
-                      </a>
-                      <a href="/pdf_files/Vismay-Oza-Resume.pdf" download class="px-8 py-4 bg-secondary text-white rounded-2xl font-label text-[10px] font-black uppercase tracking-widest hover:bg-secondary-dim transition-all shadow-lg shadow-secondary/20 flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                        Download
-                      </a>
-                    </div>
-                  </div>
+              <!-- Paper stack with real page previews -->
+              <div class="lg:col-span-6">
+                <div class="doc-stage" id="doc-stage" data-active="resume">
+                  <a class="doc-paper doc-paper--cv2" href="/pdf_files/Vismay-Oza-CV.pdf" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                    <img src="/documents/previews/cv-2.webp" alt="" loading="lazy" width="661" height="935">
+                  </a>
+                  <a class="doc-paper doc-paper--cv" href="/pdf_files/Vismay-Oza-CV.pdf" target="_blank" rel="noopener" aria-label="Open detailed CV preview">
+                    <img src="/documents/previews/cv-1.webp" alt="First page of the detailed CV" loading="lazy" width="661" height="935">
+                  </a>
+                  <a class="doc-paper doc-paper--resume" href="/pdf_files/Vismay-Oza-Resume.pdf" target="_blank" rel="noopener" aria-label="Open resume preview">
+                    <img src="/documents/previews/resume-1.webp" alt="First page of the resume" loading="lazy" width="661" height="935">
+                  </a>
+                  <span class="doc-stamp" aria-hidden="true">Updated<br><b>Nov 2026</b></span>
+                  <span class="doc-hint" aria-hidden="true">Click a page to open</span>
                 </div>
-                <!-- Back: Detailed CV -->
-                <div class="document-card-back">
-                  <div class="w-full h-full p-10 flex flex-col items-center text-center relative overflow-hidden group">
-                    <div class="shine"></div>
-                    <div class="w-20 h-20 bg-secondary/10 rounded-3xl flex items-center justify-center text-secondary mb-8 group-hover:bg-secondary group-hover:text-white transition-all duration-500">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg>
-                    </div>
-                    <h3 class="font-headline text-3xl font-black text-on-surface mb-4">Detailed CV</h3>
-                    <p class="text-on-surface-variant text-base max-w-sm mb-10 opacity-80">A comprehensive document detailing all my projects, experiences, and technical journey.</p>
-                    <div class="flex gap-4">
-                      <a href="/pdf_files/Vismay-Oza-CV.pdf" target="_blank" class="px-8 py-4 border-2 border-outline-variant rounded-2xl font-label text-[10px] font-black uppercase tracking-widest hover:border-secondary hover:text-secondary transition-all flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                        View
-                      </a>
-                      <a href="/pdf_files/Vismay-Oza-CV.pdf" download class="px-8 py-4 bg-secondary text-white rounded-2xl font-label text-[10px] font-black uppercase tracking-widest hover:bg-secondary-dim transition-all shadow-lg shadow-secondary/20 flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                        Download
-                      </a>
-                    </div>
+              </div>
+
+              <!-- Picker + details -->
+              <div class="lg:col-span-6">
+                <p class="font-label text-[11px] font-black uppercase tracking-[0.2em] text-on-surface-variant mb-4">Pick a format</p>
+                <div class="space-y-3 mb-8" role="group" aria-label="Document format">
+                  <button type="button" class="doc-option" data-doc="resume" aria-pressed="true">
+                    <span class="doc-option-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span>
+                    <span class="flex-1 text-left">
+                      <span class="block font-headline text-lg font-bold text-on-surface">Resume</span>
+                      <span class="block text-sm text-on-surface-variant">1 page · the 60-second read</span>
+                    </span>
+                    <span class="doc-option-tag">PDF · 58 KB</span>
+                  </button>
+                  <button type="button" class="doc-option" data-doc="cv" aria-pressed="false">
+                    <span class="doc-option-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg></span>
+                    <span class="flex-1 text-left">
+                      <span class="block font-headline text-lg font-bold text-on-surface">Detailed CV</span>
+                      <span class="block text-sm text-on-surface-variant">5 pages · every project in depth</span>
+                    </span>
+                    <span class="doc-option-tag">PDF · 117 KB</span>
+                  </button>
+                </div>
+
+                <div id="doc-detail" class="doc-detail" aria-live="polite">
+                  <p id="doc-desc" class="text-on-surface-variant leading-relaxed mb-5">My experience, projects and skills on a single page. Start here if you only have a minute.</p>
+                  <p class="font-label text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant mb-3">What's inside</p>
+                  <ul id="doc-inside" class="flex flex-wrap gap-2 mb-8">
+                    <li>Summary</li><li>Skills</li><li>Experience</li><li>Key projects</li><li>Education</li>
+                  </ul>
+                  <div class="flex flex-wrap gap-3">
+                    <a id="doc-view" href="/pdf_files/Vismay-Oza-Resume.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn--ghost">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                      View
+                    </a>
+                    <a id="doc-download" href="/pdf_files/Vismay-Oza-Resume.pdf" download class="doc-btn doc-btn--solid">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                      Download <span id="doc-download-name">resume</span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -913,58 +903,123 @@
         </section> -->
 
         <!-- Contact Section -->
-        <section id="contact" class="section-3d py-16 md:py-24 bg-surface relative overflow-hidden">
-          <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <section id="contact" data-no-split class="section-3d py-16 md:py-28 bg-surface relative overflow-hidden">
+          <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
             <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,77,109,0.05),transparent_70%)]"></div>
             <div class="blob-parallax absolute -top-20 -left-20 w-[800px] h-[800px] bg-secondary/10 blur-[140px] rounded-full animate-pulse"></div>
             <div class="blob-parallax absolute bottom-0 right-0 w-[600px] h-[600px] bg-secondary/10 blur-[120px] rounded-full animate-bounce [animation-duration:15s]"></div>
-            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] mix-blend-overlay"></div>
+            <div class="cf-grid absolute inset-0"></div>
           </div>
-        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32 items-center">
-          <div>
-            <h2 class="reveal-text font-headline text-5xl md:text-8xl font-extrabold tracking-tighter text-on-surface leading-[0.9] mb-12 text-center">
-Let's build <br/> something <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-secondary">exceptional</span>.
-            </h2>
-            <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed mb-12 md:mb-16 max-w-md opacity-80">Open to full-time Laravel backend and AI integration roles. Recruiters and hiring managers: send a message or email me directly, and I usually reply within 24 hours.</p>
-            <div class="space-y-8 md:space-y-10">
-              <div class="flex items-center gap-6 md:gap-8 group cursor-pointer">
-                <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl border border-outline-variant/30 flex items-center justify-center group-hover:bg-secondary group-hover:border-secondary group-hover:shadow-[0_10px_30px_rgba(255,77,109,0.3)] transition-all">
-                  <svg class="w-5 h-5 md:w-6 md:h-6 text-on-surface group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path></svg>
+
+          <div class="container mx-auto px-6 md:px-12 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+
+            <!-- Left: pitch + direct channels -->
+            <div class="lg:col-span-5 lg:sticky lg:top-32">
+              <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-700 font-label text-[10px] font-black uppercase tracking-[0.2em] mb-8">
+                <span class="relative flex w-2 h-2"><span class="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-60"></span><span class="relative w-2 h-2 rounded-full bg-emerald-500"></span></span>
+                Available for full-time roles
+              </span>
+              <h2 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-on-surface leading-[0.95] mb-8">Let's build something <span class="text-secondary">exceptional</span>.</h2>
+              <p class="text-on-surface-variant text-lg leading-relaxed mb-10 max-w-md">Open to Laravel backend and AI integration roles. Send a message or email me directly. I usually reply within 24 hours.</p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-lg">
+                <!-- Email + copy -->
+                <div class="cf-tile sm:col-span-2">
+                  <div class="cf-tile-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path></svg></div>
+                  <div class="min-w-0 flex-1">
+                    <p class="cf-tile-label">Email</p>
+                    <a href="mailto:vismay3175@gmail.com" class="block truncate font-headline font-bold text-on-surface hover:text-secondary transition-colors">vismay3175@gmail.com</a>
+                  </div>
+                  <button type="button" id="contact-copy" class="cf-copy" aria-label="Copy email address">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2" stroke-width="2"></rect><path stroke-width="2" stroke-linecap="round" d="M5 15V6a2 2 0 012-2h9"></path></svg>
+                    <span>Copy</span>
+                  </button>
                 </div>
-                <a href="mailto:vismay3175@gmail.com" class="font-label text-xs md:text-sm tracking-widest uppercase font-black text-on-surface hover:text-secondary transition-colors">vismay3175@gmail.com</a>
+                <!-- Local time -->
+                <div class="cf-tile">
+                  <div class="cf-tile-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="2"></circle><path stroke-linecap="round" stroke-width="2" d="M12 7v5l3 2"></path></svg></div>
+                  <div>
+                    <p class="cf-tile-label">Ahmedabad, India</p>
+                    <p class="font-headline font-bold text-on-surface"><span id="contact-clock">--:--</span> <span class="text-on-surface-variant font-semibold text-sm">IST</span></p>
+                  </div>
+                </div>
+                <!-- Reply time -->
+                <div class="cf-tile">
+                  <div class="cf-tile-icon"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
+                  <div>
+                    <p class="cf-tile-label">Reply time</p>
+                    <p class="font-headline font-bold text-on-surface">Under 24 hours</p>
+                  </div>
+                </div>
               </div>
-              <div class="flex items-center gap-6 md:gap-8 group cursor-pointer">
-                <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl border border-outline-variant/30 flex items-center justify-center group-hover:bg-secondary group-hover:border-secondary group-hover:shadow-[0_10px_30px_rgba(255,77,109,0.3)] transition-all">
-                  <svg class="w-5 h-5 md:w-6 md:h-6 text-on-surface group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+
+              <div class="flex items-center gap-3 mt-6">
+                <a href="https://www.linkedin.com/in/vismay-oza/" target="_blank" rel="noopener" class="cf-social">LinkedIn <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/VismayOza" target="_blank" rel="noopener" class="cf-social">GitHub <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+
+            <!-- Right: request-style form card -->
+            <div class="lg:col-span-7">
+              <div class="cf-card">
+                <div class="cf-bar">
+                  <div class="flex gap-1.5" aria-hidden="true"><span></span><span></span><span></span></div>
+                  <code class="cf-endpoint"><b>POST</b> /hire/vismay</code>
+                  <span id="contact-code" class="cf-code" data-state="idle">READY</span>
                 </div>
-                <span class="font-label text-xs md:text-sm tracking-widest uppercase font-black text-on-surface">Ahmedabad, India</span>
+
+                <form id="contact-form" class="p-6 md:p-10" novalidate>
+                  <fieldset class="mb-8">
+                    <legend class="cf-legend">What brings you here?</legend>
+                    <div class="flex flex-wrap gap-2">
+                      <label class="cf-chip"><input type="radio" name="intent" value="Full-time role" checked><span>Full-time role</span></label>
+                      <label class="cf-chip"><input type="radio" name="intent" value="Freelance project"><span>Freelance project</span></label>
+                      <label class="cf-chip"><input type="radio" name="intent" value="Collaboration"><span>Collaboration</span></label>
+                      <label class="cf-chip"><input type="radio" name="intent" value="Just saying hi"><span>Just saying hi</span></label>
+                    </div>
+                  </fieldset>
+
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                    <div class="cf-field">
+                      <input id="cf-name" name="name" type="text" autocomplete="name" placeholder=" " required>
+                      <label for="cf-name">Your name</label>
+                    </div>
+                    <div class="cf-field">
+                      <input id="cf-email" name="email" type="email" autocomplete="email" placeholder=" " required>
+                      <label for="cf-email">Email address</label>
+                    </div>
+                  </div>
+                  <div class="cf-field mb-2">
+                    <textarea id="cf-message" name="message" rows="5" maxlength="2000" placeholder=" " required></textarea>
+                    <label for="cf-message">Role, project or idea</label>
+                  </div>
+                  <p class="text-right text-[11px] font-label text-on-surface-variant mb-6"><span id="contact-count">0</span> / 2000</p>
+
+                  <button type="submit" id="contact-submit" class="cf-submit group">
+                    <span class="cf-submit-label">Send message</span>
+                    <span class="cf-submit-icon" aria-hidden="true">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 12h14m-6-6l6 6-6 6"></path></svg>
+                    </span>
+                  </button>
+
+                  <p id="contact-status" class="cf-status" role="status" aria-live="polite"><span class="opacity-60">// fill the form and hit send</span></p>
+                </form>
+
+                <!-- Success state -->
+                <div id="contact-success" class="p-10 md:p-14 text-center" hidden>
+                  <div class="mx-auto mb-6 w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-600 flex items-center justify-center">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                  </div>
+                  <p class="font-label text-[11px] font-black uppercase tracking-[0.2em] text-emerald-700 mb-3">201 Created</p>
+                  <h3 class="font-headline text-2xl md:text-3xl font-black text-on-surface mb-3">Message received.</h3>
+                  <p class="text-on-surface-variant max-w-sm mx-auto mb-8">Thanks, <span id="contact-success-name">friend</span>. I will reply to your inbox within 24 hours.</p>
+                  <button type="button" id="contact-reset" class="cf-social">Send another message</button>
+                </div>
               </div>
             </div>
           </div>
-          <div class="contact-form-container bg-white/40 backdrop-blur-md p-8 md:p-16 rounded-[2.5rem] md:rounded-[3.5rem] shadow-2xl shadow-on-surface/5 border border-white/40">
-            <form id="contact-form" class="space-y-10 md:space-y-12" novalidate>
-              <div class="space-y-4">
-                <label class="font-label text-[10px] uppercase tracking-[0.4em] font-black text-on-surface-variant">Name</label>
-                <input class="w-full bg-transparent border-0 border-b-2 border-outline-variant/20 py-4 focus:ring-0 focus:border-secondary transition-all placeholder:text-outline-variant/40 font-body text-base md:text-lg" placeholder="Enter your name" name="name" autocomplete="name" required type="text"/>
-              </div>
-              <div class="space-y-4">
-                <label class="font-label text-[10px] uppercase tracking-[0.4em] font-black text-on-surface-variant">Email</label>
-                <input class="w-full bg-transparent border-0 border-b-2 border-outline-variant/20 py-4 focus:ring-0 focus:border-secondary transition-all placeholder:text-outline-variant/40 font-body text-base md:text-lg" placeholder="your@email.com" type="email" name="email" autocomplete="email" required/>
-              </div>
-              <div class="space-y-4">
-                <label class="font-label text-[10px] uppercase tracking-[0.4em] font-black text-on-surface-variant">Message</label>
-                <textarea class="w-full bg-transparent border-0 border-b-2 border-outline-variant/20 py-4 focus:ring-0 focus:border-secondary transition-all placeholder:text-outline-variant/40 font-body resize-none text-base md:text-lg" placeholder="Tell me about your vision or project goals..." rows="4" name="message" required></textarea>
-              </div>
-              <button type="submit" id="contact-submit" class="w-full py-5 md:py-6 bg-button text-white rounded-2xl md:rounded-3xl font-label text-xs md:text-sm font-black uppercase tracking-[0.2em] hover:bg-secondary transition-all shadow-xl shadow-on-surface/10 hover:shadow-secondary/30 active:scale-95 flex items-center justify-center gap-3">
-                Send Message
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
-              </button>
-              <p id="contact-status" class="text-sm font-body text-center min-h-[1.25rem]" role="status" aria-live="polite"></p>
-            </form>
-          </div>
-        </div>
-        <div class="absolute -bottom-64 left-1/2 -translate-x-1/2 w-[1000px] md:w-[1400px] h-[600px] md:h-[800px] bg-secondary/5 blur-[180px] rounded-full pointer-events-none"></div>
-      </section>
+          <div class="absolute -bottom-64 left-1/2 -translate-x-1/2 w-[1000px] md:w-[1400px] h-[600px] md:h-[800px] bg-secondary/5 blur-[180px] rounded-full pointer-events-none" aria-hidden="true"></div>
+        </section>
 
       <!-- Playground Section -->
       <section id="playground" class="section-3d py-16 md:py-24 bg-surface relative overflow-hidden">

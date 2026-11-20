@@ -64,7 +64,7 @@ function renderSkills() {
   const grid = document.getElementById('skills-grid');
   if (grid) {
     grid.innerHTML = skillGroups.map((g, i) => `
-      <article class="skill-card group relative flex flex-col bg-surface-container-low border border-outline-variant/30 rounded-[2rem] p-7 md:p-8 hover:border-secondary/50 hover:-translate-y-1 hover:shadow-2xl hover:shadow-secondary/10 transition-all duration-500">
+      <article class="skill-card group relative flex flex-col bg-surface-container-low border border-outline-variant/30 rounded-[2rem] p-7 md:p-8 hover:border-secondary/50 hover:-translate-y-1 hover:shadow-2xl hover:shadow-secondary/10 transition-[border-color,box-shadow,translate] duration-500">
         <div class="flex items-start justify-between gap-4 mb-5">
           <div class="w-12 h-12 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-colors duration-500">
             ${icon(g.icon, 'w-6 h-6')}
