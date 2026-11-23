@@ -1361,7 +1361,7 @@
 .hw-header { margin-bottom: 1.5rem !important; }
 .hw-intro { margin-bottom: 3.5rem; }
 .hw-scroll-hint { display: none; }
-@media (min-width: 1024px) and (min-height: 800px) and (prefers-reduced-motion: no-preference) {
+@media (min-width: 1024px) and (min-height: 640px) {
   .hw-sticky { position: sticky; top: 7rem; }
   .hw-scroll .hw-header { margin-bottom: 0.75rem !important; }
   .hw-scroll .hw-header .section-label { margin-bottom: 0.75rem; }
@@ -1382,6 +1382,16 @@
   }
   .hw-scroll-hint svg { animation: hw-bob 1.6s ease-in-out infinite; }
   .hw-scroll-hint.is-done { opacity: 0; }
+}
+/* Short laptop screens (e.g. Windows at 125-150% display scaling): tighten the
+   sticky block so the whole card still fits under the navbar. */
+@media (min-width: 1024px) and (min-height: 640px) and (max-height: 879px) {
+  .hw-scroll .hw-intro { display: none; }
+  .hw-scroll .hw-panel { min-height: 0; padding: 1.5rem 2rem; }
+  .hw-scroll .hw-scroll-hint { margin-top: 0.5rem; }
+}
+@media (min-width: 1024px) and (min-height: 640px) and (prefers-reduced-motion: reduce) {
+  .hw-scroll-hint svg { animation: none; }
 }
 @keyframes hw-bob { 50% { transform: translateY(3px); } }
 

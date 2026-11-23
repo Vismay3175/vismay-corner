@@ -1,5 +1,5 @@
 // "How I work" section: five stages of a feature, each with proof from real projects.
-// Desktop: page scroll inside a tall sticky wrapper picks the stage. Smaller screens: auto-advances until the visitor taps a stage.
+// Desktop (>=1024px wide, >=640px tall): page scroll inside a tall sticky wrapper picks the stage. Smaller screens: auto-advances until the visitor taps a stage.
 const STAGES = [
   {
     label: 'Schema & data',
@@ -45,7 +45,7 @@ const STAGES = [
 
 const AUTO_MS = 6000;
 // Must match the media query in index.css that turns on the sticky layout.
-const SCROLL_MODE_QUERY = '(min-width: 1024px) and (min-height: 800px) and (prefers-reduced-motion: no-preference)';
+const SCROLL_MODE_QUERY = '(min-width: 1024px) and (min-height: 640px)';
 
 export function initHowIWork() {
   const root = document.getElementById('hw');
